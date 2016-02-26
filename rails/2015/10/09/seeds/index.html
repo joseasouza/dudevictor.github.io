@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behold the Mighty Seed!</title>
+<meta name="description" content="Yury Voloshin's Personal Site">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Yury Voloshin</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="http://www.twitter.com/YuryVoloshin" target="_new"><i class="fa fa-twitter"></i></a>
+  <a href="http://www.linkedin.com/in/yvoloshin" target="_new"><i class="fa fa-linkedin"></i></a>
+  
+  <a href="https://github.com/yvoloshin" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+
+      <h1 class="header" itemprop="name">Behold the Mighty Seed!</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Yury Voloshin</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">October 9, 2015</span>
+           under Rails
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          5 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>In this post, I&#39;ll talk about a feature of Rails that sometimes gets passed over in beginner-level Rails courses because it is not at all necessary for building web applications, but nevertheless can be very useful. This feature is the ability to add seed data to the database. The best way to illustrate this is by example. During my web development training at <a href="http://thefirehoseproject.com">theFirehoseProject</a> I built a restaurant review app called <a href="http://nomster-yury-voloshin.herokuapp.com">Nomster</a>. When the features needed to add restaurants were complete, I added several restaurants to the database by typing in their information to make sure the places are correctly styled. A few more places needed to be typed in in order to test the pagination feature. But then, a typo during a database migration led to my database becoming inaccessible. The problem had to be fixed by dropping the database and creating a new one. While I appreciated the learning experience that this incident brought me, I did not appreciate having to type in the information for all the restaurants one more time. At that moment, my life would&#39;ve been easier if I could just load a file where all the restaurant information has been pre-loaded. </p>
+
+<p>It turns out that such a file does exist. It is the db/seeds.rb file that is automatically generated by Rails. This is the place where we can enter test data to be used by our application. The data needs to be typed in only once and can be loaded into the app as many times as necessary. This can be very useful for those times when the database needs to be re-created. When working on a development team, seed data can help to make sure that all team members work with a consistent set of test data.</p>
+
+<p>When we open seeds.rb for the first time, we see that it comes with pre-filled instructions:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># This file should contain all the record creation needed to seed the 
+</span>
+<span class="c1"># database with its default values.
+</span>
+<span class="c1"># The data can then be loaded with the rake db:seed (or created alongside 
+</span>
+<span class="c1"># the db with db:setup).
+</span>
+<span class="c1">#
+</span>
+<span class="c1"># Examples:
+</span>
+<span class="c1">#
+</span>
+<span class="c1">#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+</span>
+<span class="c1">#   Mayor.create(name: 'Emanuel', city: cities.first)</span></code></pre></figure>
+
+<p>These instructions are pretty easy to follow. We use the <code>create</code> method to create instances of our model objects as collections of hashes, where the key is the name of our model attribute and the value is the attribute&#39;s value. Another example comes from <a href="https://github.com/yvoloshin/MyRecipeBox">My Recipe Box</a>, a recipe-sharing app I put together recently. In this app, a recipe has a :name, :ingredients, :instructions, and belongs to :user. I used the code below to create two seed recipes in seeds.rb:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">puts</span> <span class="s2">"Creating recipes..."</span>
+
+<span class="n">recipes</span> <span class="o">=</span> <span class="no">Recipe</span><span class="p">.</span><span class="nf">create</span><span class="p">([</span>
+    <span class="p">{</span>
+    <span class="ss">name: 
+        </span><span class="s2">"Oatmeal Banana Pancakes"</span><span class="p">,</span> 
+    <span class="ss">description: 
+        </span><span class="s2">"Easy and delicious!"</span><span class="p">,</span> 
+    <span class="ss">ingredients:
+        </span><span class="s2">"Old fashioned oatmeal (1 cup) 
+        3 eggs 
+        1 banana 
+        Vanilla extract (2 teaspoons) 
+        Vegetable oil for frying"</span><span class="p">,</span> 
+    <span class="ss">instructions: 
+        </span><span class="s2">"1. Combine all ingredients in a blender. 
+        2. Process until the mixture is smooth. 
+        3. Place a thin coat of vegetable oil on the frying pan. 
+        4. Pour 1/2 cup of the mixture onto a frying pan and fry 2-3 
+        minutes per side, until the pancakes are golden brown.
+        (Recipe courtesy of http://brokeandbougie.blogspot.com)"</span><span class="p">,</span> 
+    <span class="ss">user_id: </span><span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+    <span class="ss">name: 
+        </span><span class="s2">"Fish in Tomato Sauce"</span><span class="p">,</span> 
+    <span class="ss">description: 
+        </span><span class="s2">"This is a version of my grandmother's Fish in Tomato Sauce"</span><span class="p">,</span> 
+    <span class="ss">ingredients:
+        </span><span class="s2">"1 lb fish filets (Any fish with firm white flesh will do, 
+        such as tilapia or cod. Here, I used tilapia.) 
+        1/4 cup all-purpose flour 
+        1 large carrot 
+        1 onion 
+        1 red bell pepper 
+        1 14 oz can of tomato sauce 
+        1/2 teaspoon sugar 
+        1/4 teaspoon each of salt and pepper"</span><span class="p">,</span> 
+    <span class="ss">instructions: 
+        </span><span class="s2">"1. Sprinkle fish with salt and pepper 
+        2. Pour the flour on a plate and dredge the fish through flour. Set aside. 
+        3. Coarsely grate the carrot using either a manual grater or a food processor. 
+        4. Finely chop the onion and bell pepper. 
+        5. Fry the fish in a skillet until slightly golden-brown, about 3 
+        minutes per side. Remove from skillet. 
+        6. Saute the onion in the same skillet until it becomes translucent and starts to brown, about 10 minutes. 
+        7. Add carrot, bell pepper, tomato sauce, salt, pepper, and sugar. Saute uncovered until carrots and pepper are tender, about 10 minutes. 
+        8. Add fish to skillet and mix well with the sauce. 
+        9. Cover and cook on low heat for 10 more minutes."</span><span class="p">,</span> 
+    <span class="ss">user_id: </span><span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">])</span>
+
+<span class="no">Puts</span> <span class="s2">"All done!"</span></code></pre></figure>
+
+<p>Once the seed.rb is set up, all we need to do is run <code>rake db:seed</code> and the seed data will be added to the database. </p>
+
+<p>An important gotcha is that, when specifying the user (<code>user_id: 1</code>), a user with this id must in fact exist in the database. If there is no such user, then the app won&#39;t know what to do with this information and the data will be rendered incorrectly. Another useful point to know is, what would happen if we run <code>rake db:seed</code> more than once? It turns out that the seed data is appended to the database every time we run the seed command. Seeding does not affect any database contents that were there previously. But, if we do want to erase the database and replace it with seed data, the command to run is <code>rake db:reset</code>.</p>
+</span>
+
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            database seeding
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/YuryVoloshin">@YuryVoloshin</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      <div class="content-panel related clearfix">
+        
+        <div class="related-header">
+          <a href="/ruby/2015/10/22/updating-ruby/">Read More</a>
+        </div>
+          <div class="title">
+            <a href="/ruby/2015/10/22/updating-ruby/">My Adventure with a Ruby Update</a>
+          </div>
+          <div class="excerpt">
+             
+              What I learned on a long and winding road to a Ruby version update
+             
+            <a href="/ruby/2015/10/22/updating-ruby/">Continue Reading</a>
+          </div>
+        
+        <hr />
+        <div class="previous previous-next">
+          
+          <p>
+            <a href="/rails/2015/09/28/rails-finders/">A Review of Rails Finders</a>
+          </p>
+          <p class="date">Published September 28, 2015</p>
+          
+        </div>
+        <div class="next previous-next">
+          
+          <p>
+            <a href="/ruby/2015/10/22/updating-ruby/">My Adventure with a Ruby Update</a>
+          </p>
+          <p class="date">Published October 22, 2015</p>
+          
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="disqus_thread"></div>
+ 
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "yvoloshin"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */  
+
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})(); 
+</script>
+ 
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    Template made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+  </div>
+  <div class="col-md-6">
+    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-67857103-1']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

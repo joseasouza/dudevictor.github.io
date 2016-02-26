@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Review of Rails Finders</title>
+<meta name="description" content="Yury Voloshin's Personal Site">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Yury Voloshin</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="http://www.twitter.com/YuryVoloshin" target="_new"><i class="fa fa-twitter"></i></a>
+  <a href="http://www.linkedin.com/in/yvoloshin" target="_new"><i class="fa fa-linkedin"></i></a>
+  
+  <a href="https://github.com/yvoloshin" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+
+      <h1 class="header" itemprop="name">A Review of Rails Finders</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Yury Voloshin</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">September 28, 2015</span>
+           under Rails
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          4 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>I will try to make this the blog post I wish I read before I started working on <a href="http://stormy-knights.herokuapp.com">StormyKnights</a>, one of my most recent apps. It is all about how to write a finder statement in Rails. Finder statements are, as the name implies, commands that help us find the desired rows in a database table. As in many other aspects of Rails, there are several different ways of structuring a finder statement that will return the same result. I&#39;ll start with an example. When I was working on the StormyKnights chess game and had only a smattering of knowledge about finder statements, I used the line below to identify a white pawn in the game:</p>
+
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">white_pawn = game.pieces.where(x_coordinates: 1, y_coordinates: 1)</code>
+ </pre>
+</div>
+
+<p>This seemed to work well. Then the pawn made a move and code that updates its position in the database had to be executed: 
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">put :update, id: white_pawn1.id, x_coordinates: 1, y_coordinates: 3</code>
+ </pre>
+</div></p>
+
+<p>This gave me an error:
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">NoMethodError: undefined method `id&#39; for <a href="ActiveRecord::AssociationRelation::ActiveRecord_AssociationRelation_Piece:0xbaa546b8">ActiveRecord::AssociationRelation::ActiveRecord_AssociationRelation_Piece:0xbaa546b8</a></code>
+ </pre>
+</div></p>
+
+<p>Now inevitable questions came up: How can &#39;id&#39; be an undefined method? And what&#39;s an AssociationRelation? A google search showed a quick solution to my problem: just add <code>.first</code> to the end of the statement, like this:</p>
+
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">white_pawn = game.pieces.where(x_coordinates: 1, y_coordinates: 1).first</code>
+ </pre>
+</div>
+ 
+
+<p>This time, it worked like a charm. But why? These questions were my motivation for looking into the details of Rails finders. Here&#39;s a summary of what I found in <a href="http://www.amazon.com/Agile-Development-Rails-Facets-Ruby/dp/1937785564">Agile Web Development with Rails</a> and in <a href="http://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html">Rails documentation</a>.</p>
+
+<p>Finder methods are located in the ActiveRecord module of Rails, which contains methods that make it possible for us to interact with the database without ever having learned a word of SQL. The simplest way of finding a row in a table is to use the <code>find()</code> method. This method takes the id of the object we&#39;re searching for as an argument. For example, game.pieces.find(5) will return a piece with id of 5. However, usually we don&#39;t know the id of our model objects and instead we need to use their attributes as parameters. Passing search parameters to the  <code>find()</code> method can be done by replacing <code>find()</code> with <code>find_by()</code> like this:</p>
+
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">spiderman = <i>Superheroes</i>.find_by(name: “Peter”)</code>
+ </pre>
+</div>
+
+<p>We can also search through more than one database columns at the same time:
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   spiderman = <i>Superheroes</i>.find_by(name: “Peter”, weapon: “spiderweb”)
+  </code>
+ </pre>
+</div></p>
+
+<p>Or, for better readability, we can write it like this:
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   spiderman = <i>Superheroes</i>.find_by_name_and_weapon(“Peter”, “spiderweb”)
+  </code>
+ </pre>
+</div></p>
+
+<p>As often happens in Ruby, the two statements above return exactly the same result and the one you use depends entirely on your personal preference. 
+An alternate search method is <code>where()</code>. As we&#39;ve seen in the example above, it is tempting to write
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.where(x_coordinates: 1, y_coordinates: 1)
+  </code>
+ </pre>
+</div></p>
+
+<p>When we <code>inspect()</code> the result of this statement, we get 
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   ActiveRecord::AssociationRelation [Pawn id: 584, x_coordinates: 1, y_coordinates: 1, game_id: 19, created_at: &quot;2015-09-27 22:59:10&quot;, updated_at: &quot;2015-09-27 22:59:10&quot;, type: &quot;Pawn&quot;, color: &quot;white&quot;, image: &quot;white-pawn.png&quot;, status: &quot;active&quot;]
+  </code>
+ </pre>
+</div></p>
+
+<p>The result is an object belonging to the ActiveRecord::AssociationRelation class, and not an object of our Pieces class, as explained in <a href="http://stackoverflow.com/questions/6004891/undefined-method-for-activerecordrelation">this StackOverflow post</a>. It is also an array. This explains the earlier error. On the other hand,
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.where(x_coordinates: 1, y_coordinates: 1).first
+  </code>
+ </pre>
+</div>
+and
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.find_by(x_coordinates: 1, y_coordinates: 1)
+  </code>
+ </pre>
+</div></p>
+
+<p>both return a single record, as expected:</p>
+
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   Pawn id: 584, x_coordinates: 1, y_coordinates: 1, game_id: 19, created_at: "2015-09-28 05:22:03", updated_at: "2015-09-28 05:22:03", type: "Pawn", color: "white", image: "white-pawn.png", status: "active"
+  </code>
+ </pre>
+</div>
+
+<p>To look into it a bit deeper, we can look up the documentation for <code>where()</code> and <code>find_by()</code> methods:</p>
+
+<p><a href="http://www.rubydoc.info/docs/rails/4.1.7/ActiveRecord/QueryMethods#where-instance_method"><code>where()</code></a>: Returns a new relation, which is the result of filtering the current relation according to the conditions in the arguments.</p>
+
+<p><a href="http://www.rubydoc.info/docs/rails/4.1.7/ActiveRecord/FinderMethods#find_by-instance_method"><code>find_by()</code></a>: Finds the first record matching the specified conditions.</p>
+
+<p>Thus, adding <code>.first()</code> to the end of a <code>where()</code> statement transforms a collection into a single record. </p>
+
+<p>It is also worthwhile to look at what happens when a record is not found. Since we know that the tenth column of a chessboard cannot exist, we can <code>inspect</code> the output of the following find_by statement: 
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.find_by(x_coordinates: 10, y_coordinates: 1)
+  </code>
+ </pre>
+</div></p>
+
+<p>It returns <code>nil</code>. We get the same result for 
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.where(x_coordinates: 10, y_coordinates: 1).first
+  </code>
+ </pre>
+</div></p>
+
+<p>On the other hand, 
+<div class = "highlight">
+ <pre>
+  <code class="language-ruby" data-lang="ruby">
+   white_pawn = game.pieces.where(x_coordinates: 10, y_coordinates: 1)
+  </code>
+ </pre>
+</div></p>
+
+<p>returns an empty array: <code>ActiveRecord::AssociationRelation []</code></p>
+</span>
+
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            finders
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/YuryVoloshin">@YuryVoloshin</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      <div class="content-panel related clearfix">
+        
+        <div class="related-header">
+          <a href="/ruby/2015/10/22/updating-ruby/">Read More</a>
+        </div>
+          <div class="title">
+            <a href="/ruby/2015/10/22/updating-ruby/">My Adventure with a Ruby Update</a>
+          </div>
+          <div class="excerpt">
+             
+              What I learned on a long and winding road to a Ruby version update
+             
+            <a href="/ruby/2015/10/22/updating-ruby/">Continue Reading</a>
+          </div>
+        
+        <hr />
+        <div class="previous previous-next">
+          
+          <p>
+            <a href="/rails/2015/09/21/website-as-process/">How is a Web App like a Chemical Plant?</a>
+          </p>
+          <p class="date">Published September 21, 2015</p>
+          
+        </div>
+        <div class="next previous-next">
+          
+          <p>
+            <a href="/rails/2015/10/09/seeds/">Behold the Mighty Seed!</a>
+          </p>
+          <p class="date">Published October 9, 2015</p>
+          
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="disqus_thread"></div>
+ 
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "yvoloshin"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */  
+
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})(); 
+</script>
+ 
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    Template made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+  </div>
+  <div class="col-md-6">
+    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-67857103-1']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

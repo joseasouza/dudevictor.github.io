@@ -1,0 +1,36 @@
+[
+  
+  {
+    "title"    : "My Adventure with a Ruby Update",
+    "category" : "",
+    "tags"     : "Ruby versioning",
+    "url"      : "/ruby/2015/10/22/updating-ruby/",
+    "date"     : "2015-10-22 16:44:18 -0300"
+    } ,
+    
+  {
+    "title"    : "Behold the Mighty Seed!",
+    "category" : "",
+    "tags"     : "database seeding",
+    "url"      : "/rails/2015/10/09/seeds/",
+    "date"     : "2015-10-09 09:32:18 -0300"
+    } ,
+    
+  {
+    "title"    : "A Review of Rails Finders",
+    "category" : "",
+    "tags"     : "finders",
+    "url"      : "/rails/2015/09/28/rails-finders/",
+    "date"     : "2015-09-28 09:32:18 -0300"
+    } ,
+    
+  {
+    "title"    : "How is a Web App like a Chemical Plant?",
+    "category" : "",
+    "tags"     : "Rails",
+    "url"      : "/rails/2015/09/21/website-as-process/",
+    "date"     : "2015-09-21 11:32:18 -0300"
+    } 
+    
+  ]
+
