@@ -1,12 +1,25 @@
+---
+layout: none
+---
 [
-  
+  {% for post in site.posts %}
   {
-    "title"    : "Processamento Digital de Imagens",
-    "category" : "",
-    "tags"     : "UFRN pdi Processamento Imagens",
-    "url"      : "/projects/pdi.html",
-    "date"     : "2016-02-26 01:08:00 -0300"
-    }
-    
-  ]
+    "title"    : "{{ post.title | escape }}",
+    "category" : "{{ post.category }}",
+    "tags"     : "{{ post.tags | join: ', ' }}",
+    "url"      : "{{ site.baseurl }}{{ post.url }}",
+    "date"     : "{{ post.date }}"
+    } {% unless forloop.last %},{% endunless %}
+    {% endfor %}
 
+    {% for projeto in site.projects %}
+    {
+    "title"    : "{{ projeto.title | escape }}",
+    "category" : "{{ projeto.category }}",
+    "tags"     : "{{ projeto.tags | join: ', ' }}",
+    "url"      : "{{ site.baseurl }}{{ projeto.url }}",
+    "date"     : "{{ projeto.date }}"
+    } {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+        
+  ]

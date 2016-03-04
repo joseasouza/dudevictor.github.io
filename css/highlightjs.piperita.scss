@@ -1,9 +1,33 @@
+---
+---
 /* Piperita - Theme */
 /* by Jacob Tomlinson () */
+
 /* Colours */
+$base-white:      #E6E6E6;
+$base-red:        #FF0028;
+$light-black:     #737373;
+$dark-black:      #4C4C4C;
+$light-red:       #FFA8BA;
+$dark-red:        #FF6685;
+$light-green:     #C5EBC5;
+$dark-green:      #A6EBA6;
+$light-yellow:    #F9F9A5;
+$dark-yellow:     #FFDC72;
+$light-blue:      #8DDBFF;
+$dark-blue:       #5DC6F5;
+$light-purple:    #FFABFF;
+$dark-purple:     #FF8FFF;
+$light-aqua:      #B0F0F0;
+$dark-aqua:       #86D1D7;
+$light-white:     #FFFFFF;
+$dark-white:      #DBDBDB;
+
+
 /* Piperita Dark Title */
 .hljs-title {
-  color: #DBDBDB; }
+  color: $dark-white;
+}
 
 /* Piperita Dark Green */
 .hljs-variable,
@@ -18,7 +42,8 @@
 .css .hljs-id,
 .css .hljs-class,
 .css .hljs-pseudo {
-  color: #A6EBA6; }
+  color: $dark-green;
+}
 
 /* Piperita Dark Orange */
 .hljs-number,
@@ -28,12 +53,14 @@
 .hljs-literal,
 .hljs-params,
 .hljs-constant {
-  color: #df5320; }
+  color: #df5320;
+}
 
 /* Piperita Dark Yellow */
 .hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
-  color: #FFDC72; }
+  color: $dark-yellow;
+}
 
 /* Piperita Dark Red */
 .hljs-string,
@@ -42,11 +69,13 @@
 .hljs-header,
 .ruby .hljs-symbol,
 .xml .hljs-cdata {
-  color: #FF6685; }
+  color: $dark-red;
+}
 
 /* Piperita Dark Aqua */
 .css .hljs-hexcolor {
-  color: #86D1D7; }
+  color: $dark-aqua;
+}
 
 /* Piperita Dark Blue */
 .hljs-function,
@@ -58,18 +87,21 @@
 .perl .hljs-sub,
 .javascript .hljs-title,
 .coffeescript .hljs-title {
-  color: #5DC6F5; }
+  color: $dark-blue;
+}
 
 /* Piperita Dark Purple */
 .hljs-keyword,
 .javascript .hljs-function {
-  color: #FF8FFF; }
+  color: $dark-purple;
+}
 
 .hljs {
   display: block;
   overflow-x: auto;
-  color: #E6E6E6;
-  -webkit-text-size-adjust: none; }
+  color: $base-white;
+  -webkit-text-size-adjust: none;
+}
 
 .coffeescript .javascript,
 .javascript .xml,
@@ -78,4 +110,5 @@
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
-  opacity: 0.5; }
+  opacity: 0.5;
+}
