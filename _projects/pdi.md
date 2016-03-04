@@ -14,7 +14,6 @@ tags:
  - UFRN
  - DCA
 ---
-
 Esta página tem como objetivo apresentar os resultados dos exercícios da disciplina de Processamento Digital de Imagens
 lecionada pelo professor [{{page.teacher}}][1] no semestre {{ page.semester}}.
 
