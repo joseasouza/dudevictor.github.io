@@ -16,7 +16,8 @@ permalink: /404.html
 
       <div class="error-text">
         <a href="{{ site.baseurl }}/">Home</a> |
-        <a href="{{ site.baseurl }}/posts/">Todos os Projetos</a> |
+        <a href="{{ site.baseurl }}/projects/">Todos os Projetos</a> |
+        <a href="{{ site.baseurl }}/posts/">Todos os Artigos</a> |
         <a href="{{ site.baseurl }}/search/">Pesquisar</a>
       </div>
 
@@ -25,8 +26,18 @@ permalink: /404.html
     </div>
 
   </div>
-
-  <div class="content-panel related">
+  <div class="anuncio">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9976909752880073"
+         data-ad-slot="9516328345"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <div class="content-panel">
     {% for post in site.posts limit:1 %}
       <div class="related-header">
         <a href="{{ site.baseurl }}{{ post.url }}">Artigos Sugeridos</a>

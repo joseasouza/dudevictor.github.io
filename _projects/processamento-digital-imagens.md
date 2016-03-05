@@ -17,6 +17,6 @@ tags:
 Esta página tem como objetivo apresentar os resultados dos exercícios da disciplina de Processamento Digital de Imagens
 lecionada pelo professor [{{page.teacher}}][1] no semestre {{ page.semester}}.
 
-Esta pagina estará sendo atualizada conforme a disciplina for sendo encaminhada.
+Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.
 
 [1]: http://agostinhobritojr.github.io/

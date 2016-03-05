@@ -61,17 +61,6 @@ layout: default
       <div class="content-panel content">
         <span itemprop="articleBody">{{ content }}</span>
 
-
-
-        {% if page.tags and page.tags.size > 0 %}
-        <div class="tags">
-          <small>
-          <i class="fa fa-tags"></i>
-            {{ page.tags | join: ', ' }}
-          </small>
-        </div>
-        {% endif %}
-
       </div>
       <div class="anuncio">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -104,6 +93,27 @@ layout: default
       </div>
       {% endif %}
 
+
+      <div class="content-panel related col-md-12">
+        {% for project in site.projects limit:1 %}
+        <div class="related-header">
+          <a href="{{ site.baseurl }}{{ project.url }}">Páginas Sugeridas</a>
+        </div>
+        <div class="title">
+          <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+          <small class="hidden-xs">{{ projeto.teacher }}</small>
+
+        </div>
+        <div class="excerpt">
+          {% if project.summary %}
+          {{ project.summary | strip_html | truncatewords:30 }}
+          {% else %}
+          {{ project.excerpt | strip_html | truncatewords:30 }}
+          {% endif %}
+          <br/><a href="{{ site.baseurl }}{{ post.url }}">Continue Lendo</a>
+        </div>
+        {% endfor %}
+      </div>
 
     </div>
 
