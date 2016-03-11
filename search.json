@@ -1,0 +1,23 @@
+[
+  
+
+    
+    {
+    "title"    : "Processamento Digital de Imagens",
+    "category" : "",
+    "tags"     : "floodfill, processamento digital, opencv, imagens, UFRN, DCA",
+    "url"      : "/projects/processamento-digital-imagens/",
+    "date"     : "2016-03-03 20:45:00 -0300"
+    } ,
+    
+    {
+    "title"    : "Programação Concorrente e Distribuída",
+    "category" : "",
+    "tags"     : "programação paralela, threads, MPI, OpenMP, DCA, UFRN, solucionário, solutions, Parallel Programing, Peter Pacheco",
+    "url"      : "/projects/programacao-concorrente/",
+    "date"     : "2016-03-03 23:23:00 -0300"
+    } 
+    
+        
+  ]
+

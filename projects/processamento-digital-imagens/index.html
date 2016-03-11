@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Processamento Digital de Imagens</title>
+<meta name="description" content="Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na Logique Sistemas.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+<link rel="stylesheet" href="/css/toc.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d8c061351eac81"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>José Victor Alves de Souza</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/projects/"><i class="fa fa-archive"></i> Todos os Projetos</a></li>
+      <li><a href="/posts/"><i class="fa fa-file-text"></i> Todos os Artigos</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Pesquisar</a></li>
+    </ul>
+
+    <p class="links">
+  
+  <a href="https://br.linkedin.com/in/jvictoralves" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/dudevictor" target="_new"><i class="fa fa-github-alt"></i></a>
+  <a href="https://fb.com/dudevictor" target="_new"><i class="fa fa-facebook"></i></a>
+  <a href="https://plus.google.com/103774151163089217676" target="_new"><i class="fa fa-google-plus"></i></a>
+  <a href="http://stackoverflow.com/users/2327056/jose-victor?tab=profile" target="_new"><i class="fa fa-stack-overflow"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 project">
+      
+
+      <h1 class="header" itemprop="name">Processamento Digital de Imagens</h1>
+
+      <div class="author">
+        <small><i>
+          
+          por
+          <span itemprop="author">
+            
+              <a rel="author" href="https://plus.google.com/103774151163089217676">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">José Victor Alves de Souza</span>
+            </span>
+            
+              </a>
+            
+          </span>
+          
+          em <span itemprop="datePublished" content="2014-08-28">3 de Março de 2016</span>
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          Prof. Agostinho Brito Júnior, Departamento de Engenharia de Computação, UFRN 2016.1
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Conteúdo</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#topico-1-1"><span class="tocnumber">1.</span> <span class="toctext">Introdução</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#topico-1-2"><span class="tocnumber">2.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h3 id="topico-1-1">Introdução</h3>
+
+<p>Esta página tem como objetivo apresentar os resultados dos exercícios da disciplina de Processamento Digital de Imagens
+lecionada pelo professor <a href="http://agostinhobritojr.github.io/">Agostinho Brito Júnior</a> no semestre 2016.1. Estes exercícios podem ser encontrados <a href="http://agostinhobritojr.github.io/tutoriais/pdi/">aqui</a>.
+Para compilar os códigos apresentados neste tópico pode-se utilizar <a href="/assets/pdi/Makefile">este arquivo</a>.</p>
+
+<p>Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.</p>
+
+<h3 id="topico-1-2">Preenchendo Regiões com OpenCV</h3>
+
+<p>No programa <a href="/assets/pdi/labeling.cpp">labeling.cpp</a> fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre <code>0</code> e <code>255</code>.
+Portanto, quando há mais do que 255 objetos na cena, a rotulação fica comprometida pois não mais mais tons de cinza
+que possam ser utilizados para rotular o restante dos objetos.</p>
+
+<p>Uma possível solução para este problema seria resetar a contagem da variável <code>nobjects</code>, utilizando a função módulo.
+O código modificado está apresentado a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">/* ... Código antes */
+  nobjects=0;
+  for(int i=0; i&lt;height; i++){
+    for(int j=0; j&lt;width; j++){
+      if(image.at&lt;uchar&gt;(i,j) == 255){
+        // achou um objeto
+        nobjects++;
+        p.x=j;
+        p.y=i;
+        floodFill(image,p,nobjects % 255);
+      }
+    }
+  }
+/* ... Código Depois */
+</code>
+  </pre>
+</div>
+<p>Dessa forma, quando o valor de <code>nobjects</code> passa a ser maior ou igual a 255, a escala de cinza passa a ser "zerada".</p>
+
+<p>O próximo passo é implementar uma solução que realize a contagem de objetos que possuem buracos
+ e de objetos não possuem buracos, desconsiderando aqueles elementos que tocam a borda da imagem.
+ Para isso, foi utilizado a seguinte imagem como teste:
+ <img src="/assets/pdi/bolhas.png" alt="Imagem binária de bolhas" /></p>
+
+<p>O primeiro passo a se fazer é remover todas os elementos que tocam a borda. Para isso, aplica-se o tom de 
+ cinza branco (255) a todos os pixels da borda e então, realiza-se um <em>floodfill</em> para o tom de cinza <code>0</code> igual ao do fundo da imagem.
+ Depois disso, realiza-se uma contagem total de bolhas, rotulando todas elas inicialmente como "SEM BOLHAS".
+ E por fim, realiza-se a rotulagem por aqueles elementos que possuem bolhas. Para fazer isso, percorre-se a matriz da imagem,
+  e sempre que for encontrado um pixel com rótulo SEM BOLHA, armazena-se as coordenadas x e y desse elemento na variável <code>p</code>.
+  O laço é continuado até encontrar um pixel de tom de cinza <code>0</code> (caso em que foi encontrada uma bolha), e nessa situação aplica-se o <em>floodfill</em> 
+  no último elemento <code>p</code> encontrado, rotulando este último agora como "COM BOLHA". </p>
+
+<p>O código completo em <code>C++</code> é apresentado abaixo. O código também pode ser baixado por <a href="/assets/pdi/labeling_contagem.cpp">aqui</a>.</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">#include &lt;iostream&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+
+using namespace cv;
+
+int main(int argc, char** argv){
+  Mat image, mask;
+  int width, height;
+  int nobjects;
+  int BRANCO = 255;
+  int PRETO = 0;
+  int BACKGROUND = 1;
+  int COM_BOLHA = 67;
+  int SEM_BOLHA = 196;
+  CvPoint p;
+  p.x = 0;
+  p.y = 0;
+  image = imread(argv[1],CV_LOAD_IMAGE_GRAYSCALE);
+
+  if(!image.data){
+    std::cout &lt;&lt; "imagem nao carregou corretamente\n";
+    return(-1);
+  }
+  width=image.size().width;
+  height=image.size().height;
+
+  //Rotula como BRANCO todos os pontos na borda da imagem e aplica-se o floodfill para remover os elementos que tocam as bordas
+  for (int i = 0; i &lt; width; i++) {
+    image.at&lt;uchar&gt;(i, height -1) = BRANCO;
+    image.at&lt;uchar&gt;(i, 0) = BRANCO;
+  }
+
+  for (int i = 0; i &lt; height; i++) {
+    image.at&lt;uchar&gt;(0, i) = BRANCO;
+    image.at&lt;uchar&gt;(width -1, i) = BRANCO;
+  }
+  //Aplica-se o floodfill no ponto (0, 0) removendo todos os elementos da borda
+  floodFill(image, p, PRETO);
+  //Aplica-se o floodfill em todo todo o background da imagem
+  floodFill(image, p, BACKGROUND);
+
+  //Procurando por Elementos, julgando inicialmente que nenhum tem bolhas
+  int qtdTotal = 0;
+  for (int i = 0; i &lt; height; i++) {
+    for (int j = 0; j &lt; width; j++) {
+      if (image.at&lt;uchar&gt;(i, j) == BRANCO) {
+        p.x = j;
+        p.y = i;
+        floodFill(image, p, SEM_BOLHA);
+        qtdTotal++;
+      }
+    }
+  }
+
+  //Procurando por Elementos que possuem bolhas
+  int qtdComBolhas = 0;
+  for (int i = 0; i &lt; height; i++) {
+    for (int j = 0; j &lt; width; j++) {
+      if (image.at&lt;uchar&gt;(i,j) == SEM_BOLHA) {
+        p.x = j;
+        p.y = i;
+      } else if (image.at&lt;uchar&gt;(i,j) == PRETO) {
+        floodFill(image, p, COM_BOLHA);
+        p.x = j;
+        p.y = i;
+        floodFill(image, p, COM_BOLHA);
+        qtdComBolhas++;
+      }
+    }
+  }
+
+  imshow("image", image);
+  imwrite("labeling.png", image);
+  printf("Quantidade de sem bolhas: %d, com bolhas: %d\n", qtdTotal - qtdComBolhas, qtdComBolhas);
+  waitKey();
+  return 0;
+}
+</code>
+  </pre>
+</div>
+<p>O resultado está apresentado na imagem abaixo:
+ <img src="/assets/pdi/resultadoBolhas.png" alt="Resultado Contagem por Labeling" /></p>
+
+<div class="tags">
+    <small>
+        <i class="fa fa-tags"></i>
+        floodfill, processamento digital, opencv, imagens, UFRN, DCA
+    </small>
+</div>
+</span>
+
+      </div>
+      <div class="anuncio">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Dudevictor github -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="9516328345"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="content-panel feedback">
+        Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+
+      <div class="content-panel related col-md-12">
+        
+        <div class="related-header">
+          <a href="/projects/processamento-digital-imagens/">Páginas Sugeridas</a>
+        </div>
+        <div class="title">
+          <a href="/projects/processamento-digital-imagens/">Processamento Digital de Imagens</a>
+          <small class="hidden-xs"></small>
+
+        </div>
+        <div class="excerpt">
+          
+          Algoritmos de processamento e tratamento de imagens com OpenCV
+          
+          <br/><a href="">Continue Lendo</a>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    &lt;/&gt; on <a href="https://github.com/dudevictor/dudevictor.github.io">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
