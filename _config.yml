@@ -40,3 +40,8 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "tables"]
 permalink: pretty
 exclude: [vendor]
+
+# Jekyll  TOC Generator Settings
+tocTopTag: h3
+contentsLabel: Conteúdo
+anchorPrefix: topico-

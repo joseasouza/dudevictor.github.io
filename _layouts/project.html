@@ -41,14 +41,14 @@ layout: default
               <a rel="author" href="{{ site.google_plus_link }}">
             {% endif %}
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name">{{ site.short_name }}</span>
+              <span itemprop="name">{{ site.author_name }}</span>
             </span>
             {% if site.google_plus_link %}
               </a>
             {% endif %}
           </span>
           {% endif %}
-          em <span itemprop="datePublished" content="2014-08-28">{{ page.date | date:"%-d"}} de {{m}} de {{page.date | date:" de %Y"}}</span>
+          em <span itemprop="datePublished" content="2014-08-28">{{ page.date | date:"%-d"}} de {{m}} de {{page.date | date:"%Y"}}</span>
         </i></small>
       </div>
 
@@ -59,7 +59,7 @@ layout: default
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody">{{ content }}</span>
+        <span itemprop="articleBody">{{ content | toc_generate }}</span>
 
       </div>
       <div class="anuncio">
