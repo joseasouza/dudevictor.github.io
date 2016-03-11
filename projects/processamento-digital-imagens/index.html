@@ -122,7 +122,10 @@
               <a href="#topico-1-1"><span class="tocnumber">1.</span> <span class="toctext">Introdução</span></a>
             </li>
             <li class="toc_level-1 toc_section-2">
-              <a href="#topico-1-2"><span class="tocnumber">2.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
+              <a href="#topico-1-2"><span class="tocnumber">2.</span> <span class="toctext">Manipulando pixels em uma imagem</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#topico-1-3"><span class="tocnumber">3.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
             </li>
           </ul>
         </td>
@@ -137,7 +140,143 @@ Para compilar os códigos apresentados neste tópico pode-se utilizar <a href="/
 
 <p>Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.</p>
 
-<h3 id="topico-1-2">Preenchendo Regiões com OpenCV</h3>
+<h3 id="topico-1-2">Manipulando pixels em uma imagem</h3>
+
+<p>Inicialmente é solicitado a implementação de um programa que exiba o negativo de uma imagem a partir de dois pontos
+lidos <code>P1</code>e <code>P2</code>. Os pontos são lidos via terminal na ordem <code>P1.x</code>, <code>P1.y</code>, <code>P2.x</code> e <code>P2.y</code>. Para aplicar o efeito
+ de negativo, basta inverter cada uma das escalas das componentes RGB em cada um dos pixels
+ da região especificada. Para inverter é só cálcular: <code>255 - VALOR_ESCALA</code>.</p>
+
+<p>O código do <a href="/assets/pdi/regions.cpp">regions.cpp</a> pode ser visto a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">#include &lt;iostream&gt;
+#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+
+using namespace cv;
+using namespace std;
+
+void usage(int qtdArgs, char** args);
+
+int main(int qtdArg, char** args){
+    usage(qtdArg, args);
+    Mat image;
+
+    image= imread(args[1], CV_LOAD_IMAGE_COLOR);
+
+    int p1x = atoi(args[2]);
+    int p1y = atoi(args[3]);
+    int p2x = atoi(args[4]);
+    int p2y = atoi(args[5]);
+
+    if(!image.data)
+        cout &lt;&lt; "nao abriu a imagem" &lt;&lt; endl;
+
+    namedWindow("janela", WINDOW_AUTOSIZE);
+
+    for(int i=p1x;i&lt; p2x;i++) {
+        for(int j=p1y; j&lt; p2y;j++){
+            Vec3b valor = image.at&lt;Vec3b&gt;(i,j);
+            valor[0] = 255 - valor[0];
+            valor[1] = 255 - valor[1];
+            valor[2] = 255 - valor[2];
+            image.at&lt;Vec3b&gt;(i,j) = valor;
+        }
+    }
+    imshow("janela", image);
+    waitKey();
+    return 0;
+}
+void usage(int qtdArgs, char** args) {
+    if (qtdArgs &lt; 6) {
+        printf("Uso: ./regions &lt;nome_arquivo&gt; X1 Y1 X2 Y2\n");
+        exit(0);
+    }
+}
+</code>
+  </pre>
+</div>
+<p>Para executar o programa baixa realizar os seguintes comandos no terminal:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">    make regions
+    ./regions wallpaper.jpg 100 100 350 650
+</code>
+  </pre>
+</div>
+<p>O resultado está apresentado a seguir:</p>
+
+<p>
+  <img src="/assets/pdi/resultadoRegions.png" alt="ResultadoRegions.cpp" />
+</p>
+
+<p>Em seguida, é solicitado que implemente-se um algoritmo em OpenCV que troque regiões de uma imagem como
+um quebra-cabeça, utilizando alguns construtores da classe <code>Mat</code>.</p>
+
+<p>O <a href="/assets/pdi/trocaRegioes.cpp">código</a> implementado está apresentado a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">#include &lt;iostream&gt;
+#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+
+using namespace cv;
+using namespace std;
+
+void usage(int qtdArgs, char** args);
+int main(int qtdArg, char** args) {
+    usage(qtdArg, args);
+    Mat image;
+
+    image= imread(args[1], CV_LOAD_IMAGE_COLOR);
+    int width = image.size().width;
+    int height = image.size().height;
+
+    //Este construtor mapeia uma região retangular definido pelo Rect(...) de uma imagem em uma nova instância de Mat
+    Mat A(image, Rect(0, 0, width/2, height/2));
+    Mat B(image, Rect(width/2, 0, width/2, height/2));
+    Mat C(image, Rect(0, height/2, width/2, height/2));
+    Mat D(image, Rect(width/2, height/2, width/2, height/2));
+
+    //Cria uma matrix de zeros de mesmo tamanho da original
+    Mat saida = Mat::zeros(image.size(), image.type());
+    Mat aux;
+
+    //Utiliza uma variavel auxiliar para mapear a nova região da matriz de saída 
+    aux = saida.colRange(0, width/2).rowRange(0, height/2);
+    //Copia o conteúdo em D na região mapeada pela variável auxiliar
+    D.clone().copyTo(aux);
+
+    aux = saida.colRange(width/2, width).rowRange(0, height/2);
+    C.copyTo(aux);
+
+    aux = saida.colRange(0, width/2).rowRange(height/2, height);
+    B.copyTo(aux);
+
+    aux = saida.colRange(width/2, width).rowRange(height/2, height);
+    A.copyTo(aux);
+
+    if(!image.data)
+        cout &lt;&lt; "nao abriu a imagem" &lt;&lt; endl;
+
+    namedWindow("janela", WINDOW_AUTOSIZE);
+    imshow("janela", saida);
+    waitKey();
+    return 0;
+
+}
+</code>
+  </pre>
+</div>
+<p>O programa pou ser executado da seguinte forma: <code>./trocaregioes &lt;nome_arquivo&gt;</code>. O resultado 
+pode ser visto a seguir:</p>
+
+<p>
+  <img src="/assets/pdi/resultadoTrocaRegioes.png" alt="Resultado Troca Regiões" />
+</p>
+
+<h3 id="topico-1-3">Preenchendo Regiões com OpenCV</h3>
 
 <p>No programa <a href="/assets/pdi/labeling.cpp">labeling.cpp</a> fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre <code>0</code> e <code>255</code>.
 Portanto, quando há mais do que 255 objetos na cena, a rotulação fica comprometida pois não mais mais tons de cinza
