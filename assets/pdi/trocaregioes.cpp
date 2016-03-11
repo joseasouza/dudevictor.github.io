@@ -1,3 +1,6 @@
+/*
+  ~ Copyright (c) 2016 - José Victor Alves de Souza - https://github.com/dudevictor/
+  */
 #include <iostream>
 #include <cv.h>
 #include <highgui.h>

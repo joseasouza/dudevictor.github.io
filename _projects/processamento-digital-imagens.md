@@ -22,6 +22,135 @@ Para compilar os códigos apresentados neste tópico pode-se utilizar [este arqu
 
 Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.
 
+### Manipulando pixels em uma imagem
+
+Inicialmente é solicitado a implementação de um programa que exiba o negativo de uma imagem a partir de dois pontos
+lidos `P1`e `P2`. Os pontos são lidos via terminal na ordem `P1.x`, `P1.y`, `P2.x` e `P2.y`. Para aplicar o efeito
+ de negativo, basta inverter cada uma das escalas das componentes RGB em cada um dos pixels
+ da região especificada. Para inverter é só cálcular: `255 - VALOR_ESCALA`.
+ 
+ O código do [regions.cpp][8] pode ser visto a seguir:
+
+```
+#include <iostream>
+#include <cv.h>
+#include <highgui.h>
+
+using namespace cv;
+using namespace std;
+
+void usage(int qtdArgs, char** args);
+
+int main(int qtdArg, char** args){
+    usage(qtdArg, args);
+    Mat image;
+
+    image= imread(args[1], CV_LOAD_IMAGE_COLOR);
+
+    int p1x = atoi(args[2]);
+    int p1y = atoi(args[3]);
+    int p2x = atoi(args[4]);
+    int p2y = atoi(args[5]);
+
+    if(!image.data)
+        cout << "nao abriu a imagem" << endl;
+
+    namedWindow("janela", WINDOW_AUTOSIZE);
+
+    for(int i=p1x;i< p2x;i++) {
+        for(int j=p1y; j< p2y;j++){
+            Vec3b valor = image.at<Vec3b>(i,j);
+            valor[0] = 255 - valor[0];
+            valor[1] = 255 - valor[1];
+            valor[2] = 255 - valor[2];
+            image.at<Vec3b>(i,j) = valor;
+        }
+    }
+    imshow("janela", image);
+    waitKey();
+    return 0;
+}
+void usage(int qtdArgs, char** args) {
+    if (qtdArgs < 6) {
+        printf("Uso: ./regions <nome_arquivo> X1 Y1 X2 Y2\n");
+        exit(0);
+    }
+}
+``` 
+
+Para executar o programa baixa realizar os seguintes comandos no terminal:
+
+ ```
+    make regions
+    ./regions wallpaper.jpg 100 100 350 650
+```
+O resultado está apresentado a seguir:
+
+![ResultadoRegions.cpp][9]
+
+Em seguida, é solicitado que implemente-se um algoritmo em OpenCV que troque regiões de uma imagem como
+um quebra-cabeça, utilizando alguns construtores da classe `Mat`.
+
+O [código][10] implementado está apresentado a seguir:
+
+```
+#include <iostream>
+#include <cv.h>
+#include <highgui.h>
+
+using namespace cv;
+using namespace std;
+
+void usage(int qtdArgs, char** args);
+int main(int qtdArg, char** args) {
+    usage(qtdArg, args);
+    Mat image;
+
+    image= imread(args[1], CV_LOAD_IMAGE_COLOR);
+    int width = image.size().width;
+    int height = image.size().height;
+    
+    //Este construtor mapeia uma região retangular definido pelo Rect(...) de uma imagem em uma nova instância de Mat
+    Mat A(image, Rect(0, 0, width/2, height/2));
+    Mat B(image, Rect(width/2, 0, width/2, height/2));
+    Mat C(image, Rect(0, height/2, width/2, height/2));
+    Mat D(image, Rect(width/2, height/2, width/2, height/2));
+
+    //Cria uma matrix de zeros de mesmo tamanho da original
+    Mat saida = Mat::zeros(image.size(), image.type());
+    Mat aux;
+
+    //Utiliza uma variavel auxiliar para mapear a nova região da matriz de saída 
+    aux = saida.colRange(0, width/2).rowRange(0, height/2);
+    //Copia o conteúdo em D na região mapeada pela variável auxiliar
+    D.clone().copyTo(aux);
+
+    aux = saida.colRange(width/2, width).rowRange(0, height/2);
+    C.copyTo(aux);
+
+    aux = saida.colRange(0, width/2).rowRange(height/2, height);
+    B.copyTo(aux);
+
+    aux = saida.colRange(width/2, width).rowRange(height/2, height);
+    A.copyTo(aux);
+
+    if(!image.data)
+        cout << "nao abriu a imagem" << endl;
+
+    namedWindow("janela", WINDOW_AUTOSIZE);
+    imshow("janela", saida);
+    waitKey();
+    return 0;
+
+}
+```
+
+O programa pou ser executado da seguinte forma: `./trocaregioes <nome_arquivo>`. O resultado 
+pode ser visto a seguir:
+
+ ![Resultado Troca Regiões][11]
+
+
 ### Preenchendo Regiões com OpenCV
 
 No programa [labeling.cpp][3] fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre `0` e `255`.
@@ -157,5 +286,8 @@ O resultado está apresentado na imagem abaixo:
 [5]: {{site.baseurl}}/assets/pdi/labeling_contagem.cpp
 [6]: {{site.baseurl}}/assets/pdi/resultadoBolhas.png
 [7]: {{site.baseurl}}/assets/pdi/Makefile
-
+[8]: {{site.baseurl}}/assets/pdi/regions.cpp
+[9]: {{site.baseurl}}/assets/pdi/resultadoRegions.png
+[10]: {{site.baseurl}}/assets/pdi/trocaRegioes.cpp
+[11]: {{site.baseurl}}/assets/pdi/resultadoTrocaRegioes.png
 
