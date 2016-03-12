@@ -9,6 +9,7 @@ teacher:    Agostinho Brito Júnior
 semester: 2016.1
 tags:
  - floodfill
+ - seedfill
  - processamento digital
  - opencv
  - imagens
@@ -186,11 +187,17 @@ Dessa forma, quando o valor de `nobjects` passa a ser maior ou igual a 255, a es
  
  O primeiro passo a se fazer é remover todas os elementos que tocam a borda. Para isso, aplica-se o tom de 
  cinza branco (255) a todos os pixels da borda e então, realiza-se um _floodfill_ para o tom de cinza `0` igual ao do fundo da imagem.
- Depois disso, realiza-se uma contagem total de bolhas, rotulando todas elas inicialmente como "SEM BOLHAS".
- E por fim, realiza-se a rotulagem por aqueles elementos que possuem bolhas. Para fazer isso, percorre-se a matriz da imagem,
-  e sempre que for encontrado um pixel com rótulo SEM BOLHA, armazena-se as coordenadas x e y desse elemento na variável `p`.
+ Para diferenciar o fundo da imagem de um buraco, aplica-se novamente o _floodfill_; dessa vez rotulando com tom de cinza `1`
+ que no código abaixo, foi chamado de "BACKGROUND".
+ Depois disso, realiza-se uma contagem total de bolhas, procurando por um tom de cinza `255` e rotulando todos os elementos encontrados
+ inicialmente como "SEM BOLHAS".
+ 
+ Por fim, realiza-se a rotulagem por aqueles elementos que possuem bolhas. Para fazer isso, percorre-se a matriz da imagem,
+  e sempre que for encontrado um pixel com rótulo SEM BOLHA ou COM BOLHA, armazena-se as coordenadas x e y desse elemento na variável `p`.
   O laço é continuado até encontrar um pixel de tom de cinza `0` (caso em que foi encontrada uma bolha), e nessa situação aplica-se o _floodfill_ 
-  no último elemento `p` encontrado, rotulando este último agora como "COM BOLHA". 
+  no último elemento `p` encontrado, rotulando este último agora como "COM BOLHA", aproveita-se também e rotula-se o buraco
+  encontrado como "COM_BOLHA" (poderia ser outro rótulo) para que esta bolha não seja encontrada novamente. Se o elemento `p` já tiver sido rotulado
+  como "COM_BOLHA" não é necessário refazer o _floodfill_.
   
 O código completo em `C++` é apresentado abaixo. O código também pode ser baixado por [aqui][5].
  
@@ -213,15 +220,17 @@ int main(int argc, char** argv){
   p.x = 0;
   p.y = 0;
   image = imread(argv[1],CV_LOAD_IMAGE_GRAYSCALE);
-  
+
   if(!image.data){
     std::cout << "imagem nao carregou corretamente\n";
     return(-1);
   }
+  imshow("imageOriginal", image);
   width=image.size().width;
   height=image.size().height;
 
-  //Rotula como BRANCO todos os pontos na borda da imagem e aplica-se o floodfill para remover os elementos que tocam as bordas
+  //Aplica 255 em todos os pontos na borda da
+  // imagem e aplica-se o floodfill para remover os elementos que tocam as bordas
   for (int i = 0; i < width; i++) {
     image.at<uchar>(i, height -1) = BRANCO;
     image.at<uchar>(i, 0) = BRANCO;
@@ -233,8 +242,10 @@ int main(int argc, char** argv){
   }
   //Aplica-se o floodfill no ponto (0, 0) removendo todos os elementos da borda
   floodFill(image, p, PRETO);
-  //Aplica-se o floodfill em todo todo o background da imagem
+
+  //Aplica-se o floodfill em todo o background da imagem
   floodFill(image, p, BACKGROUND);
+
 
   //Procurando por Elementos, julgando inicialmente que nenhum tem bolhas
   int qtdTotal = 0;
@@ -253,28 +264,35 @@ int main(int argc, char** argv){
   int qtdComBolhas = 0;
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      if (image.at<uchar>(i,j) == SEM_BOLHA) {
+      //Armazene a posição do elemento encontrado, independente se for rotulado com bolha ou sem bolha
+      if (image.at<uchar>(i,j) == SEM_BOLHA || image.at<uchar>(i,j) == COM_BOLHA) {
         p.x = j;
         p.y = i;
       } else if (image.at<uchar>(i,j) == PRETO) {
-        floodFill(image, p, COM_BOLHA);
+        //Caso for encontrado um buraco (rotulo PRETO), rotule o ultimo elemento encontrado como "COM_BOLHA",
+         //se ele não já tiver sido rotulado como um
+        if (image.at<uchar>(p.y, p.x) == SEM_BOLHA) {
+          floodFill(image, p, COM_BOLHA);
+          qtdComBolhas++;
+        }
+        //Rotule o buraco encontrado como COM_BOLHA (poderia ser um rótulo diferente também)
         p.x = j;
         p.y = i;
         floodFill(image, p, COM_BOLHA);
-        qtdComBolhas++;
       }
     }
   }
 
   imshow("image", image);
   imwrite("labeling.png", image);
-  printf("Quantidade de sem bolhas: %d, com bolhas: %d\n", qtdTotal - qtdComBolhas, qtdComBolhas);
+  printf("Quantidade de elementos sem bolhas: %d, com bolhas: %d\n", qtdTotal - qtdComBolhas, qtdComBolhas);
   waitKey();
   return 0;
 }
 ```
 O resultado está apresentado na imagem abaixo:
  ![Resultado Contagem por Labeling][6]
+ ![Resultado Contagem por Labeling no Terminal][12]
 
 
 {%include tags.html%}
@@ -282,7 +300,7 @@ O resultado está apresentado na imagem abaixo:
 [1]: http://agostinhobritojr.github.io/
 [2]: http://agostinhobritojr.github.io/tutoriais/pdi/
 [3]: {{ site.baseurl }}/assets/pdi/labeling.cpp
-[4]: {{site.baseurl}}/assets/pdi/bolhas.png
+[4]: {{site.baseurl}}/assets/pdi/bolhas2.png
 [5]: {{site.baseurl}}/assets/pdi/labeling_contagem.cpp
 [6]: {{site.baseurl}}/assets/pdi/resultadoBolhas.png
 [7]: {{site.baseurl}}/assets/pdi/Makefile
@@ -290,4 +308,5 @@ O resultado está apresentado na imagem abaixo:
 [9]: {{site.baseurl}}/assets/pdi/resultadoRegions.png
 [10]: {{site.baseurl}}/assets/pdi/trocaRegioes.cpp
 [11]: {{site.baseurl}}/assets/pdi/resultadoTrocaRegioes.png
+[12]: {{site.baseurl}}/assets/pdi/resultadoLabelingTerminal.png
 
