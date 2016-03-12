@@ -19,11 +19,12 @@ int main(int argc, char** argv){
   p.x = 0;
   p.y = 0;
   image = imread(argv[1],CV_LOAD_IMAGE_GRAYSCALE);
-  
+
   if(!image.data){
     std::cout << "imagem nao carregou corretamente\n";
     return(-1);
   }
+  imshow("imageOriginal", image);
   width=image.size().width;
   height=image.size().height;
 
@@ -40,8 +41,10 @@ int main(int argc, char** argv){
   }
   //Aplica-se o floodfill no ponto (0, 0) removendo todos os elementos da borda
   floodFill(image, p, PRETO);
-  //Aplica-se o floodfill em todo todo o background da imagem
+
+  //Aplica-se o floodfill em todo o background da imagem
   floodFill(image, p, BACKGROUND);
+
 
   //Procurando por Elementos, julgando inicialmente que nenhum tem bolhas
   int qtdTotal = 0;
@@ -60,22 +63,28 @@ int main(int argc, char** argv){
   int qtdComBolhas = 0;
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      if (image.at<uchar>(i,j) == SEM_BOLHA) {
+      //Armazene a posição do elemento encontrado, independente se for rotulado com bolha ou sem bolha
+      if (image.at<uchar>(i,j) == SEM_BOLHA || image.at<uchar>(i,j) == COM_BOLHA) {
         p.x = j;
         p.y = i;
       } else if (image.at<uchar>(i,j) == PRETO) {
-        floodFill(image, p, COM_BOLHA);
+        //Caso for encontrado um buraco (rotulo PRETO), rotule o ultimo elemento encontrado como "COM_BOLHA",
+         //se ele não já tiver sido rotulado como um
+        if (image.at<uchar>(p.y, p.x) == SEM_BOLHA) {
+          floodFill(image, p, COM_BOLHA);
+          qtdComBolhas++;
+        }
+        //Rotule o buraco encontrado como COM_BOLHA (poderia ser um rótulo diferente também)
         p.x = j;
         p.y = i;
         floodFill(image, p, COM_BOLHA);
-        qtdComBolhas++;
       }
     }
   }
 
   imshow("image", image);
   imwrite("labeling.png", image);
-  printf("Quantidade de sem bolhas: %d, com bolhas: %d\n", qtdTotal - qtdComBolhas, qtdComBolhas);
+  printf("Quantidade de elementos sem bolhas: %d, com bolhas: %d\n", qtdTotal - qtdComBolhas, qtdComBolhas);
   waitKey();
   return 0;
 }
