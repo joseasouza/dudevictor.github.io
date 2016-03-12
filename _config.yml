@@ -7,14 +7,11 @@ baseurl: ""
 url: "https://dudevictor.github.io"
 google_analytics: "UA-74364829-1"
 title_image: "https://avatars2.githubusercontent.com/u/13340644?v=3&s=460"
-google_analytics: "UA-20365477-4"
 disqus_account: dudevictorgithub
 github_repository: https://github.com/dudevictor/dudevictor.github.io
 addthis_id: ra-56d8c061351eac81
 post_limit: 5
 project_limit: 3
-
-
 author_name: José Victor Alves de Souza
 short_name: José Victor
 profissao: Web Developer
