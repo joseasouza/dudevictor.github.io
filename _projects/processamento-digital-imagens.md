@@ -10,6 +10,8 @@ semester: 2016.1
 tags:
  - floodfill
  - seedfill
+ - histograma
+ - equalização
  - processamento digital
  - opencv
  - imagens
@@ -294,6 +296,66 @@ O resultado está apresentado na imagem abaixo:
  ![Resultado Contagem por Labeling][6]
  ![Resultado Contagem por Labeling no Terminal][12]
 
+### Manipulação de Histogramas
+
+O primeiro exercício deste tópico solicita que se implemente um programa chamado `equalize.cpp` que realize
+a equalização de histograma utilizando as funções do OpenCV.
+
+O processo de equalização de imagens consiste em mapear uma determinada distribuição de um histograma em um outro, sendo
+que neste útlimo, a distribuição ficará mais uniformente distribuída. Como resultado, nota-se uma melhor distribuição 
+ do nível de intensidade (brilho) das cores do que na imagem original.
+ 
+Um histograma de uma imagem nada mais é do que um gráfico que diz a quantidade de pixels que pertencem ao mesmo nível de brilho
+ numa faixa de 0 (mais escuro) a 255 (mais claro). A seguir tem-se um exemplo de uma imagem e seu histograma:
+ ![Rio GrayScale][13]
+ ![Histograma][14]
+ 
+É fácil perceber que para fazer a equalização da imagem acima é fácil pois ela possui somente um canal de cor
+por ser em _Grayscale_. No entanto, quando se trata de uma imagem colorida esse procedimento não é tão trivial, pois
+não faz sentido aplicar o processo de equalização diretamente no histograma de uma imagem RGB. A forma encontrada de aplicar
+ a equalização neste caso foi converter a imagem em RGB para o formato [YCrCb][15], já que esse padrão separa a intensidade luminosa
+ dos outros componentes de cor.
+ 
+ O código da solução desse exercício é apresentado abaixo:
+ 
+ ```
+ #include <iostream>
+ #include <opencv2/opencv.hpp>
+ 
+ using namespace cv;
+ using namespace std;
+ 
+ int main(int argc, char** argv){
+     Mat image;
+     VideoCapture cap;
+     vector<Mat> channels;
+ 
+     image= imread(argv[1], CV_LOAD_IMAGE_COLOR);
+     imshow("original", image);
+ 
+     Mat imagemYCrCb;
+     //Converte a imagem RGB para o padrão YCrCb
+     cvtColor(image, imagemYCrCb, CV_BGR2YCrCb);
+ 
+     split(imagemYCrCb, channels);
+     //Aplica-se a equalização no primeiro canal Y (intensidade luminosa)
+     equalizeHist(channels[0], channels[0]);
+     merge(channels, imagemYCrCb);
+     Mat result;
+     cvtColor(imagemYCrCb, result, CV_YCrCb2BGR);
+     namedWindow("image", WINDOW_AUTOSIZE);
+     imshow("image", result);
+     waitKey();
+     return 0;
+ }
+ ```
+O código também pode ser baixado [aqui][16]. Segue o resultado do algoritmo:
+
+Sem Equalização:
+![Rio][17]
+
+Com Equalização:
+![Resultado Equalização][18]
 
 {%include tags.html%}
 
@@ -309,4 +371,10 @@ O resultado está apresentado na imagem abaixo:
 [10]: {{site.baseurl}}/assets/pdi/trocaRegioes.cpp
 [11]: {{site.baseurl}}/assets/pdi/resultadoTrocaRegioes.png
 [12]: {{site.baseurl}}/assets/pdi/resultadoLabelingTerminal.png
+[13]: {{site.baseurl}}/assets/pdi/rio_gray.jpg
+[14]: {{site.baseurl}}/assets/pdi/histograma.png
+[15]: https://en.wikipedia.org/wiki/YCbCr
+[16]: {{site.baseurl}}/assets/pdi/equalize.cpp
+[17]: {{site.baseurl}}/assets/pdi/rio.jpg
+[18]: {{site.baseurl}}/assets/pdi/resultado_histograma.png
 
