@@ -127,6 +127,9 @@
             <li class="toc_level-1 toc_section-3">
               <a href="#topico-1-3"><span class="tocnumber">3.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
             </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#topico-1-4"><span class="tocnumber">4.</span> <span class="toctext">Manipulação de Histogramas</span></a>
+            </li>
           </ul>
         </td>
       </tr>
@@ -421,10 +424,73 @@ int main(int argc, char** argv){
  <img src="/assets/pdi/resultadoBolhas.png" alt="Resultado Contagem por Labeling" />
  <img src="/assets/pdi/resultadoLabelingTerminal.png" alt="Resultado Contagem por Labeling no Terminal" /></p>
 
+<h3 id="topico-1-4">Manipulação de Histogramas</h3>
+
+<p>O primeiro exercício deste tópico solicita que se implemente um programa chamado <code>equalize.cpp</code> que realize
+a equalização de histograma utilizando as funções do OpenCV.</p>
+
+<p>O processo de equalização de imagens consiste em mapear uma determinada distribuição de um histograma em um outro, sendo
+que neste útlimo, a distribuição ficará mais uniformente distribuída. Como resultado, nota-se uma melhor distribuição 
+ do nível de intensidade (brilho) das cores do que na imagem original.</p>
+
+<p>Um histograma de uma imagem nada mais é do que um gráfico que diz a quantidade de pixels que pertencem ao mesmo nível de brilho
+ numa faixa de 0 (mais escuro) a 255 (mais claro). A seguir tem-se um exemplo de uma imagem e seu histograma:
+ <img src="/assets/pdi/rio_gray.jpg" alt="Rio GrayScale" />
+ <img src="/assets/pdi/histograma.png" alt="Histograma" /></p>
+
+<p>É fácil perceber que para fazer a equalização da imagem acima é fácil pois ela possui somente um canal de cor
+por ser em <em>Grayscale</em>. No entanto, quando se trata de uma imagem colorida esse procedimento não é tão trivial, pois
+não faz sentido aplicar o processo de equalização diretamente no histograma de uma imagem RGB. A forma encontrada de aplicar
+ a equalização neste caso foi converter a imagem em RGB para o formato <a href="https://en.wikipedia.org/wiki/YCbCr">YCrCb</a>, já que esse padrão separa a intensidade luminosa
+ dos outros componentes de cor.</p>
+
+<p>O código da solução desse exercício é apresentado abaixo:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang=""> #include &lt;iostream&gt;
+ #include &lt;opencv2/opencv.hpp&gt;
+
+ using namespace cv;
+ using namespace std;
+
+ int main(int argc, char** argv){
+     Mat image;
+     VideoCapture cap;
+     vector&lt;Mat&gt; channels;
+
+     image= imread(argv[1], CV_LOAD_IMAGE_COLOR);
+     imshow("original", image);
+
+     Mat imagemYCrCb;
+     //Converte a imagem RGB para o padrão YCrCb
+     cvtColor(image, imagemYCrCb, CV_BGR2YCrCb);
+
+     split(imagemYCrCb, channels);
+     //Aplica-se a equalização no primeiro canal Y (intensidade luminosa)
+     equalizeHist(channels[0], channels[0]);
+     merge(channels, imagemYCrCb);
+     Mat result;
+     cvtColor(imagemYCrCb, result, CV_YCrCb2BGR);
+     namedWindow("image", WINDOW_AUTOSIZE);
+     imshow("image", result);
+     waitKey();
+     return 0;
+ }
+</code>
+  </pre>
+</div>
+<p>O código também pode ser baixado <a href="/assets/pdi/equalize.cpp">aqui</a>. Segue o resultado do algoritmo:</p>
+
+<p>Sem Equalização:
+<img src="/assets/pdi/rio.jpg" alt="Rio" /></p>
+
+<p>Com Equalização:
+<img src="/assets/pdi/resultado_histograma.png" alt="Resultado Equalização" /></p>
+
 <div class="tags">
     <small>
         <i class="fa fa-tags"></i>
-        floodfill, seedfill, processamento digital, opencv, imagens, UFRN, DCA
+        floodfill, seedfill, histograma, equalização, processamento digital, opencv, imagens, UFRN, DCA
     </small>
 </div>
 </span>
