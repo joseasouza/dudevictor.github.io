@@ -357,6 +357,25 @@ Sem Equalização:
 Com Equalização:
 ![Resultado Equalização][18]
 
+### Filtragem no domínio espacial I
+
+Esse exercício, solicita que modifique o código fornecido [filtroespacial.cpp][19] para que seja adicionado
+uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens capturadas pela webcam.
+
+O filtro gaussiano realiza a suavização das bordas da imagens, tornando a imagem menos nítida. Em contrapartida,
+  esse filtro consegue amenizar o efeito do ruído apresentado na imagem. O código do `filtroespacial.cpp`
+  foi modificado e foi adicionado a funcionaliade na tecla `b`. O código implementado pode ser baixado 
+  [aqui][20] e o resulta da solução é apresentado a seguir:
+
+Filtro do Laplaciano:
+![Resultado da filtragem do Laplaciano][21]
+
+Filtro do Laplaciano do Gaussiano:
+![Resultado da filtragem do Laplaciano do gaussiano][22]
+
+Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
+o filtro laplaciano.
+
 {%include tags.html%}
 
 [1]: http://agostinhobritojr.github.io/
@@ -377,4 +396,8 @@ Com Equalização:
 [16]: {{site.baseurl}}/assets/pdi/equalize.cpp
 [17]: {{site.baseurl}}/assets/pdi/rio.jpg
 [18]: {{site.baseurl}}/assets/pdi/resultado_histograma.png
+[19]: {{site.baseurl}}/assets/pdi/filtroespacial.cpp
+[20]: {{site.baseurl}}/assets/pdi/laplgauss.cpp
+[21]: {{site.baseurl}}/assets/pdi/laplaciano_resultado.png
+[22]: {{site.baseurl}}/assets/pdi/gaussiano_laplaciano_resultado.png
 
