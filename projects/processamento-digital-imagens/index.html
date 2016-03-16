@@ -130,6 +130,9 @@
             <li class="toc_level-1 toc_section-4">
               <a href="#topico-1-4"><span class="tocnumber">4.</span> <span class="toctext">Manipulação de Histogramas</span></a>
             </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#topico-1-5"><span class="tocnumber">5.</span> <span class="toctext">Filtragem no domínio espacial I</span></a>
+            </li>
           </ul>
         </td>
       </tr>
@@ -486,6 +489,25 @@ não faz sentido aplicar o processo de equalização diretamente no histograma d
 
 <p>Com Equalização:
 <img src="/assets/pdi/resultado_histograma.png" alt="Resultado Equalização" /></p>
+
+<h3 id="topico-1-5">Filtragem no domínio espacial I</h3>
+
+<p>Esse exercício, solicita que modifique o código fornecido <a href="/assets/pdi/filtroespacial.cpp">filtroespacial.cpp</a> para que seja adicionado
+uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens capturadas pela webcam.</p>
+
+<p>O filtro gaussiano realiza a suavização das bordas da imagens, tornando a imagem menos nítida. Em contrapartida,
+  esse filtro consegue amenizar o efeito do ruído apresentado na imagem. O código do <code>filtroespacial.cpp</code>
+  foi modificado e foi adicionado a funcionaliade na tecla <code>b</code>. O código implementado pode ser baixado 
+  <a href="/assets/pdi/laplgauss.cpp">aqui</a> e o resulta da solução é apresentado a seguir:</p>
+
+<p>Filtro do Laplaciano:
+<img src="/assets/pdi/laplaciano_resultado.png" alt="Resultado da filtragem do Laplaciano" /></p>
+
+<p>Filtro do Laplaciano do Gaussiano:
+<img src="/assets/pdi/gaussiano_laplaciano_resultado.png" alt="Resultado da filtragem do Laplaciano do gaussiano" /></p>
+
+<p>Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
+o filtro laplaciano.</p>
 
 <div class="tags">
     <small>
