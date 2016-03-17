@@ -5,7 +5,7 @@
     {
     "title"    : "Processamento Digital de Imagens",
     "category" : "",
-    "tags"     : "floodfill, seedfill, histograma, equalização, processamento digital, opencv, imagens, UFRN, DCA",
+    "tags"     : "floodfill, seedfill, histograma, equalização, processamento digital, opencv, imagens, UFRN, Agostinho Brito, DCA",
     "url"      : "/projects/processamento-digital-imagens/",
     "date"     : "2016-03-03 20:45:00 -0300"
     } ,
@@ -13,7 +13,7 @@
     {
     "title"    : "Programação Concorrente e Distribuída",
     "category" : "",
-    "tags"     : "programação paralela, threads, MPI, OpenMP, DCA, UFRN, solucionário, solutions, Parallel Programing, Peter Pacheco",
+    "tags"     : "programação paralela, threads, MPI, OpenMP, DCA, UFRN, solucionário, solutions, Parallel Programing, Peter Pacheco, Samuel Xavier de Souza",
     "url"      : "/projects/programacao-concorrente/",
     "date"     : "2016-03-03 23:23:00 -0300"
     } 
