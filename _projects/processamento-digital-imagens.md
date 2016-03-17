@@ -16,6 +16,7 @@ tags:
  - opencv
  - imagens
  - UFRN
+ - Agostinho Brito
  - DCA
 ---
 ### Introdução
