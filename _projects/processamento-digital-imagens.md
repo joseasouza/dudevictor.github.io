@@ -12,6 +12,7 @@ tags:
  - seedfill
  - histograma
  - equalização
+ - motion detector
  - processamento digital
  - opencv
  - imagens
@@ -358,6 +359,35 @@ Sem Equalização:
 Com Equalização:
 ![Resultado Equalização][18]
 
+A segunda parte desse exercício, solicita que seja implementado o programa `motiondetector.cpp`. 
+Este programa deve calcular o histograma das imagens captadas pela câmera e quando a diferença entre o
+histograma atual e o anterior ultrapassar um determinado limiar, a aplicação deve acionar um aviso.
+
+Nessa implementação, o aviso aparece como um círculo vermelho na parte superior esquerda da tela 
+quando o limiar do histograma é ultrapassado. O limiar é indentificado no código do programa como sendo
+a variável `tolerância`. Também foi adicionado no código a variável `COUNT_MAX` que expressa quantas 
+ vezes consecutivas os histogramas captados devem ultrapassar o limiar para que o alarme efetivamente
+ ocorra.
+ 
+Para auxiliar a comparação entre dois histogramas, fez-se uso do método [compareHist][23] do OpenCV.
+Além das variáveis de histogramas que se deseja comparar, essa função recebe como parâmetro o método
+ de comparação, que no OpenCV são 4:
+ 
+- Correlação
+- Chi-Square
+- Interseção
+- Distância de Bhattacharyya
+
+No código foi adotado o método de correlação que retorna um valor entre 0 e 1 (menos correlacionado para o mais) e
+com um valor de tolerância igual a `0.995`. O código implementado pode ser baixado [aqui][24] e o resultado
+pode ser visto abaixo:
+
+![Detecção de Movimento com Histogramas][25]
+
+Como resultado, nota-se que o programa dispara o alarme toda vez que há uma alteração no histograma da imagem captada.
+Por exemplo, na imagem acima, toda vez que o livro era movido na frente da câmera, o alarme disparava. 
+Para alterar a sensibilidade da detecção basta altera os parâmetros de `tolerância` e `COUNT_MAX` no código.
+
 ### Filtragem no domínio espacial I
 
 Esse exercício, solicita que modifique o código fornecido [filtroespacial.cpp][19] para que seja adicionado
@@ -401,4 +431,7 @@ o filtro laplaciano.
 [20]: {{site.baseurl}}/assets/pdi/laplgauss.cpp
 [21]: {{site.baseurl}}/assets/pdi/laplaciano_resultado.png
 [22]: {{site.baseurl}}/assets/pdi/gaussiano_laplaciano_resultado.png
+[23]: http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_comparison/histogram_comparison.html
+[24]: {{site.baseurl}}/assets/pdi/motiondetector.cpp
+[25]: {{site.baseurl}}/assets/pdi/deteccao_movimento.png
 
