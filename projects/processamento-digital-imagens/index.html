@@ -490,6 +490,39 @@ não faz sentido aplicar o processo de equalização diretamente no histograma d
 <p>Com Equalização:
 <img src="/assets/pdi/resultado_histograma.png" alt="Resultado Equalização" /></p>
 
+<p>A segunda parte desse exercício, solicita que seja implementado o programa <code>motiondetector.cpp</code>. 
+Este programa deve calcular o histograma das imagens captadas pela câmera e quando a diferença entre o
+histograma atual e o anterior ultrapassar um determinado limiar, a aplicação deve acionar um aviso.</p>
+
+<p>Nessa implementação, o aviso aparece como um círculo vermelho na parte superior esquerda da tela 
+quando o limiar do histograma é ultrapassado. O limiar é indentificado no código do programa como sendo
+a variável <code>tolerância</code>. Também foi adicionado no código a variável <code>COUNT_MAX</code> que expressa quantas 
+ vezes consecutivas os histogramas captados devem ultrapassar o limiar para que o alarme efetivamente
+ ocorra.</p>
+
+<p>Para auxiliar a comparação entre dois histogramas, fez-se uso do método <a href="http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_comparison/histogram_comparison.html">compareHist</a> do OpenCV.
+Além das variáveis de histogramas que se deseja comparar, essa função recebe como parâmetro o método
+ de comparação, que no OpenCV são 4:</p>
+
+<ul>
+<li>Correlação</li>
+<li>Chi-Square</li>
+<li>Interseção</li>
+<li>Distância de Bhattacharyya</li>
+</ul>
+
+<p>No código foi adotado o método de correlação que retorna um valor entre 0 e 1 (menos correlacionado para o mais) e
+com um valor de tolerância igual a <code>0.995</code>. O código implementado pode ser baixado <a href="/assets/pdi/motiondetector.cpp">aqui</a> e o resultado
+pode ser visto abaixo:</p>
+
+<p>
+  <img src="/assets/pdi/deteccao_movimento.png" alt="Detecção de Movimento com Histogramas" />
+</p>
+
+<p>Como resultado, nota-se que o programa dispara o alarme toda vez que há uma alteração no histograma da imagem captada.
+Por exemplo, na imagem acima, toda vez que o livro era movido na frente da câmera, o alarme disparava. 
+Para alterar a sensibilidade da detecção basta altera os parâmetros de <code>tolerância</code> e <code>COUNT_MAX</code> no código.</p>
+
 <h3 id="topico-1-5">Filtragem no domínio espacial I</h3>
 
 <p>Esse exercício, solicita que modifique o código fornecido <a href="/assets/pdi/filtroespacial.cpp">filtroespacial.cpp</a> para que seja adicionado
@@ -512,7 +545,7 @@ o filtro laplaciano.</p>
 <div class="tags">
     <small>
         <i class="fa fa-tags"></i>
-        floodfill, seedfill, histograma, equalização, processamento digital, opencv, imagens, UFRN, Agostinho Brito, DCA
+        floodfill, seedfill, histograma, equalização, motion detector, processamento digital, opencv, imagens, UFRN, Agostinho Brito, DCA
     </small>
 </div>
 </span>
