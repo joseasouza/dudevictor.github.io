@@ -108,6 +108,18 @@
         </small>
       </div>
 
+      <div class="anuncio-cabecalho">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Cabecalho -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="4392857547"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
       <div class="content-panel content">
         <span itemprop="articleBody"><div id="toc-container">
   <table class="toc" id="toc">
@@ -133,6 +145,9 @@
             <li class="toc_level-1 toc_section-5">
               <a href="#topico-1-5"><span class="tocnumber">5.</span> <span class="toctext">Filtragem no domínio espacial I</span></a>
             </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#topico-1-6"><span class="tocnumber">6.</span> <span class="toctext">Filtragem no domínio espacial II</span></a>
+            </li>
           </ul>
         </td>
       </tr>
@@ -153,7 +168,7 @@ lidos <code>P1</code>e <code>P2</code>. Os pontos são lidos via terminal na ord
  de negativo, basta inverter cada uma das escalas das componentes RGB em cada um dos pixels
  da região especificada. Para inverter é só cálcular: <code>255 - VALOR_ESCALA</code>.</p>
 
-<p>O código do <a href="/assets/pdi/regions.cpp">regions.cpp</a> pode ser visto a seguir:</p>
+<p>O código do <a href="/assets/codes-copyright/regions.cpp">regions.cpp</a> pode ser visto a seguir:</p>
 <div class="highlight">
   <pre>
     <code class="language-" data-lang="">#include &lt;iostream&gt;
@@ -220,7 +235,7 @@ void usage(int qtdArgs, char** args) {
 <p>Em seguida, é solicitado que implemente-se um algoritmo em OpenCV que troque regiões de uma imagem como
 um quebra-cabeça, utilizando alguns construtores da classe <code>Mat</code>.</p>
 
-<p>O <a href="/assets/pdi/trocaRegioes.cpp">código</a> implementado está apresentado a seguir:</p>
+<p>O <a href="/assets/codes-copyright/trocaRegioes.cpp">código</a> implementado está apresentado a seguir:</p>
 <div class="highlight">
   <pre>
     <code class="language-" data-lang="">#include &lt;iostream&gt;
@@ -284,7 +299,7 @@ pode ser visto a seguir:</p>
 
 <h3 id="topico-1-3">Preenchendo Regiões com OpenCV</h3>
 
-<p>No programa <a href="/assets/pdi/labeling.cpp">labeling.cpp</a> fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre <code>0</code> e <code>255</code>.
+<p>No programa <a href="/assets/codes-copyright/labeling.cpp">labeling.cpp</a> fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre <code>0</code> e <code>255</code>.
 Portanto, quando há mais do que 255 objetos na cena, a rotulação fica comprometida pois não mais mais tons de cinza
 que possam ser utilizados para rotular o restante dos objetos.</p>
 
@@ -330,7 +345,7 @@ O código modificado está apresentado a seguir:</p>
   encontrado como "COM_BOLHA" (poderia ser outro rótulo) para que esta bolha não seja encontrada novamente. Se o elemento <code>p</code> já tiver sido rotulado
   como "COM_BOLHA" não é necessário refazer o <em>floodfill</em>.</p>
 
-<p>O código completo em <code>C++</code> é apresentado abaixo. O código também pode ser baixado por <a href="/assets/pdi/labeling_contagem.cpp">aqui</a>.</p>
+<p>O código completo em <code>C++</code> é apresentado abaixo. O código também pode ser baixado por <a href="/assets/codes-copyright/labeling_contagem.cpp">aqui</a>.</p>
 <div class="highlight">
   <pre>
     <code class="language-" data-lang="">#include &lt;iostream&gt;
@@ -482,7 +497,7 @@ não faz sentido aplicar o processo de equalização diretamente no histograma d
 </code>
   </pre>
 </div>
-<p>O código também pode ser baixado <a href="/assets/pdi/equalize.cpp">aqui</a>. Segue o resultado do algoritmo:</p>
+<p>O código também pode ser baixado <a href="/assets/codes-copyright/equalize.cpp">aqui</a>. Segue o resultado do algoritmo:</p>
 
 <p>Sem Equalização:
 <img src="/assets/pdi/rio.jpg" alt="Rio" /></p>
@@ -512,7 +527,7 @@ Além das variáveis de histogramas que se deseja comparar, essa função recebe
 </ul>
 
 <p>No código foi adotado o método de correlação que retorna um valor entre 0 e 1 (menos correlacionado para o mais) e
-com um valor de tolerância igual a <code>0.995</code>. O código implementado pode ser baixado <a href="/assets/pdi/motiondetector.cpp">aqui</a> e o resultado
+com um valor de tolerância igual a <code>0.995</code>. O código implementado pode ser baixado <a href="/assets/codes-copyright/motiondetector.cpp">aqui</a> e o resultado
 pode ser visto abaixo:</p>
 
 <p>
@@ -531,7 +546,7 @@ uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens captura
 <p>O filtro gaussiano realiza a suavização das bordas da imagens, tornando a imagem menos nítida. Em contrapartida,
   esse filtro consegue amenizar o efeito do ruído apresentado na imagem. O código do <code>filtroespacial.cpp</code>
   foi modificado e foi adicionado a funcionaliade na tecla <code>b</code>. O código implementado pode ser baixado 
-  <a href="/assets/pdi/laplgauss.cpp">aqui</a> e o resulta da solução é apresentado a seguir:</p>
+  <a href="/assets/codes-copyright/laplgauss.cpp">aqui</a> e o resulta da solução é apresentado a seguir:</p>
 
 <p>Filtro do Laplaciano:
 <img src="/assets/pdi/laplaciano_resultado.png" alt="Resultado da filtragem do Laplaciano" /></p>
@@ -542,10 +557,118 @@ uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens captura
 <p>Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
 o filtro laplaciano.</p>
 
+<h3 id="topico-1-6">Filtragem no domínio espacial II</h3>
+
+<p>Este exercício solicita que seja implementado o programa <code>tiltshift.cpp</code>. Este programa deve realizar a leitura
+de uma imagem para que se aplique o efeito do <em>tiltshift</em>, disponibilizando na interface 3 funcionalidades:</p>
+
+<ul>
+<li>Ajuste da altura da região central que entrará em foco;</li>
+<li>Ajuste para regular a força de decaimento da região borrada;</li>
+<li>Ajuste para regular a posição vertical que entrará em foco;</li>
+</ul>
+
+<p>A implementação realizada inicialmente carrega a imagem em duas variáveis e aplica-se
+o filtro da média consecutivas vezes em uma delas:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">    image1 = imread("tilt/traffic_newyorkcity.jpg");
+    height = image1.size().height;
+    image2 = image1.clone();
+    Mat aux, mask, mask1;
+    float media[] = {1,1,1,
+                     1,1,1,
+                     1,1,1};
+
+    mask = Mat(3, 3, CV_32F, media);
+    scaleAdd(mask, 1/9.0, Mat::zeros(3,3,CV_32F), mask1);
+    mask = mask1;
+    image2.convertTo(aux, CV_32F);
+    for (int i = 0; i &lt; deepMedia; i++) {
+        filter2D(aux, aux, aux.depth(), mask, Point(1, 1), 0);
+    }
+    aux=abs(aux);
+    aux.convertTo(image2, CV_8UC3);
+</code>
+  </pre>
+</div>
+<p>Para modelar a região de desfoque ao longo do eixo vertical da imagem, foi utilizado a seguinte função:</p>
+
+<p>$$ \alpha(x) = \frac{1}{2} ( \tanh \frac{x-l1}{d}-tanh\frac{x-l2}{d} ) $$</p>
+
+<p>A função implementada em C++ que monta a matriz alfa está apresentada a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">void calcAlpha() {
+int l1 = - tamanho_faixa/2;
+    int l2 = -l1;
+    alpha = Mat::zeros(image1.rows, image1.cols, CV_32F);
+    beta = Mat::zeros(image1.rows, image1.cols, CV_32F);
+    int i, j;
+    for (i = 0; i &lt; alpha.rows; i++) {
+        int x = i - (posicao_vertical + tamanho_faixa/2);
+        float alphaValue = 0.5f * (tanh((x - l1)/decaimento) - tanh((x - l2)/decaimento));
+        for (j = 0; j &lt; alpha.cols; j++) {
+            alpha.at&lt;float&gt;(i, j) = alphaValue;
+            beta.at&lt;float&gt;(i, j) = 1 - alphaValue;
+        }
+    }
+    Mat auxA[] = {alpha, alpha, alpha};
+    Mat auxB[] = {beta, beta, beta};
+    merge(auxA, 3, alpha);
+    merge(auxB, 3, beta);
+    updateScene();
+}
+</code>
+  </pre>
+</div>
+<p>Onde foi assumido que a variável <code>Mat alpha</code> irá ponderar a imagem original
+e a variável <code>Mat beta</code>, que é calculada como sendo \(1 - \alpha\), 
+ponderá a imagem borrada. Essa expressão é recalculada toda vez que há
+alterações nos parâmetros da interface pelo usuário.</p>
+
+<p>A imagem resultante com <em>TiltShift</em> é dada pela seguinte expressão:</p>
+
+<p>$$ imgTiltShift = \alpha \times imagemOriginal + \beta \times imagemBorrada $$</p>
+
+<p>A função em C++ criada para representar essa expressão é mostrada a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">void updateScene() {
+    Mat outputImagemBorrada, outputImagemOriginal;
+    image1.convertTo(outputImagemOriginal, CV_32FC3);
+    image2.convertTo(outputImagemBorrada, CV_32FC3);
+    multiply(outputImagemOriginal, alpha, outputImagemOriginal);
+    multiply(outputImagemBorrada, beta, outputImagemBorrada);
+    Mat imageTiltShift;
+    add(outputImagemOriginal, outputImagemBorrada, imageTiltShift);
+    imageTiltShift.convertTo(imageTiltShift, CV_8UC3);
+    imshow("tiltshift", imageTiltShift);
+}
+</code>
+  </pre>
+</div>
+<p>
+  <img src="/assets/pdi/tiltshift/traffic_newyorkcity.jpg" alt="Imagem Nova york sem tilttshift" />
+</p>
+
+<p>Resultado:</p>
+
+<p>
+  <img src="/assets/pdi/tiltshift/traffic_tiltshift.png" alt="Imagem Nova york com tilttshift" />
+</p>
+
+<p>O código completo pode ser baixado por <a href="/assets/codes-copyright/tiltshift.cpp">aqui</a>. Alguns outros
+ resultados obtidos são apresentados a seguir:</p>
+
+<p><img src="/assets/pdi/tiltshift/manhatan_tiltshift.png" alt="Manhatan Tilt shift" />
+<img src="/assets/pdi/tiltshift/rocinha.png" alt="Rocinha Tiltshift" />
+<img src="/assets/pdi/tiltshift/newyork_tiltshift.png" alt="New York Tiltshift" /></p>
+
 <div class="tags">
     <small>
         <i class="fa fa-tags"></i>
-        floodfill, seedfill, histograma, equalização, motion detector, processamento digital, opencv, imagens, UFRN, Agostinho Brito, DCA
+        floodfill, seedfill, histograma, equalização, motion detector, processamento digital, opencv, imagens, UFRN, Agostinho Brito, tiltshift, blur filter, DCA
     </small>
 </div>
 </span>
@@ -635,6 +758,8 @@ var disqus_shortname = "dudevictorgithub"; // required: replace example with you
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.mmenu.min.all.js"></script>
 <script src="/js/highlight.min.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=br" type="text/javascript"></script>
+
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
    $(document).ready(function() {

@@ -93,11 +93,10 @@ table {
   border-bottom: 5px solid #3CA2A2; }
 
 .anuncio {
-  background-color: #3B3B35;
-  margin-top: 20px;
-  box-shadow: 0px 0px 0px 0px, 0px 6px 12px rgba(0, 0, 0, 0.2);
-  border-bottom: 5px solid #3CA2A2;
-  padding: 0px; }
+  margin-top: 20px; }
+
+.anuncio-cabecalho {
+  text-align: center; }
 
 #my-menu p {
   margin-bottom: 5px; }
