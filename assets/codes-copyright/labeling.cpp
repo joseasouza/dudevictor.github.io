@@ -1,6 +1,3 @@
-/*
-  ~ Copyright (c) 2016 - José Victor - https://github.com/dudevictor/
-  */
 #include <iostream>
 #include <opencv2/opencv.hpp>
 

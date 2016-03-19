@@ -18,6 +18,8 @@ tags:
  - imagens
  - UFRN
  - Agostinho Brito
+ - tiltshift
+ - blur filter
  - DCA
 ---
 ### Introdução
@@ -407,31 +409,135 @@ Filtro do Laplaciano do Gaussiano:
 Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
 o filtro laplaciano.
 
+### Filtragem no domínio espacial II
+Este exercício solicita que seja implementado o programa `tiltshift.cpp`. Este programa deve realizar a leitura
+de uma imagem para que se aplique o efeito do _tiltshift_, disponibilizando na interface 3 funcionalidades:
+
+- Ajuste da altura da região central que entrará em foco;
+- Ajuste para regular a força de decaimento da região borrada;
+- Ajuste para regular a posição vertical que entrará em foco;
+
+A implementação realizada inicialmente carrega a imagem em duas variáveis e aplica-se
+o filtro da média consecutivas vezes em uma delas:
+
+```
+    image1 = imread("tilt/traffic_newyorkcity.jpg");
+    height = image1.size().height;
+    image2 = image1.clone();
+    Mat aux, mask, mask1;
+    float media[] = {1,1,1,
+                     1,1,1,
+                     1,1,1};
+
+    mask = Mat(3, 3, CV_32F, media);
+    scaleAdd(mask, 1/9.0, Mat::zeros(3,3,CV_32F), mask1);
+    mask = mask1;
+    image2.convertTo(aux, CV_32F);
+    for (int i = 0; i < deepMedia; i++) {
+        filter2D(aux, aux, aux.depth(), mask, Point(1, 1), 0);
+    }
+    aux=abs(aux);
+    aux.convertTo(image2, CV_8UC3);
+```
+
+Para modelar a região de desfoque ao longo do eixo vertical da imagem, foi utilizado a seguinte função:
+
+$$ \alpha(x) = \frac{1}{2} ( \tanh \frac{x-l1}{d}-tanh\frac{x-l2}{d} ) $$
+
+A função implementada em C++ que monta a matriz alfa está apresentada a seguir:
+
+```
+void calcAlpha() {
+int l1 = - tamanho_faixa/2;
+    int l2 = -l1;
+    alpha = Mat::zeros(image1.rows, image1.cols, CV_32F);
+    beta = Mat::zeros(image1.rows, image1.cols, CV_32F);
+    int i, j;
+    for (i = 0; i < alpha.rows; i++) {
+        int x = i - (posicao_vertical + tamanho_faixa/2);
+        float alphaValue = 0.5f * (tanh((x - l1)/decaimento) - tanh((x - l2)/decaimento));
+        for (j = 0; j < alpha.cols; j++) {
+            alpha.at<float>(i, j) = alphaValue;
+            beta.at<float>(i, j) = 1 - alphaValue;
+        }
+    }
+    Mat auxA[] = {alpha, alpha, alpha};
+    Mat auxB[] = {beta, beta, beta};
+    merge(auxA, 3, alpha);
+    merge(auxB, 3, beta);
+    updateScene();
+}
+```
+Onde foi assumido que a variável `Mat alpha` irá ponderar a imagem original
+e a variável `Mat beta`, que é calculada como sendo \\(1 - \alpha\\), 
+ponderá a imagem borrada. Essa expressão é recalculada toda vez que há
+alterações nos parâmetros da interface pelo usuário.
+
+A imagem resultante com _TiltShift_ é dada pela seguinte expressão:
+
+$$ imgTiltShift = \alpha \times imagemOriginal + \beta \times imagemBorrada $$
+
+A função em C++ criada para representar essa expressão é mostrada a seguir:
+
+```
+void updateScene() {
+    Mat outputImagemBorrada, outputImagemOriginal;
+    image1.convertTo(outputImagemOriginal, CV_32FC3);
+    image2.convertTo(outputImagemBorrada, CV_32FC3);
+    multiply(outputImagemOriginal, alpha, outputImagemOriginal);
+    multiply(outputImagemBorrada, beta, outputImagemBorrada);
+    Mat imageTiltShift;
+    add(outputImagemOriginal, outputImagemBorrada, imageTiltShift);
+    imageTiltShift.convertTo(imageTiltShift, CV_8UC3);
+    imshow("tiltshift", imageTiltShift);
+}
+```
+![Imagem Nova york sem tilttshift][26]
+
+Resultado:
+
+![Imagem Nova york com tilttshift][27]
+
+
+O código completo pode ser baixado por [aqui][28]. Alguns outros
+ resultados obtidos são apresentados a seguir:
+ 
+ ![Manhatan Tilt shift][29]
+![Rocinha Tiltshift][30]
+![New York Tiltshift][31]
+
+
 {%include tags.html%}
 
 [1]: http://agostinhobritojr.github.io/
 [2]: http://agostinhobritojr.github.io/tutoriais/pdi/
-[3]: {{ site.baseurl }}/assets/pdi/labeling.cpp
+[3]: {{ site.baseurl }}/assets/codes-copyright/labeling.cpp
 [4]: {{site.baseurl}}/assets/pdi/bolhas2.png
-[5]: {{site.baseurl}}/assets/pdi/labeling_contagem.cpp
+[5]: {{site.baseurl}}/assets/codes-copyright/labeling_contagem.cpp
 [6]: {{site.baseurl}}/assets/pdi/resultadoBolhas.png
 [7]: {{site.baseurl}}/assets/pdi/Makefile
-[8]: {{site.baseurl}}/assets/pdi/regions.cpp
+[8]: {{site.baseurl}}/assets/codes-copyright/regions.cpp
 [9]: {{site.baseurl}}/assets/pdi/resultadoRegions.png
-[10]: {{site.baseurl}}/assets/pdi/trocaRegioes.cpp
+[10]: {{site.baseurl}}/assets/codes-copyright/trocaRegioes.cpp
 [11]: {{site.baseurl}}/assets/pdi/resultadoTrocaRegioes.png
 [12]: {{site.baseurl}}/assets/pdi/resultadoLabelingTerminal.png
 [13]: {{site.baseurl}}/assets/pdi/rio_gray.jpg
 [14]: {{site.baseurl}}/assets/pdi/histograma.png
 [15]: https://en.wikipedia.org/wiki/YCbCr
-[16]: {{site.baseurl}}/assets/pdi/equalize.cpp
+[16]: {{site.baseurl}}/assets/codes-copyright/equalize.cpp
 [17]: {{site.baseurl}}/assets/pdi/rio.jpg
 [18]: {{site.baseurl}}/assets/pdi/resultado_histograma.png
 [19]: {{site.baseurl}}/assets/pdi/filtroespacial.cpp
-[20]: {{site.baseurl}}/assets/pdi/laplgauss.cpp
+[20]: {{site.baseurl}}/assets/codes-copyright/laplgauss.cpp
 [21]: {{site.baseurl}}/assets/pdi/laplaciano_resultado.png
 [22]: {{site.baseurl}}/assets/pdi/gaussiano_laplaciano_resultado.png
 [23]: http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_comparison/histogram_comparison.html
-[24]: {{site.baseurl}}/assets/pdi/motiondetector.cpp
+[24]: {{site.baseurl}}/assets/codes-copyright/motiondetector.cpp
 [25]: {{site.baseurl}}/assets/pdi/deteccao_movimento.png
+[26]: {{site.baseurl}}/assets/pdi/tiltshift/traffic_newyorkcity.jpg
+[27]: {{site.baseurl}}/assets/pdi/tiltshift/traffic_tiltshift.png
+[28]: {{site.baseurl}}/assets/codes-copyright/tiltshift.cpp
+[29]: {{site.baseurl}}/assets/pdi/tiltshift/manhatan_tiltshift.png
+[30]: {{site.baseurl}}/assets/pdi/tiltshift/rocinha.png
+[31]: {{site.baseurl}}/assets/pdi/tiltshift/newyork_tiltshift.png
 
