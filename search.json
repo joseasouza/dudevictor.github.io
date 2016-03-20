@@ -16,6 +16,14 @@
     "tags"     : "programação paralela, threads, MPI, OpenMP, DCA, UFRN, solucionário, solutions, Parallel Programing, Peter Pacheco, Samuel Xavier de Souza",
     "url"      : "/projects/programacao-concorrente/",
     "date"     : "2016-03-03 23:23:00 -0300"
+    } ,
+    
+    {
+    "title"    : "Controle Inteligente - A* Algorithm",
+    "category" : "",
+    "tags"     : "A* Search Algorithm, algoritmo a*, chrono trigger, bootstrap css, html5, canvas game 2d, Breadth-First Search, BFS, Controle Inteligente, Fábio Meneghetti, UFRN, DCA",
+    "url"      : "/projects/controle-inteligente/",
+    "date"     : "2016-03-20 08:00:00 -0300"
     } 
     
         
