@@ -42,3 +42,6 @@ exclude: [vendor]
 tocTopTag: h3
 contentsLabel: Conteúdo
 anchorPrefix: topico-
+
+gems:
+  - jekyll-sitemap
