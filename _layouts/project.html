@@ -60,11 +60,12 @@ layout: default
 
       <div class="anuncio-cabecalho">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Cabecalho -->
+        <!-- Cabeçalho Responsivo -->
         <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
+             style="display:block"
              data-ad-client="ca-pub-9976909752880073"
-             data-ad-slot="4392857547"></ins>
+             data-ad-slot="1413881545"
+             data-ad-format="auto"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -107,7 +108,8 @@ layout: default
 
 
       <div class="content-panel related col-md-12">
-        {% for project in site.projects limit:1 %}
+        {% for project in site.projects limit:3 %}
+        {% if project != page %}
         <div class="related-header">
           <a href="{{ site.baseurl }}{{ project.url }}">Páginas Sugeridas</a>
         </div>
@@ -118,12 +120,14 @@ layout: default
         </div>
         <div class="excerpt">
           {% if project.summary %}
-          {{ project.summary | strip_html | truncatewords:30 }}
+          {{ project.summary | markdownify | truncatewords:30 }}
           {% else %}
-          {{ project.excerpt | strip_html | truncatewords:30 }}
+          {{ project.excerpt | markdownify | truncatewords:30 }}
           {% endif %}
-          <br/><a href="{{ site.baseurl }}{{ post.url }}">Continue Lendo</a>
+          <br/><a href="{{ site.baseurl }}{{ project.url }}">Continue Lendo</a>
         </div>
+        {% break %}
+        {% endif %}
         {% endfor %}
       </div>
 

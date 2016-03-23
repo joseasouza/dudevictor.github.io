@@ -149,9 +149,46 @@ table {
 
 .anuncio-cabecalho {
 	text-align: center;
+	width: 100%;
+}
+
+.anuncio-rodape-mobile {
+	position: fixed;
+	bottom: 0px;
+	height: 50px;
+	width: 100%;
+	@media (min-width: 728px) {
+	}
+}
+
+html.mm-opened .mm-page {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.mm-menu .mm-navbar a, .mm-menu .mm-navbar>* {
+	color: rgba(255, 255, 255, 0.6) !important;
+	margin-top: 10px;
+}
+
+.mm-menu em.mm-counter {
+	color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.mm-listview i.fa {
+	margin-right: 10px !important;
+}
+
+.mm-navbar {
+	border: none !important;
+}
+
+.mm-menu {
+	padding-top: 20px !important;
 }
 
 #my-menu {
+	background: #333333;
+	color: rgba(255, 255, 255, 0.6);
 
 	p {
 		margin-bottom: 5px;
@@ -171,6 +208,18 @@ table {
 			margin-right: 10px;
 		}
 	}
+
+
+}
+
+.mm-menu .mm-listview>li a:not(.mm-next){
+	-webkit-tap-highlight-color: rgba(255,255,255,0) !important;
+	tap-highlight-color: rgba(255,255,255,0) !important;
+	background:rgba(255,255,255,0) !important;
+}
+
+.mm-listview {
+	margin-top: 0px !important;
 }
 
 .links {
@@ -576,8 +625,8 @@ table {
 		}
 
 		@media (min-width: $screen-lg-min) {
-			width: 50%;
-			margin-left: 25%;
+			width: 60%;
+			margin-left: 20%;
 		}
 
 		.thumb {
@@ -645,8 +694,8 @@ table {
 			blockquote {
 				position: relative;
 				width: 100%;
-		    margin-left: -15px;
-				padding-right: 45px;
+		    	margin-left: -15px;
+				padding-right: 10px;
 				background-color: $darker;
 				color: white;
 				box-sizing: content-box;
@@ -690,7 +739,7 @@ table {
 			.highlight {
 				width: 100%;
 				margin-left: -15px;
-				padding-right: 45px;
+				padding-right: 30px;
 				box-sizing: content-box;
 
 				@media (min-width: $screen-sm-min) {
@@ -706,8 +755,6 @@ table {
 					font-size: 12px;
 					border: none;
 					padding-left: 15px;
-					padding-top: 20px;
-					padding-bottom: 20px;
 					padding-right: 15px;
 					box-sizing: content-box;
 					border-radius: 0;
@@ -800,8 +847,7 @@ table {
 			}
 
 			@media (max-width: $screen-sm-min) {
-				font-size: 25px;
-				padding-left: 60px;
+				font-size: 32px;
 			}
 
 		}

@@ -5,6 +5,7 @@ subject:    Processameto Digital de Imagens
 date:       2016-03-03 23:45:00
 summary:    Algoritmos de processamento e tratamento de imagens com OpenCV
 categories: ufrn
+thumbnail: picture-o
 teacher:    Agostinho Brito Júnior
 semester: 2016.1
 tags:
@@ -538,6 +539,6 @@ O código completo pode ser baixado por [aqui][28]. Alguns outros
 [27]: {{site.baseurl}}/assets/pdi/tiltshift/traffic_tiltshift.png
 [28]: {{site.baseurl}}/assets/codes-copyright/tiltshift.cpp
 [29]: {{site.baseurl}}/assets/pdi/tiltshift/manhatan_tiltshift.png
-[30]: {{site.baseurl}}/assets/pdi/tiltshift/rocinha.png
+[30]: {{site.baseurl}}/assets/pdi/tiltshift/rocinha_tiltshift.png
 [31]: {{site.baseurl}}/assets/pdi/tiltshift/newyork_tiltshift.png
 

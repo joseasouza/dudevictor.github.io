@@ -5,6 +5,7 @@ subject:    Controle Inteligente
 date:       2016-03-20 11:00:00
 summary:    Implementação do _A* Search Algorithm_ em HTML5 Canvas Game 2D e JavaScript, utilizando _sprites_ do _Chrono Trigger_
 categories: ufrn
+thumbnail: globe
 teacher:    Fábio Meneghetti Ugulino de Araújo
 semester: 2016.1
 tags:

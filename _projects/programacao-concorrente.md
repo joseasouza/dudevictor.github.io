@@ -5,6 +5,7 @@ subject:    Programação Concorrente e Distribuída
 date:       2016-03-04 02:23:00
 summary:    Resolução da lista de exercícios do livro _An Introduction to Parallel Programming_
 categories: ufrn
+thumbnail: laptop
 teacher:    Samuel Xavier de Souza
 semester: 2015.2
 tags:

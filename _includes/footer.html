@@ -1,3 +1,14 @@
+<!--<div class="anuncio-rodape-mobile">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    &lt;!&ndash; Rodapé dispositivos móveis &ndash;&gt;
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-9976909752880073"
+         data-ad-slot="3904846343"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>-->
 <div class="footer clearfix">
   <div class="col-md-6">
     {{ site.footer_right }}
@@ -6,19 +17,44 @@
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
-<script src="{{ site.baseurl }}/js/jquery.mmenu.min.all.js"></script>
+<script src="{{ site.baseurl }}/js/jquery.mmenu.all.min.js"></script>
 <script src="{{ site.baseurl }}/js/highlight.min.js"></script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=br" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true, width: "90% container" } },
+  "SVG": { linebreaks: { automatic: true, width: "90% container" } }
+});
+</script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
    $(document).ready(function() {
-      $("#my-menu").mmenu().on( "closed.mm", function() {
-            $(".menu-button").show();
-         });
+      var API = $("#my-menu").mmenu({
+          counters		: true,
+          dividers		: {
+              fixed 			: true
+          },
+          navbar 			: {
+              title			: ''
+          },
+          navbars			: [
+              {
+                  position	: 'top',
+                  content : ['<span>{{ site.author_name }}</span>']
+              },
+              {
+                  position	: 'top'
+              },
+          ]
+      }).data( 'mmenu' ).bind( "closed", function() {
+          $(".menu-button").show();
+      });
+
       $(".menu-button").click(function() {
+        API.open();
         $(".menu-button").hide();
-        $("#my-menu").trigger("open.mm");
+
       });
    });
 </script>

@@ -1,10 +1,16 @@
 <nav id="my-menu">
   <div>
-    <p>{{ site.author_name }}</p>
-
     <ul class="pages">
       <li><a href="{{ site.baseurl }}/"><i class="fa fa-home"></i> Home</a></li>
-      <li><a href="{{ site.baseurl }}/projects/"><i class="fa fa-archive"></i> Todos os Projetos</a></li>
+      <li>
+        <span><i class="fa fa-archive"></i> Todos os Projetos</span>
+        <ul>
+        {% for projeto in site.projects %}
+          <li><a href="{{ site.baseurl }}{{ projeto.url}}"><i class="fa fa-{{projeto.thumbnail}}"></i>
+            {{projeto.title}}</a></li>
+        {% endfor %}
+        </ul>
+      </li>
       <li><a href="{{ site.baseurl }}/posts/"><i class="fa fa-file-text"></i> Todos os Artigos</a></li>
       <li><a href="{{ site.baseurl }}/search/"><i class="fa fa-search"></i> Pesquisar</a></li>
     </ul>
