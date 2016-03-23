@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+<link rel="stylesheet" href="/css/androidstudio.css">
 <link rel="stylesheet" href="/css/toc.css">
 
 <!-- Favicons generated at http://realfavicongenerator.net/ -->
@@ -47,11 +47,23 @@
 
     <nav id="my-menu">
   <div>
-    <p>José Victor Alves de Souza</p>
-
     <ul class="pages">
       <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-      <li><a href="/projects/"><i class="fa fa-archive"></i> Todos os Projetos</a></li>
+      <li>
+        <span><i class="fa fa-archive"></i> Todos os Projetos</span>
+        <ul>
+        
+          <li><a href="/projects/processamento-digital-imagens/"><i class="fa fa-picture-o"></i>
+            Processamento Digital de Imagens</a></li>
+        
+          <li><a href="/projects/programacao-concorrente/"><i class="fa fa-laptop"></i>
+            Programação Concorrente e Distribuída</a></li>
+        
+          <li><a href="/projects/controle-inteligente/"><i class="fa fa-globe"></i>
+            Controle Inteligente - A* Algorithm</a></li>
+        
+        </ul>
+      </li>
       <li><a href="/posts/"><i class="fa fa-file-text"></i> Todos os Artigos</a></li>
       <li><a href="/search/"><i class="fa fa-search"></i> Pesquisar</a></li>
     </ul>
@@ -78,6 +90,10 @@
   <div class="row">
 
     <div itemscope itemtype="http://schema.org/Article" class="col-md-12 project">
+      
+      <div class="thumb">
+        <i class="fa fa-laptop fa-4x"></i>
+      </div>
       
 
       <h1 class="header" itemprop="name">Programação Concorrente e Distribuída</h1>
@@ -110,11 +126,12 @@
 
       <div class="anuncio-cabecalho">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Cabecalho -->
+        <!-- Cabeçalho Responsivo -->
         <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
+             style="display:block"
              data-ad-client="ca-pub-9976909752880073"
-             data-ad-slot="4392857547"></ins>
+             data-ad-slot="1413881545"
+             data-ad-format="auto"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -477,6 +494,7 @@ o valor do saldo que seria armazenado seria incorreto.</p>
 
       <div class="content-panel related col-md-12">
         
+        
         <div class="related-header">
           <a href="/projects/processamento-digital-imagens/">Páginas Sugeridas</a>
         </div>
@@ -487,9 +505,10 @@ o valor do saldo que seria armazenado seria incorreto.</p>
         </div>
         <div class="excerpt">
           
-          Algoritmos de processamento e tratamento de imagens com OpenCV
+          <p>Algoritmos de processamento e tratamento de imagens com OpenCV</p>
+
           
-          <br/><a href="">Continue Lendo</a>
+          <br/><a href="/projects/processamento-digital-imagens/">Continue Lendo</a>
         </div>
         
       </div>
@@ -517,7 +536,18 @@ var disqus_shortname = "dudevictorgithub"; // required: replace example with you
       </div>
     </div>
 
-    <div class="footer clearfix">
+    <!--<div class="anuncio-rodape-mobile">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    &lt;!&ndash; Rodapé dispositivos móveis &ndash;&gt;
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-9976909752880073"
+         data-ad-slot="3904846343"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>-->
+<div class="footer clearfix">
   <div class="col-md-6">
     &lt;/&gt; on <a href="https://github.com/dudevictor/dudevictor.github.io">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
   </div>
@@ -525,19 +555,44 @@ var disqus_shortname = "dudevictorgithub"; // required: replace example with you
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="/js/jquery.mmenu.all.min.js"></script>
 <script src="/js/highlight.min.js"></script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=br" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true, width: "90% container" } },
+  "SVG": { linebreaks: { automatic: true, width: "90% container" } }
+});
+</script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
    $(document).ready(function() {
-      $("#my-menu").mmenu().on( "closed.mm", function() {
-            $(".menu-button").show();
-         });
+      var API = $("#my-menu").mmenu({
+          counters		: true,
+          dividers		: {
+              fixed 			: true
+          },
+          navbar 			: {
+              title			: ''
+          },
+          navbars			: [
+              {
+                  position	: 'top',
+                  content : ['<span>José Victor Alves de Souza</span>']
+              },
+              {
+                  position	: 'top'
+              },
+          ]
+      }).data( 'mmenu' ).bind( "closed", function() {
+          $(".menu-button").show();
+      });
+
       $(".menu-button").click(function() {
+        API.open();
         $(".menu-button").hide();
-        $("#my-menu").trigger("open.mm");
+
       });
    });
 </script>
