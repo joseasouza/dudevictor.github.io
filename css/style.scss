@@ -152,15 +152,6 @@ table {
 	width: 100%;
 }
 
-.anuncio-rodape-mobile {
-	position: fixed;
-	bottom: 0px;
-	height: 50px;
-	width: 100%;
-	@media (min-width: 728px) {
-	}
-}
-
 html.mm-opened .mm-page {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -607,6 +598,39 @@ html.mm-opened .mm-page {
 				margin-bottom: 10px;
 			}
 		}
+	}
+
+	.anuncio-lateral {
+		text-align: center;
+		right: 0px;
+		position: fixed;
+		width: 20%;
+		overflow: hidden;
+		padding-left: 20px;
+		padding-right: 20px;
+		height: 100%;
+
+		@media (max-width: $screen-md-min) {
+			height: auto;
+			width: 100%;
+			bottom: 0px;
+			padding: 0px;
+		}
+
+
+		@media (min-width: $screen-md-min) {
+			width: 15%;
+			height: 100%;
+			top: 10%;
+		}
+
+		@media (min-width: $screen-lg-min) {
+			width: 20%;
+			height: 100%;
+			top: 10%;
+
+		}
+
 	}
 
 	.article, .project {
