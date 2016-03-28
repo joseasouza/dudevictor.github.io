@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://dudevictor.github.io/404.html</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/posts/</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/search/</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/projects/processamento-digital-imagens/</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/projects/programacao-concorrente/</loc>
-</url>
-<url>
-<loc>https://dudevictor.github.io/projects/controle-inteligente/</loc>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://dudevictor.github.io/404.html</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/search/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/projects/processamento-digital-imagens/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/projects/programacao-concorrente/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/projects/controle-inteligente/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/projects/programacao-concorrente/parallel-hardware-parallel-software/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/a-star-labyrinth/</loc>
+    </url>
+    <url>
+        <loc>https://dudevictor.github.io/a-star-labyrinth/about.html</loc>
+    </url>
 </urlset>
