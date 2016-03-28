@@ -1,13 +1,19 @@
 <div class="footer clearfix">
-  <div class="col-md-6">
-    {{ site.footer_right }}
-  </div>
+    <div class="col-md-6">
+        Copyright © {{ site.time | date: "%Y" }} by <a href="http://github.com/dudevictor">dudevictor</a>.
+        All rights reserved.<br>Theme by <a href="https://twitter.com/_JacobTomlinson">Jacob
+        Tomlinson</a>
+    </div>
+    <div class="col-md-6">
+        {{ site.footer_right }}
+    </div>
 </div>
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 <script src="{{ site.baseurl }}/js/jquery.mmenu.all.min.js"></script>
 <script src="{{ site.baseurl }}/js/highlight.min.js"></script>
+{% if page.use_math_jax %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=br" type="text/javascript"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -15,6 +21,7 @@ MathJax.Hub.Config({
   "SVG": { linebreaks: { automatic: true, width: "90% container" } }
 });
 </script>
+{% endif %}
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">

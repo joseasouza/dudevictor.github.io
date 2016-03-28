@@ -30,6 +30,16 @@ footer_right: "&lt;/&gt; on <a href=\"https://github.com/dudevictor/dudevictor.g
 collections:
   projects:
     output: true
+  programacao-concorrente:
+    output: true
+    permalink: projects/programacao-concorrente/:path/
+
+# Default values
+defaults:
+  - scope:
+      type: projects
+    values:
+      use_math_jax: true
 
 # Build settings
 markdown: redcarpet
