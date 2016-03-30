@@ -519,7 +519,7 @@ O código completo pode ser baixado por [aqui][28]. Alguns outros
 [7]: {{site.baseurl}}/assets/pdi/Makefile
 [8]: {{site.baseurl}}/assets/codes-copyright/regions.cpp
 [9]: {{site.baseurl}}/assets/pdi/resultadoRegions.png
-[10]: {{site.baseurl}}/assets/codes-copyright/trocaRegioes.cpp
+[10]: {{site.baseurl}}/assets/codes-copyright/trocaregioes.cpp
 [11]: {{site.baseurl}}/assets/pdi/resultadoTrocaRegioes.png
 [12]: {{site.baseurl}}/assets/pdi/resultadoLabelingTerminal.png
 [13]: {{site.baseurl}}/assets/pdi/rio_gray.jpg

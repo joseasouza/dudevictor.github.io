@@ -5,8 +5,9 @@ subject:    Programação Concorrente e Distribuída
 date:       2016-03-04 02:23:00
 summary:    Resolução da lista de exercícios do livro _An Introduction to Parallel Programming_
 categories: ufrn
-thumbnail: laptop
+thumbnail:  laptop
 teacher:    Samuel Xavier de Souza
+chapter:    Chapter 01 - Why Parallel Computing?
 semester: 2015.2
 tags:
  - programação paralela
@@ -16,7 +17,7 @@ tags:
  - DCA
  - UFRN
  - solucionário
- - solutions
+ - manual solutions
  - Parallel Programing
  - Peter Pacheco
  - Samuel Xavier de Souza
@@ -24,11 +25,17 @@ tags:
 Esta página tem como objetivo apresentar a resolução das listas de exercícios do livro ["An Introduction to Parallel Programming"][1]
 de Peter Pacheco. A resolução dessas listas foi utilizada durante o curso de Programação Paralela no DCA / UFRN.
 
-Esta pagina ainda está sendo atualizada.
+Respostas dos capítulos:
+
+- {{page.chapter}}
+{% for post in site.programacao-concorrente %}
+- [{{post.chapter}}]({{site.baseurl}}{{post.url}})
+{% endfor %}
+
 
 [1]: https://www.cs.usfca.edu/~peter/ipp/
 {%include seccionContent.html%}
-####Chapter 01 - Why Parallel Computing?
+####{{page.chapter}}
 >__1.1__ Devise formulas for the functions that calculate my first i and my last i in the global sum example.
  Remember that each core should be assigned roughly the same number of elements of computations in the loop.
   Hint: First consider the case when n is evenly divisible by p.
