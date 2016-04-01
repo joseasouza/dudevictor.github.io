@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação Concorrente e Distribuída (4)</title>
+<meta name="description" content="Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na Logique Sistemas.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/androidstudio.css">
+<link rel="stylesheet" href="/css/toc.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d8c061351eac81"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li>
+        <span><i class="fa fa-archive"></i> Todos os Projetos</span>
+        <ul>
+        
+          <li><a href="/projects/processamento-digital-imagens/"><i class="fa fa-picture-o"></i>
+            Processamento Digital de Imagens</a></li>
+        
+          <li><a href="/projects/programacao-concorrente/"><i class="fa fa-laptop"></i>
+            Programação Concorrente e Distribuída</a></li>
+        
+          <li><a href="/projects/controle-inteligente/"><i class="fa fa-globe"></i>
+            Controle Inteligente - A* Algorithm</a></li>
+        
+        </ul>
+      </li>
+      <li><a href="/posts/"><i class="fa fa-file-text"></i> Todos os Artigos</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Pesquisar</a></li>
+    </ul>
+
+    <p class="links">
+  
+  <a href="https://br.linkedin.com/in/jvictoralves" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/dudevictor" target="_new"><i class="fa fa-github-alt"></i></a>
+  <a href="https://fb.com/dudevictor" target="_new"><i class="fa fa-facebook"></i></a>
+  <a href="https://plus.google.com/103774151163089217676" target="_new"><i class="fa fa-google-plus"></i></a>
+  <a href="http://stackoverflow.com/users/2327056/jose-victor?tab=profile" target="_new"><i class="fa fa-stack-overflow"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 project">
+      
+      <div class="thumb">
+        <i class="fa fa-laptop fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Programação Concorrente e Distribuída (4)</h1>
+
+      <div class="author">
+        <small><i>
+          
+          por
+          <span itemprop="author">
+            
+              <a rel="author" href="https://plus.google.com/103774151163089217676">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">José Victor Alves de Souza</span>
+            </span>
+            
+              </a>
+            
+          </span>
+          
+          em <span itemprop="datePublished" content="2014-08-28">31 de Março de 2016</span>
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          Prof. Samuel Xavier de Souza, Departamento de Engenharia de Computação, UFRN 2015.2
+        </small>
+      </div>
+
+      <div class="anuncio-cabecalho">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Cabeçalho Responsivo -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="1413881545"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>Esta página tem como objetivo apresentar a resolução dos exercícios do livro <a href="https://www.cs.usfca.edu/%7Epeter/ipp/">&quot;An Introduction to Parallel Programming&quot;</a>
+de Peter Pacheco. A resolução dessas listas foi utilizada durante o curso de Programação Paralela no DCA / UFRN.</p>
+
+<p>Respostas dos capítulos:</p>
+
+<ul>
+<li><p><a href="/projects/programacao-concorrente/">Chapter 01 - Why Parallel Computing?</a></p></li>
+<li><p><a href="/projects/programacao-concorrente/parallel-hardware-and-parallel-software/">Chapter 02 - Parallel Hardware and Parallel Software</a></p></li>
+<li><p><a href="/projects/programacao-concorrente/distributed-memory-programming/">Chapter 03 - Distributed-Memory Programming with MPI</a></p></li>
+<li><p>Chapter 04 - Shared-Memory Programming with Pthreads</p></li>
+</ul>
+
+<p></span></p>
+
+<div class="tags">
+    <small>
+        <i class="fa fa-tags"></i>
+        programação paralela, threads, MPI, OpenMP, DCA, UFRN, solucionário, exercises solutions, manual solutions, Parallel Programing, Peter Pacheco, Samuel Xavier de Souza
+    </small>
+</div>
+
+<p></div></p>
+
+<p><div class="content-panel content">
+    <span itemprop="articleBody"></p>
+
+<h4>Chapter 04 - Shared-Memory Programming with Pthreads</h4>
+
+<blockquote>
+<p><strong>4.1.</strong> When we discussed matrix-vector multiplication we assumed that 
+both m and n, the number of rows and the number of columns, respectively, 
+were evenly divisible by t, the number of threads. How do the formulas for 
+the assignments change if this is not the case?</p>
+</blockquote>
+
+<p>Para que o cálculo também funcionasse para um número de linhas 
+não divisível pelo número de threads (m % thread_count != 0), o resto dessa 
+divisão foi distribuído entre as threads com my_rank menor que o resto. 
+Além disso, as threads que não tiveram o resto distribuído, tiveram que fazer um deslocamento 
+igual ao resto para compensar os local_m+1 das threads com resto distribuído. 
+Código da função executada pelas threads e modificada do arquivo “pth_mat_vect.c” fornecido pelo livro 
+texto está a seguir. O arquivo modificado pode ser baixado <a href="/assets/codes-copyright/pth_mat_vect_4.1.c">aqui</a>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">/*------------------------------------------------------------------
+ * Function:       Pth_mat_vect
+ * Purpose:        Multiply an mxn matrix by an nx1 column vector
+ * In arg:         rank
+ * Global in vars: A, x, m, n, thread_count
+ * Global out var: y
+ */
+void *Pth_mat_vect(void* rank) {
+   long my_rank = (long) rank;
+   int i, j;
+   int local_m = m/thread_count;
+   int my_first_row;
+   int my_last_row;
+   if(my_rank &lt; (m % thread_count)){    //Se minha thread atual tem um
+      // my_rank menor que o resto da divisao de m pelo thread_count, então ela recebe o resto da divisão
+    local_m++;
+    my_first_row = my_rank*local_m;
+        my_last_row = (my_rank+1)*local_m - 1;
+   }else{ //Para as outras threads, adicionar o resto para compensar os local_m+1 das outras threads
+        my_first_row = my_rank*local_m + (m % thread_count);
+        my_last_row = (my_rank+1)*local_m - 1 + (m % thread_count);
+   } 
+
+   for (i = my_first_row; i &lt;= my_last_row; i++) {
+      y[i] = 0.0;
+      for (j = 0; j &lt; n; j++)
+          y[i] += A[i*n+j]*x[j];
+   }
+
+   return NULL;
+}  /* Pth_mat_vect */
+</code></pre></div>
+<blockquote>
+<p><strong>4.2.</strong> If we decide to physically divide a data structure among the threads, that is, 
+if we decide to make various members local to individual threads, we need to consider at least three issues:<br>
+<strong>a.</strong> How are the members of the data structure used by the individual threads?<br>
+<strong>b.</strong> Where and how is the data structure initialized?<br>
+<strong>c.</strong> Where and how is the data structure used after its members are computed?<br></p>
+</blockquote>
+
+<p>Para que as linhas da matriz A e os blocos de memória do vetor y fossem divididos, 
+foi necessário criar um local_y e um local_A para cada thread. Quanto de memória é alocado para essas 
+estruturas de dados, é definido no cálculo do local_m e local_n. São feitas as atribuições do A para o local_A de 
+cada thread, então o cálculo só é realizado com os local_A e local_y. No final, o resultado das threads é lançado 
+dos local_y para o y. Já em relação ao tempo de execução, essa estratégia foi mais demorada. Isso ocorre porque 
+cada thread deve realizar uma copia dos seus local_y e local_A, fazendo com que haja uma perda de tempo ao realizar 
+esse processo. No caso de utilizar uma variável global torna-se o processo mais rápido, pois além de não perder 
+tempo copiando, há a possibilidade dos dados já estarem na cache. O código pode ser acesado por 
+<a href="/assets/codes-copyright/pth_mat_vect_distribuido_4_2.c">aqui</a>.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">/*------------------------------------------------------------------
+ * Function:       Pth_mat_vect
+ * Purpose:        Multiply an mxn matrix by an nx1 column vector
+ * In arg:         rank
+ * Global in vars: A, x, m, n, thread_count
+ * Global out var: y
+ */
+void *Pth_mat_vect(void* rank) {
+   long my_rank = (long) rank;
+   int i, j;
+   int local_m = m/thread_count; //Divisão das linhas de A
+   int local_n = n/thread_count; //Divisão do vetor y
+   int my_first_row;
+   int my_last_row; 
+   int my_first_column;
+   int my_last_column;
+   double* local_y; //Vetor produto local
+   double* local_A; //Matriz A local
+
+   //Distribuição das linhas da matriz A
+   if(my_rank &lt; (m % thread_count)){    //Se minha thread atual
+      // tem um my_rank menor que o resto da divisao de m pelo thread_count,
+      // então ela recebe o resto da divisão
+    local_m++;
+    my_first_row = my_rank*local_m;
+        my_last_row = (my_rank+1)*local_m - 1;
+   }else{
+      //Para as outras threads, adicionar o resto para compensaros local_m+1 das outras threads
+        my_first_row = my_rank*local_m + (m % thread_count);
+        my_last_row = (my_rank+1)*local_m - 1 + (m % thread_count);
+   }
+
+   //Distribuição do vetor y
+   if(my_rank &lt; (n % thread_count)){
+      //Se minha thread atual tem um my_rank menor que
+      // o resto da divisao de n pelo thread_count, então ela recebe o resto da divisão
+    local_n++;
+    my_first_column = my_rank*local_n;
+        my_last_column = (my_rank+1)*local_n - 1;
+   }else{ //Para as outras threads, adicionar o resto para compensar os local_m+1 das outras threads
+        my_first_column = my_rank*local_n + (n % thread_count);
+        my_last_column = (my_rank+1)*local_n - 1 + (n % thread_count);
+   }
+
+   //Aloca memória
+   local_A = malloc(local_m*n*sizeof(double));
+   local_y = malloc(local_n*sizeof(double));
+
+   //Realiza as atribuições do local_A
+   for(i=0;i&lt;local_m;i++){
+      for (j = 0; j &lt; n; j++){
+    local_A[i*n + j] = A[my_first_row*n+j];
+      }
+      my_first_row++; 
+   }
+
+   //Realiza o cálculo local
+   for (i = 0; i &lt; local_m; i++) {
+      local_y[i] = 0.0;
+      for (j = 0; j &lt; local_n; j++)
+          local_y[i] += local_A[i*n+j]*x[j];
+   }
+
+   //Junta o resultado novamente
+   for (i = 0; i &lt; local_n; i++) {
+    y[my_first_column] = local_y[i];
+        my_first_column++;
+   }
+
+   return NULL;
+}  /* Pth_mat_vect */
+</code></pre></div>
+<p>(Primeira execução é a nova implementação)</p>
+
+<p><img src="/assets/pcd/img4.2.png" alt="Imagem4.2"></p>
+
+<blockquote>
+<p><div class="text-danger"><strong>4.3</strong></p>
+</blockquote>
+
+<p></p>
+
+<blockquote>
+<p><strong>4.4.</strong> The performance of the \(\pi\) calculation program that uses mutexes 
+remains roughly constant once we increase the number of threads beyond 
+the number of available CPUs. What does this suggest about how the threads are scheduled on the 
+available processors?</p>
+</blockquote>
+
+<p>O tempo permanece constante pois as threads não vão estar executando em paralelo, 
+mas sim, disputando para poderem ser executadas nas CPUs disponíveis. 
+A melhor forma de escalonar essas tarefas seria distribuindo as threads igualmente 
+para cada CPU e cada  thread executaria em uma quantidade fixa de tempo, sem necessidade 
+de determinar prioridade entre elas.</p>
+
+<blockquote>
+<p><strong>4.5.</strong> Modify the mutex version of the \(\pi\) calculation program so that the critical section is 
+in the for loop. How does the performance of this version compare to the performance of the original 
+busy-wait version? How might we explain this?</p>
+</blockquote>
+
+<p><a href="/assets/codes-copyright/pth_pi_mutex_modificado_4.5.c">Mutex modificado</a>:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">for (i = my_first_i; i &lt; my_last_i; i++, factor = -factor) {
+      pthread_mutex_lock(&amp;mutex);
+      sum += factor/(2*i+1);
+      pthread_mutex_unlock(&amp;mutex);
+}
+</code></pre></div>
+<p><a href="/assets/codes-copyright/pth_pi_busy_4.5.c">Busy-waiting</a>: </p>
+<div class="highlight"><pre><code class="language-" data-lang="">for (i = my_first_i; i &lt; my_last_i; i++, factor = -factor) {
+      while (flag != my_rank);
+      sum += factor/(2*i+1);  
+      flag = (flag+1) % thread_count;
+}
+</code></pre></div>
+<p>Busy:
+<img src="/assets/pcd/img4.5.png" alt="Imagem4.5"></p>
+
+<p>Mutex:
+<img src="/assets/pcd/img4.5_a.png" alt="Imagem4.5_a"></p>
+
+<p>A performance é similar no mutex modificado, já que é feita uma operação de 
+lock e unlock em cada iteração das thread para cálculo do \(\pi\). 
+Como a espera ocupada é bastante baixa, não há muito prejuízo em comparação ao mutex, 
+que coloca a thread para o estado de espera.</p>
+
+<blockquote>
+<p><strong>4.6.</strong> Modify the mutex version of the calculation program so that it uses a 
+semaphore instead of a mutex. How does the performance of this version compare with the mutex version?</p>
+</blockquote>
+
+<p><a href="/assets/codes-copyright/pth_pi_mutex_modificado_4.6.c">Código Implementado</a></p>
+
+<p>Semáforo:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">for (i = my_first_i; i &lt; my_last_i; i++, factor = -factor) {
+      sem_wait(&amp;mutex);
+      sum += factor/(2*i+1);
+      sem_post(&amp;mutex);
+}
+</code></pre></div>
+<p>Mutex:
+<img src="/assets/pcd/img4.6.png" alt="Imagem4.6"></p>
+
+<p>Semáforo:
+<img src="/assets/pcd/img4.6_a.png" alt="Imagem4.6_a"></p>
+
+<p>A implementação com semáfoto obteve resultados parecidos com a implementação em mutex.
+ Como somente uma thread pode executar a funcionalidade por vez, 
+o desempenho torna-se parecido com o desempenho do mutex.</p>
+
+<blockquote>
+<p><strong>4.7.</strong> Although producer-consumer synchronization is easy to implement with semaphores,
+it’s also possible to implement it with mutexes. The basic idea is to have the producer
+and the consumer share a mutex. A flag variable that’s initialized to false by the main thread
+indicates whether there’s anything to consume. With two threads we’d execute something like this:</p>
+</blockquote>
+</span>
+
+      </div>
+      <div class="anuncio">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Dudevictor github -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="9516328345"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="content-panel feedback">
+        Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+
+      <div class="content-panel related col-md-12">
+        
+        
+        <div class="related-header">
+          <a href="/projects/processamento-digital-imagens/">Páginas Sugeridas</a>
+        </div>
+        <div class="title">
+          <a href="/projects/processamento-digital-imagens/">Processamento Digital de Imagens</a>
+          <small class="hidden-xs"></small>
+
+        </div>
+        <div class="excerpt">
+          
+          <p>Algoritmos de processamento e tratamento de imagens com OpenCV</p>
+
+          
+          <br/><a href="/projects/processamento-digital-imagens/">Continue Lendo</a>
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="anuncio-lateral pull-right">
+      <div class="conteudo-anuncio-lateral">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Lateral Responsivo -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="1336169546"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+    <div class="col-md-6">
+        Copyright © 2016 by <a href="http://github.com/dudevictor">dudevictor</a>.
+        All rights reserved.<br>Theme by <a href="https://twitter.com/_JacobTomlinson">Jacob
+        Tomlinson</a>
+    </div>
+    <div class="col-md-6">
+        &lt;/&gt; on <a href="https://github.com/dudevictor/dudevictor.github.io">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.all.min.js"></script>
+<script src="/js/highlight.min.js"></script>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&locale=br" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true, width: "90% container" } },
+  "SVG": { linebreaks: { automatic: true, width: "90% container" } }
+});
+</script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      var API = $("#my-menu").mmenu({
+          counters		: true,
+          dividers		: {
+              fixed 			: true
+          },
+          navbar 			: {
+              title			: ''
+          },
+          navbars			: [
+              {
+                  position	: 'top',
+                  content : ['<span>José Victor Alves de Souza</span>']
+              },
+              {
+                  position	: 'top'
+              },
+          ]
+      }).data( 'mmenu' ).bind( "closed", function() {
+          $(".menu-button").show();
+      });
+
+      $(".menu-button").click(function() {
+        API.open();
+        $(".menu-button").hide();
+
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-74364829-1']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
