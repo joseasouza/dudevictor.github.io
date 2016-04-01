@@ -86,9 +86,9 @@ void usage(int qtdArgs, char** args) {
 }
 ``` 
 
-Para executar o programa baixa realizar os seguintes comandos no terminal:
+Para executar o programa basta realizar os seguintes comandos no terminal:
 
- ```
+```
     make regions
     ./regions wallpaper.jpg 100 100 350 650
 ```

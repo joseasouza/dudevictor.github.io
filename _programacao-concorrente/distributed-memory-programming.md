@@ -25,7 +25,7 @@ tags:
  - Samuel Xavier de Souza
 ---
 Esta página tem como objetivo apresentar a resolução dos exercícios do 
-segundo capítulo do do livro ["An Introduction to Parallel Programming"][1]
+livro ["An Introduction to Parallel Programming"][1]
 de Peter Pacheco. A resolução dessas listas foi utilizada durante o curso de Programação Paralela no DCA / UFRN.
 
 Respostas dos capítulos:
