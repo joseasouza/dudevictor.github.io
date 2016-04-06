@@ -9,6 +9,22 @@ layout: default
   {% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
 {% endif %}
 
+{% assign m = page.date | date: "%-m" %}
+{% case m %}
+{% when '1' %}{% assign m = 'Janeiro' %}
+{% when '2' %}{% assign m = 'Fevereiro' %}
+{% when '3' %}{% assign m = 'Março' %}
+{% when '4' %}{% assign m = 'Abril' %}
+{% when '5' %}{% assign m = 'Maio' %}
+{% when '6' %}{% assign m = 'Junho' %}
+{% when '7' %}{% assign m = 'Julho' %}
+{% when '8' %}{% assign m = 'Agosto' %}
+{% when '9' %}{% assign m = 'Setembro' %}
+{% when '10' %}{% assign m = 'Outubro' %}
+{% when '11' %}{% assign m = 'Novembro' %}
+{% when '12' %}{% assign m = 'Dezembro' %}
+{% endcase %}
+
 <div class="container-fluid single">
   <div class="row">
 
@@ -25,24 +41,24 @@ layout: default
 
       <h1 class="header" itemprop="name">{{ page.title }}</h1>
 
+
       <div class="author">
         <small><i>
-          {% if page.author %}
-          by
+          {% if site.short_name %}
+          por
           <span itemprop="author">
             {% if site.google_plus_link %}
               <a rel="author" href="{{ site.google_plus_link }}">
-            {% endif %}
+                {% endif %}
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name">{{ page.author }}</span>
+              <span itemprop="name">{{ site.author_name }}</span>
             </span>
-            {% if site.google_plus_link %}
+                {% if site.google_plus_link %}
               </a>
             {% endif %}
           </span>
           {% endif %}
-          on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
-          {% if page.categories != empty %} under {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
+          em <span itemprop="datePublished" content="2014-08-28">{{ page.date | date:"%-d"}} de {{m}} de {{page.date | date:"%Y"}}</span>
         </i></small>
       </div>
 
@@ -50,6 +66,19 @@ layout: default
         <small>
           {{ minutes }} minute read
         </small>
+      </div>
+
+      <div class="anuncio-cabecalho">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Cabeçalho Responsivo -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="1413881545"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
 
       <div class="content-panel content">
@@ -66,8 +95,20 @@ layout: default
 
       </div>
 
+      <div class="anuncio">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Dudevictor github -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9976909752880073"
+             data-ad-slot="9516328345"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
       <div class="content-panel feedback">
-        Gostou deste artigo? Compartilhe ou deixe um comentário abaixo!<br />
+        Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
         {% if site.addthis_id %}
         <div class="share">
           <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -89,7 +130,7 @@ layout: default
       <div class="content-panel related clearfix">
         {% for post in site.related_posts limit:1 %}
         <div class="related-header">
-          <a href="{{ site.baseurl }}{{ post.url }}">Read More</a>
+          <a href="{{ site.baseurl }}{{ post.url }}">Outros Artigos</a>
         </div>
           <div class="title">
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -100,7 +141,7 @@ layout: default
              {% else %}
               {{ post.excerpt | strip_html | truncatewords:30 }}
              {% endif %}
-            <a href="{{ site.baseurl }}{{ post.url }}">Continue Reading</a>
+            <a href="{{ site.baseurl }}{{ post.url }}">Continue Lendo</a>
           </div>
         {% endfor %}
         <hr />
@@ -131,14 +172,14 @@ layout: default
 
 {% if site.disqus_account %}
 <script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-function disqus_config() { this.experiment.enable_scroll_container = true; }
-var disqus_shortname = "{{ site.disqus_account }}"; // required: replace example with your forum shortname
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  function disqus_config() { this.experiment.enable_scroll_container = true; }
+  var disqus_shortname = "{{ site.disqus_account }}"; // required: replace example with your forum shortname
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 {% endif %}
