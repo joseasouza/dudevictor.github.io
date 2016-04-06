@@ -482,6 +482,8 @@ html.mm-opened .mm-page {
           left: 15px;
           font-size: 65px;
           font-weight: bold; }
+        .single .article .content blockquote .highlight, .single .project .content blockquote .highlight {
+          margin-left: -45px; }
       .single .article .content .alignright, .single .project .content .alignright {
         float: right; }
       .single .article .content .aligncenter, .single .project .content .aligncenter {
