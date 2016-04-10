@@ -50,6 +50,7 @@ layout: default
 
     <div class="col-md-12">
       <div class="anuncio">
+        {% if site.environment == "production"%}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Dudevictor github -->
         <ins class="adsbygoogle"
@@ -60,6 +61,7 @@ layout: default
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        {% endif %}
       </div>
     </div>
 

@@ -1,3 +1,6 @@
+#Environment settings
+environment: production
+
 # Site settings
 title: Dudevictor GitHub IO
 email: jvas.2000@gmail.com

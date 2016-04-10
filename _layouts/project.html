@@ -59,6 +59,7 @@ layout: default
       </div>
 
       <div class="anuncio-cabecalho">
+        {% if site.environment == "production" %}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Cabeçalho Responsivo -->
         <ins class="adsbygoogle"
@@ -69,6 +70,7 @@ layout: default
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        {% endif %}
       </div>
 
       <div class="content-panel content">
@@ -76,6 +78,7 @@ layout: default
 
       </div>
       <div class="anuncio">
+        {% if site.environment == "production" %}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Dudevictor github -->
         <ins class="adsbygoogle"
@@ -86,6 +89,7 @@ layout: default
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        {% endif %}
       </div>
       <div class="content-panel feedback">
         Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
@@ -135,6 +139,7 @@ layout: default
 
     <div class="anuncio-lateral pull-right">
       <div class="conteudo-anuncio-lateral">
+        {% if site.environment == "production" %}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Lateral Responsivo -->
         <ins class="adsbygoogle"
@@ -145,6 +150,7 @@ layout: default
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        {% endif %}
       </div>
     </div>
 
