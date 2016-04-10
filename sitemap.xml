@@ -3,38 +3,40 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://dudevictor.github.io/404.html</loc>
+        <loc>http://dudevictor.github.io/404.html</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/</loc>
+        <loc>http://dudevictor.github.io/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/posts/</loc>
+        <loc>http://dudevictor.github.io/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/search/</loc>
+        <loc>http://dudevictor.github.io/posts/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/processamento-digital-imagens/</loc>
+        <loc>http://dudevictor.github.io/search/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/programacao-concorrente/</loc>
+        <loc>http://dudevictor.github.io/projects/processamento-digital-imagens/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/controle-inteligente/</loc>
+        <loc>http://dudevictor.github.io/projects/programacao-concorrente/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/programacao-concorrente/parallel-hardware-and-parallel-software/
-        </loc>
+        <loc>http://dudevictor.github.io/projects/controle-inteligente/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/programacao-concorrente/distributed-memory-programming/</loc>
+        <loc>http://dudevictor.github.io/projects/programacao-concorrente/parallel-hardware-and-parallel-software/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/programacao-concorrente/shared-memory-with-pthreads/</loc>
+        <loc>http://dudevictor.github.io/projects/programacao-concorrente/distributed-memory-programming/</loc>
     </url>
     <url>
-        <loc>https://dudevictor.github.io/projects/programacao-concorrente/shared-memory-with-openmp/</loc>
+        <loc>http://dudevictor.github.io/projects/programacao-concorrente/shared-memory-with-pthreads/</loc>
+    </url>
+    <url>
+        <loc>http://dudevictor.github.io/projects/programacao-concorrente/shared-memory-with-openmp/</loc>
     </url>
     <url>
         <loc>https://dudevictor.github.io/a-star-labyrinth/</loc>
