@@ -5,9 +5,8 @@ environment: production
 title: Dudevictor GitHub IO
 email: jvas.2000@gmail.com
 description: "Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na Logique Sistemas."
-title_description: "Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na <a href=\"http://logiquesistemas.com.br/\">Logique Sistemas</a>"
 baseurl: ""
-url: "https://dudevictor.github.io"
+url: "http://dudevictor.github.io"
 google_analytics: "UA-74364829-1"
 title_image: "https://avatars2.githubusercontent.com/u/13340644?v=3&s=460"
 disqus_account: dudevictorgithub
@@ -25,9 +24,6 @@ linkedin_link: https://br.linkedin.com/in/jvictoralves
 google_plus_link: https://plus.google.com/103774151163089217676
 stackoverflow_link: http://stackoverflow.com/users/2327056/jose-victor?tab=profile
 facebook_username: dudevictor
-
-# Footer
-footer_right: "&lt;/&gt; on <a href=\"https://github.com/dudevictor/dudevictor.github.io\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Collections
 collections:
@@ -56,5 +52,8 @@ tocTopTag: h3
 contentsLabel: Conteúdo
 anchorPrefix: topico-
 
-gems:
-  - jekyll-sitemap
+# Polyglot
+languages: ["pt_BR", "en"]
+default_lang: "pt_BR"
+exclude_from_localization: ["assets", "favicons", "css", "js"]
+parallel_localization: true

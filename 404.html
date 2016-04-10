@@ -36,8 +36,8 @@ permalink: /404.html
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
       </div>
       <div class="excerpt">
-         {% if post.summary %}
-          {{ post.summary | strip_html | truncatewords:30 }}
+         {% if post.summary[site.active_lang] %}
+          {{ post.summary[site.active_lang] | strip_html | truncatewords:30 }}
          {% else %}
           {{ post.excerpt | strip_html | truncatewords:30 }}
          {% endif %}

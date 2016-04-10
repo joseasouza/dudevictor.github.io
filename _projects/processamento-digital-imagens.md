@@ -1,9 +1,8 @@
 ---
 layout:     project
-title:      Processamento Digital de Imagens
-subject:    Processameto Digital de Imagens
+title:      processamento-imagens-title      
 date:       2016-03-03 23:45:00
-summary:    Algoritmos de processamento e tratamento de imagens com OpenCV
+summary:    processamento-imagens-summary
 categories: ufrn
 thumbnail: picture-o
 teacher:    Agostinho Brito Júnior

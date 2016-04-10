@@ -30,7 +30,7 @@ layout: default
       </div>
       {% endif %}
 
-      <h1 class="header" itemprop="name">{{ page.title }}</h1>
+      <h1 class="header" itemprop="name">{{ site.data[site.active_lang]["messages"][page.title] }}</h1>
 
       <div class="author">
         <small><i>
@@ -115,20 +115,22 @@ layout: default
         {% for project in site.projects limit:3 %}
         {% if project != page %}
         <div class="related-header">
-          <a href="{{ site.baseurl }}{{ project.url }}">Páginas Sugeridas</a>
+          <a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}{{project.url}}
+          {% else %} {{site.baseurl}}/{{ site.active_lang }}{{project.url}} {% endif %}">{{site.data[site.active_lang]["messages"]["view.paginas-sugeridas"]}}</a>
         </div>
         <div class="title">
-          <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-          <small class="hidden-xs">{{ projeto.teacher }}</small>
+          <a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}{{project.url}}
+          {% else %} {{site.baseurl}}/{{ site.active_lang }}{{project.url}} {% endif %}">{{ site.data[site.active_lang]["messages"][project.title] }}</a>
 
         </div>
         <div class="excerpt">
           {% if project.summary %}
-          {{ project.summary | markdownify | truncatewords:30 }}
+          {{ site.data[site.active_lang]["messages"][project.summary] | markdownify | truncatewords:30 }}
           {% else %}
           {{ project.excerpt | markdownify | truncatewords:30 }}
           {% endif %}
-          <br/><a href="{{ site.baseurl }}{{ project.url }}">Continue Lendo</a>
+          <br/><a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}{{project.url}}
+          {% else %} {{site.baseurl}}/{{ site.active_lang }}{{project.url}} {% endif %}">{{site.data[site.active_lang]["messages"]["view.continue-lendo"]}}</a>
         </div>
         {% break %}
         {% endif %}

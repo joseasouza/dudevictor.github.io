@@ -1,9 +1,8 @@
 ---
 layout:     project
-title:      Programação Concorrente e Distribuída
-subject:    Programação Concorrente e Distribuída
+title: programacao-concorrente-title      
 date:       2016-03-04 02:23:00
-summary:    Resolução da lista de exercícios do livro _An Introduction to Parallel Programming_
+summary: programacao-concorrente-summary
 categories: ufrn
 thumbnail:  laptop
 teacher:    Samuel Xavier de Souza
@@ -29,7 +28,8 @@ Respostas dos capítulos:
 
 - {{page.chapter}}
 {% for post in site.programacao-concorrente %}
-- [{{post.chapter}}]({{site.baseurl}}{{post.url}})
+- [{{post.chapter}}]({% if site.active_lang == site.default_lang %} {{site.baseurl}}{{post.url}}
+                               {% else %} {{site.baseurl}}/{{ site.active_lang }}{{post.url}} {% endif %})
 {% endfor %}
 
 
@@ -273,15 +273,3 @@ O acesso ao valor da variável saldo deveria ser realizado de forma sincronizada
 No exemplo acima, caso as duas funções fossem executadas ao mesmo tempo, poderia ocorrer a
 situação em que o saldoAtual em ‘deposito’ teria o valor antes de ser executado o saque. Assim,
 o valor do saldo que seria armazenado seria incorreto.
-
-
-
-
-
-
-
-
-
-
-
-

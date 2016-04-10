@@ -1,0 +1,20 @@
+#Mensagens Comuns a view
+view.disciplinas: "Disciplinas"
+view.home: "Início"
+view.todos-projetos: "Todos os Projetos"
+view.todos-artigos: "Todos os Artigos"
+view.pesquisar: "Pesquisar"
+view.paginas-sugeridas: "Páginas Sugeridas"
+view.continue-lendo: "Continue Lendo"
+
+#Mensagens das disciplinas
+processamento-imagens-title: "Processamento de Imagens"
+processamento-imagens-summary: "Algoritmos de processamento e tratamento de imagens com OpenCV"
+programacao-concorrente-title: "Programação Concorrente e Distribuída"
+programacao-concorrente-2-title: "Programação Concorrente e Distribuída (2)"
+programacao-concorrente-3-title: "Programação Concorrente e Distribuída (3)"
+programacao-concorrente-4-title: "Programação Concorrente e Distribuída (4)"
+programacao-concorrente-5-title: "Programação Concorrente e Distribuída (5)"
+programacao-concorrente-summary: "Resolução da lista de exercícios do livro _An Introduction to Parallel Programming_"
+controle-inteligente-title: "Controle Inteligente - A* Algorithm"
+controle-inteligente-summary: "Implementação do _A* Search Algorithm_ em HTML5 Canvas Game 2D e JavaScript, utilizando _sprites_ do _Chrono Trigger_"

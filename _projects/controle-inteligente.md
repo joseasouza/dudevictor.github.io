@@ -1,9 +1,8 @@
 ---
 layout:     project
-title:      Controle Inteligente - A* Algorithm 
-subject:    Controle Inteligente
+title: controle-inteligente-title      
 date:       2016-03-20 11:00:00
-summary:    Implementação do _A* Search Algorithm_ em HTML5 Canvas Game 2D e JavaScript, utilizando _sprites_ do _Chrono Trigger_
+summary: controle-inteligente-summary   
 categories: ufrn
 thumbnail: globe
 teacher:    Fábio Meneghetti Ugulino de Araújo

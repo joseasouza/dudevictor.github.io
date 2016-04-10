@@ -1,8 +1,8 @@
 ---
 layout: default
+lang: en
+permalink: /
 ---
-
-
 <div class="container-fluid index">
   <div class="row">
 
@@ -19,7 +19,9 @@ layout: default
       </div>
 
       <div class="author-text">
-        Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na <a href=\"http://logiquesistemas.com.br/\">Logique Sistemas</a>.
+        A would-be Computer Engineer and graduated in Science and Technology from Federal
+        University of Rio Grande do Norte, UFRN, Brazil. Java Web Developer at
+        <a href=\"http://logiquesistemas.com.br/\">Logique Sistemas</a>.
       </div>
 
       {% include social_links.html %}
@@ -29,7 +31,7 @@ layout: default
 
       <div class="articles">
 
-        <h2>{{site.data[site.active_lang]["messages"]["view.disciplinas"]}} - DCA / UFRN</h2>
+        <h2>{{site.data[site.active_lang]["messages"]["view.disciplinas"] }} - DCA / UFRN</h2>
 
         <ul>
           {% for projeto in site.projects | limit: site.project_limit %}

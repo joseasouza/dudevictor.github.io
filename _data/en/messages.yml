@@ -1,0 +1,20 @@
+#Mensagens Comuns a view
+view.disciplinas: "Subjects"
+view.home: "Home"
+view.todos-projetos: "All Projects"
+view.todos-artigos: "All Articles"
+view.pesquisar: "Search"
+view.paginas-sugeridas: "Suggested Pages"
+view.continue-lendo: "Continue Reading"
+
+#Mensagens das disciplinas
+processamento-imagens-title: "Digital Image Processing"
+processamento-imagens-summary: "Processing algorithms and image treatment with OpenCV"
+programacao-concorrente-title: "Concurrent and Distributed Programming"
+programacao-concorrente-2-title: "Concurrent and Distributed Programming (2)"
+programacao-concorrente-3-title: "Concurrent and Distributed Programming (3)"
+programacao-concorrente-4-title: "Concurrent and Distributed Programming (4)"
+programacao-concorrente-5-title: "Concurrent and Distributed Programming (5)"
+programacao-concorrente-summary: "Solutions Manual for _An Introduction to Parallel Programming_, Peter Pacheco"
+controle-inteligente-title: "Inteligent Control - A* Algotithm"
+controle-inteligente-summary: "Implementation of _A* Search Algorithm_ in HTML Canvas Game 2D and JavaScript, using Chrono Trigger sprites"

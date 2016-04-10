@@ -1,9 +1,8 @@
 ---
 layout:     project
-title:      Programação Concorrente e Distribuída (5)
-subject:    Programação Concorrente e Distribuída
+title:      programacao-concorrente-5-title      
 date:       2016-04-09 21:43:00
-summary:    Resolução da lista de exercícios do livro _An Introduction to Parallel Programming_
+summary:    programacao-concorrente-summary 
 categories: ufrn
 chapter:    Chapter 05 - Shared-Memory Programming with OpenMP
 thumbnail:  laptop
@@ -30,10 +29,13 @@ de Peter Pacheco. A resolução dessas listas foi utilizada durante o curso de P
 Respostas dos capítulos:
 
 {% assign cap1 = site.projects | where: "id", "/projects/programacao-concorrente" | first %}
-- [{{cap1.chapter}}]({{site.baseurl}}{{cap1.url}})
+
+- [{{cap1.chapter}}]({% if site.active_lang == site.default_lang %} {{site.baseurl}}{{cap1.url}}
+                                                    {% else %} {{site.baseurl}}/{{ site.active_lang }}{{cap1.url}} {% endif %})
 {% for post in site.programacao-concorrente %}
 {% if post != page %}
-- [{{post.chapter}}]({{site.baseurl}}{{post.url}})
+- [{{post.chapter}}]({% if site.active_lang == site.default_lang %} {{site.baseurl}}{{post.url}}
+                                                    {% else %} {{site.baseurl}}/{{ site.active_lang }}{{post.url}} {% endif %})
 {% else %}
 - {{post.chapter}}
 {% endif %}
