@@ -38,7 +38,7 @@
 <meta http-equiv="Content-Language" content="en">
 
     <link rel="alternate"
-          hreflang="pt_BR"
+          hreflang="pt-BR"
           href="http://dudevictor.github.io" />
     
     
@@ -49,9 +49,6 @@
           href="http://dudevictor.github.io/en" />
     
 
-
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d8c061351eac81"></script>
 
 </head>
 
@@ -100,12 +97,12 @@
       <div class="container-fluid index">
   <div class="row index all-posts">
 
-    <h1 class="header author-header">Pesquisar</h1>
+    <h1 class="header author-header">Search</h1>
 
     <div id="search-container">
-      <input type="text" id="search-input" placeholder="Digite aqui">
+      <input type="text" id="search-input" placeholder="Type here">
       <div class="col-md-12 content-panel articles">
-        <ul id="results-container"><small>Comece a digitar para ver resultados</small></ul>
+        <ul id="results-container"><small>Start typing to see results</small></ul>
       </div>
     </div>
 
@@ -120,9 +117,9 @@
   SimpleJekyllSearch.init({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
-    dataSource: '/search.json',
+    dataSource: '/en/search.json',
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}<\/a><\/li>',
-    noResultsText: 'Nenhum resultado encontrado',
+    noResultsText: "No results found",
     limit: 10,
     fuzzy: true,
   })
@@ -180,21 +177,6 @@
    });
 </script>
 
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-74364829-1']);
-          _gaq.push(['_trackPageview']);
-  (function () {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 
 
 
