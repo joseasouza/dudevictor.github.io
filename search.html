@@ -5,12 +5,12 @@ layout: default
 <div class="container-fluid index">
   <div class="row index all-posts">
 
-    <h1 class="header author-header">Pesquisar</h1>
+    <h1 class="header author-header">{{site.data[site.active_lang]["messages"]["view.pesquisar"]}}</h1>
 
     <div id="search-container">
-      <input type="text" id="search-input" placeholder="Digite aqui">
+      <input type="text" id="search-input" placeholder="{{site.data[site.active_lang]['messages']['view.digite-aqui']}}">
       <div class="col-md-12 content-panel articles">
-        <ul id="results-container"><small>Comece a digitar para ver resultados</small></ul>
+        <ul id="results-container"><small>{{site.data[site.active_lang]['messages']['view.comece-digitar']}}</small></ul>
       </div>
     </div>
 
@@ -25,9 +25,9 @@ layout: default
   SimpleJekyllSearch.init({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
-    dataSource: '{{ site.baseurl }}/search.json',
+    dataSource: '{{ site.baseurl }}/{% if site.active_lang != site.default_lang %}{{site.active_lang}}/{% endif %}search.json',
     searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}<\/a><\/li>',
-    noResultsText: 'Nenhum resultado encontrado',
+    noResultsText: "{{site.data[site.active_lang]['messages']['view.search.no-results']}}",
     limit: 10,
     fuzzy: true,
   })

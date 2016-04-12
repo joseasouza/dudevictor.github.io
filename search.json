@@ -2,24 +2,21 @@
 layout: none
 ---
 [
-  {% for post in site.posts %}
-  {
-    "title"    : "{{ post.title | escape }}",
-    "category" : "{{ post.category }}",
-    "tags"     : "{{ post.tags | join: ', ' }}",
-    "url"      : "{{ site.baseurl }}{{ post.url }}",
-    "date"     : "{{ post.date }}"
-    } {% unless forloop.last %},{% endunless %}
-    {% endfor %}
 
-    {% for projeto in site.projects %}
+  {% for collection in site.collections %}
+  {% for colecao in collection.docs %}
     {
-    "title"    : "{{ projeto.title | escape }}",
-    "category" : "{{ projeto.category }}",
-    "tags"     : "{{ projeto.tags | join: ', ' }}",
-    "url"      : "{{ site.baseurl }}{{ projeto.url }}",
-    "date"     : "{{ projeto.date }}"
-    } {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-        
+    "title"    : "{{ site.data[site.active_lang]['messages'][colecao.title] | escape }}",
+    "category" : "{{ colecao.category }}",
+    "tags"     : "{{ colecao.tags | join: ', ' }}",
+    "url"      : "{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{site.active_lang}}{% endif %}{{ colecao.url }}",
+    "date"     : "{{ colecao.date }}",
+    "desc"     : "{{site.data[site.active_lang]['messages'][colecao.summary]}}"
+    },
+  {% endfor %}
+  {% endfor %}
+
+    {
+    }
+
   ]

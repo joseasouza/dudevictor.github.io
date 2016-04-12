@@ -1,5 +1,5 @@
 #Environment settings
-environment: production
+environment: development
 
 # Site settings
 title: Dudevictor GitHub IO
@@ -53,7 +53,17 @@ contentsLabel: Conteúdo
 anchorPrefix: topico-
 
 # Polyglot
-languages: ["pt_BR", "en"]
-default_lang: "pt_BR"
+languages: ["pt-BR", "en"]
+default_lang: "pt-BR"
 exclude_from_localization: ["assets", "favicons", "css", "js"]
 parallel_localization: true
+
+# Date Formats
+
+date_format:
+  pt-BR:
+    long: "%d de %B de %Y"
+  en:
+    long: "%B %d, %Y"
+
+gems: [jekyll-last-modified-at]

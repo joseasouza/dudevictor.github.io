@@ -1,21 +1,6 @@
 ---
 layout: default
 ---
-{% assign m = page.date | date: "%-m" %}
-{% case m %}
-{% when '1' %}{% assign m = 'Janeiro' %}
-{% when '2' %}{% assign m = 'Fevereiro' %}
-{% when '3' %}{% assign m = 'Março' %}
-{% when '4' %}{% assign m = 'Abril' %}
-{% when '5' %}{% assign m = 'Maio' %}
-{% when '6' %}{% assign m = 'Junho' %}
-{% when '7' %}{% assign m = 'Julho' %}
-{% when '8' %}{% assign m = 'Agosto' %}
-{% when '9' %}{% assign m = 'Setembro' %}
-{% when '10' %}{% assign m = 'Outubro' %}
-{% when '11' %}{% assign m = 'Novembro' %}
-{% when '12' %}{% assign m = 'Dezembro' %}
-{% endcase %}
 <div class="container-fluid single">
   <div class="row">
 
@@ -35,7 +20,7 @@ layout: default
       <div class="author">
         <small><i>
           {% if site.short_name %}
-          por
+          {{site.data[site.active_lang]["messages"]["view.por"]}}
           <span itemprop="author">
             {% if site.google_plus_link %}
               <a rel="author" href="{{ site.google_plus_link }}">
@@ -48,7 +33,7 @@ layout: default
             {% endif %}
           </span>
           {% endif %}
-          em <span itemprop="datePublished" content="2014-08-28">{{ page.date | date:"%-d"}} de {{m}} de {{page.date | date:"%Y"}}</span>
+          {{site.data[site.active_lang]["messages"]["view.em"]}} <span itemprop="datePublished" content="2014-08-28">{{ page.date | localize: site.date_format[site.active_lang].long, site.active_lang}}</span>
         </i></small>
       </div>
 
@@ -92,7 +77,7 @@ layout: default
         {% endif %}
       </div>
       <div class="content-panel feedback">
-        Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
+        {{site.data[site.active_lang]["messages"]["view.gostou-pagina"]}}<br />
         {% if site.addthis_id %}
         <div class="share">
           <!-- Go to www.addthis.com/dashboard to customize your tools -->

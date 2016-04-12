@@ -11,14 +11,27 @@
     {% endif %}
   </url>
   {% endunless %}{% endfor %}
+
+  <!--Paginas HTML-->
   {% for page in site.html_pages %}{% unless page.sitemap == false %}
   <url>
     <loc>{{ page.url | replace:'/index.html','/' | prepend: site_url | uri_escape }}</loc>
     {% if page.last_modified_at %}
     <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
     {% endif %}
   </url>
+
+  <url>
+    <loc>{{ page.url | replace:'/index.html','/' | prepend: '/en' |  prepend: site_url | uri_escape }}</loc>
+    {% if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
+    {% endif %}
+  </url>
+
   {% endunless %}{% endfor %}
+  <!--Colecoes-->
   {% for collection in site.collections %}{% unless collection.last.output == false or collection.output == false or collection.label == 'posts' %}
   {% for doc in collection.last.docs %}{% unless doc.sitemap == false %}
   <url>
@@ -28,11 +41,21 @@
     {% endif %}
   </url>
   {% endunless %}{% endfor %}
+
   {% for doc in collection.docs %}{% unless doc.sitemap == false %}
     <url>
       <loc>{{ doc.url | replace:'/index.html','/' | prepend: site_url | uri_escape }}</loc>
       {% if doc.last_modified_at %}
       <lastmod>{{ doc.last_modified_at | date_to_xmlschema }}</lastmod>
+      <changefreq>daily</changefreq>
+      {% endif %}
+    </url>
+
+    <url>
+      <loc>{{ doc.url | replace:'/index.html','/' | prepend: '/en' | prepend: site_url | uri_escape }}</loc>
+      {% if doc.last_modified_at %}
+      <lastmod>{{ doc.last_modified_at | date_to_xmlschema }}</lastmod>
+      <changefreq>daily</changefreq>
       {% endif %}
     </url>
   {% endunless %}{% endfor %}
@@ -43,4 +66,14 @@
     <lastmod>{{ file.modified_time | date_to_xmlschema }}</lastmod>
   </url>
   {% endfor %}
+  <url>
+    <loc>http://dudevictor.github.io/a-star-labyrinth/index.html</loc>
+    <lastmod>2016-03-25T03:29:29+00:00</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://dudevictor.github.io/a-star-labyrinth/about.html</loc>
+    <lastmod>2016-03-25T03:29:29+00:00</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
 </urlset>

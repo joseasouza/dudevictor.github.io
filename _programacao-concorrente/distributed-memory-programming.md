@@ -141,7 +141,7 @@ O próximo ciclo segue a mesma lógica. O resultado se encontra abaixo:
 
 |  Processos    |  0  |   1   |   2   |   3   |
 |  ---------    |:---:|:-----:|:-----:|:-----:|
-|   Elementos   | x[0], x\[1], x[8], x[12]   | x[1], x[5], x[9], x[13]   |   x[2], x[6], x[10]    |   x[3], x[7], x[11]|
+|   Elementos   | x[0], x\[1], x[8], x[12]   | x\[1], x[5], x[9], x[13]   |   x[2], x[6], x[10]    |   x[3], x[7], x[11]|
 
 
 >__c.__ How would the components of x be distributed among the processes in a
