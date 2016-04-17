@@ -101,7 +101,7 @@ table {
 html.mm-opened .mm-page {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
 
-.mm-menu .mm-navbar a, .mm-menu .mm-navbar > * {
+.mm-menu, .mm-menu .mm-navbar-top > * {
   color: rgba(255, 255, 255, 0.6) !important;
   margin-top: 10px; }
 
@@ -128,6 +128,19 @@ html.mm-opened .mm-page {
     color: #3CA2A2; }
   #my-menu .pages .fa {
     margin-right: 10px; }
+
+.language-links a {
+  color: rgba(255, 255, 255, 0.6) !important;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0px 5px 0px 5px;
+  transition: 0.3s;
+  font-size: 14px; }
+.language-links a.active {
+  color: #FFFFFF !important;
+  font-weight: 500; }
+.language-links a:hover {
+  color: #FFFFFF !important; }
 
 .mm-menu .mm-listview > li a:not(.mm-next) {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
@@ -380,10 +393,7 @@ html.mm-opened .mm-page {
     height: 100%; }
     @media (max-width: 992px) {
       .single .anuncio-lateral {
-        height: 50px;
-        width: 100%;
-        bottom: 0px;
-        padding: 0px; } }
+        display: none; } }
     @media (min-width: 992px) {
       .single .anuncio-lateral {
         width: 15%;
@@ -410,6 +420,14 @@ html.mm-opened .mm-page {
       .single .article, .single .project {
         width: 60%;
         margin-left: 20%; } }
+    .single .article .header, .single .project .header {
+      font-size: 40px; }
+      @media (max-width: 992px) {
+        .single .article .header, .single .project .header {
+          font-size: 35px; } }
+      @media (max-width: 768px) {
+        .single .article .header, .single .project .header {
+          font-size: 32px; } }
     .single .article .thumb, .single .project .thumb {
       margin-top: 20px;
       margin-bottom: 0px;
@@ -445,6 +463,8 @@ html.mm-opened .mm-page {
           padding-right: 30px;
           padding-top: 40px;
           padding-bottom: 20px; } }
+      .single .article .content h2, .single .project .content h2 {
+        font-size: 25px; }
       .single .article .content img, .single .project .content img {
         max-width: 100%;
         padding: 10px;
@@ -464,14 +484,14 @@ html.mm-opened .mm-page {
         color: white;
         box-sizing: content-box;
         border: none;
-        font-size: 28px; }
+        font-size: 18px; }
         @media (min-width: 768px) {
           .single .article .content blockquote, .single .project .content blockquote {
             margin-left: -30px;
             padding-left: 45px;
             padding-right: 15px; } }
         .single .article .content blockquote p, .single .project .content blockquote p {
-          margin: 0;
+          margin: 0px 0px 20px 0px;
           padding: 15px;
           z-index: 0; }
         .single .article .content blockquote :before, .single .project .content blockquote :before {
@@ -542,20 +562,6 @@ html.mm-opened .mm-page {
         color: #C04848; }
       .single .article .feedback .share, .single .project .feedback .share {
         margin-top: 20px; }
-  .single .project .content blockquote {
-    font-size: 18px; }
-  .single .project .content p {
-    margin-bottom: 20px; }
-  .single .project .content h2 {
-    font-size: 25px; }
-  .single .project .header {
-    font-size: 40px; }
-    @media (max-width: 992px) {
-      .single .project .header {
-        font-size: 35px; } }
-    @media (max-width: 768px) {
-      .single .project .header {
-        font-size: 32px; } }
 
 .related {
   margin-top: 50px;

@@ -50,9 +50,6 @@
     
 
 
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d8c061351eac81"></script>
-
 </head>
 
 
@@ -234,16 +231,29 @@
               {
                   position	: 'top'
               },
+              {
+                  position	: 'bottom',
+                  content 	: ["<div class='language-links'><a class='active' href='/'>pt-BR</a><a  href='/en/'>en</a></div>"]
+              }
           ]
-      }).data( 'mmenu' ).bind( "closed", function() {
+      }).data( 'mmenu' );
+
+       API.bind( "closed", function() {
           $(".menu-button").show();
+          $("#at4-share, #at-share-dock").each(function() {
+              $(this).removeClass("hide");
+          });
       });
 
-      $(".menu-button").click(function() {
-        API.open();
-        $(".menu-button").hide();
+       $(".menu-button").click(function (e) {
+           e.preventDefault();
+           API.open();
+           $(".menu-button").hide();
+           $("#at4-share, #at-share-dock").each(function () {
+               $(this).removeClass("at4-show").addClass("hide");
+           });
 
-      });
+       });
    });
 </script>
 

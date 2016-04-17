@@ -13,6 +13,7 @@ Copyright (C) 2016 - José Victor Alves de Souza - dudevictor
 The contents of this website, which consists of the files in:
   - _config.yml
   - projetcs
+  - posts
   - assets/codes-copyright
 
 are copyrighted and sole property of its author José Victor Alves de Souza. It may not be used, modified, syndicated or distributed without expressed permission from the author.
