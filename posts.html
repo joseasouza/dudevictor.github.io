@@ -19,7 +19,7 @@ layout: default
       {% endif %}
 
           <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ site.data[site.active_lang]["messages"][post.title] }}</a>
           </li>
       {% if forloop.last %}
         </ul>
