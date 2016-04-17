@@ -8,7 +8,6 @@ chapter:    Chapter 02 - Parallel Hardware and Parallel Software
 thumbnail:  laptop
 teacher:    Samuel Xavier de Souza
 semester:   2015.2
-use_math_jax: true
 tags:
  - programação paralela
  - threads

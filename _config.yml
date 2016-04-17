@@ -36,9 +36,20 @@ collections:
 # Default values
 defaults:
   - scope:
-      type: projects
+      type: "projects"
     values:
       use_math_jax: true
+      use_add_this: true
+  - scope:
+      type: "programacao-concorrente"
+    values:
+      use_math_jax: true
+      use_add_this: true
+  - scope:
+      type: "posts"
+    values:
+      use_math_jax: true
+      use_add_this: true
 
 # Build settings
 markdown: redcarpet
@@ -66,4 +77,4 @@ date_format:
   en:
     long: "%B %d, %Y"
 
-gems: [jekyll-last-modified-at]
+gems: [jekyll-last-modified-at, jekyll/tagging, jekyll-tagging-related_posts]

@@ -1,30 +1,12 @@
 ---
 layout: default
 ---
-
 {% if page.minutes %}
-  {% assign minutes = page.minutes %}
+{% assign minutes = page.minutes %}
 {% else %}
-  {% assign minutes = content | number_of_words | divided_by: 180 %}
-  {% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
+{% assign minutes = content | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
 {% endif %}
-
-{% assign m = page.date | date: "%-m" %}
-{% case m %}
-{% when '1' %}{% assign m = 'Janeiro' %}
-{% when '2' %}{% assign m = 'Fevereiro' %}
-{% when '3' %}{% assign m = 'Março' %}
-{% when '4' %}{% assign m = 'Abril' %}
-{% when '5' %}{% assign m = 'Maio' %}
-{% when '6' %}{% assign m = 'Junho' %}
-{% when '7' %}{% assign m = 'Julho' %}
-{% when '8' %}{% assign m = 'Agosto' %}
-{% when '9' %}{% assign m = 'Setembro' %}
-{% when '10' %}{% assign m = 'Outubro' %}
-{% when '11' %}{% assign m = 'Novembro' %}
-{% when '12' %}{% assign m = 'Dezembro' %}
-{% endcase %}
-
 <div class="container-fluid single">
   <div class="row">
 
@@ -39,13 +21,13 @@ layout: default
       </div>
       {% endif %}
 
-      <h1 class="header" itemprop="name">{{ page.title }}</h1>
+      <h1 class="header" itemprop="name">{{ site.data[site.active_lang]["messages"][page.title] }}</h1>
 
 
       <div class="author">
         <small><i>
           {% if site.short_name %}
-          por
+          {{site.data[site.active_lang]["messages"]["view.por"]}}
           <span itemprop="author">
             {% if site.google_plus_link %}
               <a rel="author" href="{{ site.google_plus_link }}">
@@ -58,7 +40,7 @@ layout: default
             {% endif %}
           </span>
           {% endif %}
-          em <span itemprop="datePublished" content="2014-08-28">{{ page.date | date:"%-d"}} de {{m}} de {{page.date | date:"%Y"}}</span>
+          {{site.data[site.active_lang]["messages"]["view.em"]}} <span itemprop="datePublished" content="2014-08-28">{{ page.date | localize: site.date_format[site.active_lang].long, site.active_lang}}</span>
         </i></small>
       </div>
 
@@ -68,20 +50,7 @@ layout: default
         </small>
       </div>
 
-      <div class="anuncio-cabecalho">
-        {% if site.environment == "production" %}
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Cabeçalho Responsivo -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-9976909752880073"
-             data-ad-slot="1413881545"
-             data-ad-format="auto"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        {% endif %}
-      </div>
+      {% include anuncio-cabecalho.html %}
 
       <div class="content-panel content">
         <span itemprop="articleBody">{{ content }}</span>
@@ -97,22 +66,9 @@ layout: default
 
       </div>
 
-      <div class="anuncio">
-        {% if site.environment == "production" %}
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Dudevictor github -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-9976909752880073"
-             data-ad-slot="9516328345"
-             data-ad-format="auto"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        {% endif %}
-      </div>
+      {% include anuncio-rodape.html %}
       <div class="content-panel feedback">
-        Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
+        {{site.data[site.active_lang]["messages"]["view.gostou-pagina"]}}<br />
         {% if site.addthis_id %}
         <div class="share">
           <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -169,6 +125,8 @@ layout: default
       {% endif %}
 
     </div>
+
+    {% include anuncio-lateral.html %}
 
   </div>
 
