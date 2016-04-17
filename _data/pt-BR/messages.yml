@@ -13,6 +13,7 @@ view.search.no-results: "Nenhum resultado encontrado"
 view.em: "em"
 view.por: "por"
 view.content: "Conteúdo"
+view.minute-read: "minutos de leitura"
 
 #Mensagens das disciplinas
 processamento-imagens-title: "Processamento Digital de Imagens"

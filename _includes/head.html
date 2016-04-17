@@ -1,53 +1,71 @@
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% if page.title[site.active_lang] %}{{ page.title[site.active_lang] }}{% else %}{{ site.title }}{% endif %}</title>
-<meta name="description" content="{{ site.description }}">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title[site.active_lang] %}{{ page.title[site.active_lang] }}{% else %}{{ site.title }}{% endif
+        %}</title>
+    <meta name="description" content="{{ site.description }}">
 
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/css/font-awesome.css">
-<link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/css/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="{{ site.baseurl }}/css/androidstudio.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/css/toc.css">
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/css/jquery.mmenu.all.css"/>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/androidstudio.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/toc.css">
 
-<!-- Favicons generated at http://realfavicongenerator.net/ -->
-<link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/favicons/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/favicons/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/favicons/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/android-chrome-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="{{ site.baseurl }}/favicons/manifest.json">
-<link rel="shortcut icon" href="{{ site.baseurl }}/favicons/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="{{ site.baseurl }}/favicons/mstile-144x144.png">
-<meta name="msapplication-config" content="{{ site.baseurl }}/favicons/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-<meta http-equiv="Content-Language" content="{{site.active_lang}}">
+    <!-- Favicons generated at http://realfavicongenerator.net/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="{{ site.baseurl }}/favicons/manifest.json">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="{{ site.baseurl }}/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="Content-Language" content="{{site.active_lang}}">
 
     <link rel="alternate"
           hreflang="{{site.default_lang}}"
-          href="{{site.url}}{{page.permalink}}" />
+          href="{{site.url}}{{page.permalink}}"/>
     {% for lang in site.languages %}
     {% if lang == site.default_lang %}
     {% continue %}
     {% endif %}
     <link rel="alternate"
           hreflang="{{lang}}"
-          href="{{site.url}}/{{lang}}{{page.permalink}}" />
+          href="{{site.url}}/{{lang}}{{page.permalink}}"/>
     {% endfor %}
 
-{% if site.addthis_id and site.environment == "production" and page.use_add_this %}
+    {% if site.addthis_id and site.environment == "production" and page.use_add_this %}
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ site.addthis_id }}"></script>
-{% endif %}
+    {% endif %}
+
+    {% if site.google_analytics and site.environment == "production" %}
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    {% endif %}
 </head>
