@@ -5,6 +5,7 @@ view.todos-projetos: "Todos os Projetos"
 view.todos-artigos: "Todos os Artigos"
 view.pesquisar: "Pesquisar"
 view.paginas-sugeridas: "Páginas Sugeridas"
+view.artigos-sugeridos: "Artigos Sugeridos"
 view.continue-lendo: "Continue Lendo"
 view.gostou-pagina: "Gostou desta página? Compartilhe ou deixe um comentário abaixo!"
 view.digite-aqui: "Digite aqui"
@@ -29,3 +30,7 @@ controle-inteligente-summary: "Implementação do _A* Search Algorithm_ em HTML5
 
 #Posts
 sobre-jogos-nostalgicos-title: "Sobre Jogos Nostálgicos"
+
+#Erros HTML
+404.error: "404"
+404.message: "Desculpe, mas esta página não existe."

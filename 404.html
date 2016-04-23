@@ -1,24 +1,27 @@
 ---
 layout: default
-title: 404
+title: 404.error
 permalink: /404.html
+lang: pt-BR
 ---
 
 <div class="container-fluid index error">
   <div class="row">
 
     <div class="col-md-12 content-panel articles">
-      <h1 class="header author-header">404</h1>
+      <h1 class="header author-header">{{site.data[site.active_lang]["messages"]["404.error"] }}</h1>
 
       <div class="error-text">
-        Desculpe, mas esta página não existe.
+        {{site.data[page.lang]["messages"]["404.message"]}}
       </div>
 
       <div class="error-text">
-        <a href="{{ site.baseurl }}/">Home</a> |
-        <a href="{{ site.baseurl }}/projects/">Todos os Projetos</a> |
-        <a href="{{ site.baseurl }}/posts/">Todos os Artigos</a> |
-        <a href="{{ site.baseurl }}/search/">Pesquisar</a>
+        <a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}/
+                                                    {% else %}{{site.baseurl}}/{{ site.active_lang }} {% endif %}">{{site.data[site.active_lang]["messages"]["view.home"] }}</a> |
+        <a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}
+                                                    {% else %} {{site.baseurl}}/{{ site.active_lang }}{% endif %}/posts/">{{site.data[site.active_lang]["messages"]["view.todos-artigos"] }}</a> |
+        <a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}
+                                                    {% else %} {{site.baseurl}}/{{ site.active_lang }}{% endif %}/search/">{{site.data[site.active_lang]["messages"]["view.pesquisar"] }}</a>
       </div>
 
       {% include social_links.html %}
@@ -27,13 +30,13 @@ permalink: /404.html
 
   </div>
 
-  <div class="content-panel">
+  <div class="content-panel related col-md-12">
     {% for post in site.posts limit:1 %}
       <div class="related-header">
-        <a href="{{ site.baseurl }}{{ post.url }}">Artigos Sugeridos</a>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{site.data[site.active_lang]["messages"]["view.artigos-sugeridos"] }}</a>
       </div>
       <div class="title">
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{site.data[site.active_lang]["messages"][post.title]}}</a>
       </div>
       <div class="excerpt">
          {% if post.summary[site.active_lang] %}
@@ -41,7 +44,7 @@ permalink: /404.html
          {% else %}
           {{ post.excerpt | strip_html | truncatewords:30 }}
          {% endif %}
-        <a href="{{ site.baseurl }}{{ post.url }}">Continue Lendo</a>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{site.data[site.active_lang]["messages"]["view.continue-lendo"] }}</a>
       </div>
     {% endfor %}
   </div>

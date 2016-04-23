@@ -2,7 +2,6 @@
 layout:     post
 title:      sobre-jogos-nostalgicos-title
 date:       2016-04-16 23:09:00
-summary:    programacao-concorrente-summary
 categories: game
 thumbnail:  gamepad
 tags:
