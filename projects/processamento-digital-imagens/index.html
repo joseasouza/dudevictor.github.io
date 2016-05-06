@@ -187,19 +187,35 @@
               <a href="#topico-1-1"><span class="tocnumber">1.</span> <span class="toctext">Introdução</span></a>
             </li>
             <li class="toc_level-1 toc_section-2">
-              <a href="#topico-1-2"><span class="tocnumber">2.</span> <span class="toctext">Manipulando pixels em uma imagem</span></a>
+              <a href="#topico-1-2"><span class="tocnumber">2.</span> <span class="toctext">Primeira Unidade</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-3">
+                  <a href="#topico-1-2-1"><span class="tocnumber">2.1.</span> <span class="toctext">Manipulando pixels em uma imagem</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-4">
+                  <a href="#topico-1-2-2"><span class="tocnumber">2.2.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#topico-1-2-3"><span class="tocnumber">2.3.</span> <span class="toctext">Manipulação de Histogramas</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#topico-1-2-4"><span class="tocnumber">2.4.</span> <span class="toctext">Filtragem no domínio espacial I</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#topico-1-2-5"><span class="tocnumber">2.5.</span> <span class="toctext">Filtragem no domínio espacial II</span></a>
+                </li>
+              </ul>
             </li>
-            <li class="toc_level-1 toc_section-3">
-              <a href="#topico-1-3"><span class="tocnumber">3.</span> <span class="toctext">Preenchendo Regiões com OpenCV</span></a>
-            </li>
-            <li class="toc_level-1 toc_section-4">
-              <a href="#topico-1-4"><span class="tocnumber">4.</span> <span class="toctext">Manipulação de Histogramas</span></a>
-            </li>
-            <li class="toc_level-1 toc_section-5">
-              <a href="#topico-1-5"><span class="tocnumber">5.</span> <span class="toctext">Filtragem no domínio espacial I</span></a>
-            </li>
-            <li class="toc_level-1 toc_section-6">
-              <a href="#topico-1-6"><span class="tocnumber">6.</span> <span class="toctext">Filtragem no domínio espacial II</span></a>
+            <li class="toc_level-1 toc_section-8">
+              <a href="#topico-1-8"><span class="tocnumber">3.</span> <span class="toctext">Segunda Unidade</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-9">
+                  <a href="#topico-1-8-1"><span class="tocnumber">3.1.</span> <span class="toctext">Filtragem no Domínio da Frequência</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-10">
+                  <a href="#topico-1-8-2"><span class="tocnumber">3.2.</span> <span class="toctext">Canny e a arte do pontilhismo</span></a>
+                </li>
+              </ul>
             </li>
           </ul>
         </td>
@@ -214,7 +230,9 @@ Para compilar os códigos apresentados neste tópico pode-se utilizar <a href="/
 
 <p>Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.</p>
 
-<h3 id="topico-1-2">Manipulando pixels em uma imagem</h3>
+<h3 id="topico-1-2">Primeira Unidade</h3>
+
+<h4 id="topico-1-2-1">Manipulando pixels em uma imagem</h4>
 
 <p>Inicialmente é solicitado a implementação de um programa que exiba o negativo de uma imagem a partir de dois pontos
 lidos <code>P1</code>e <code>P2</code>. Os pontos são lidos via terminal na ordem <code>P1.x</code>, <code>P1.y</code>, <code>P2.x</code> e <code>P2.y</code>. Para aplicar o efeito
@@ -350,7 +368,7 @@ pode ser visto a seguir:</p>
   <img src="/assets/pdi/resultadoTrocaRegioes.png" alt="Resultado Troca Regiões" />
 </p>
 
-<h3 id="topico-1-3">Preenchendo Regiões com OpenCV</h3>
+<h4 id="topico-1-2-2">Preenchendo Regiões com OpenCV</h4>
 
 <p>No programa <a href="/assets/codes-copyright/labeling.cpp">labeling.cpp</a> fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre <code>0</code> e <code>255</code>.
 Portanto, quando há mais do que 255 objetos na cena, a rotulação fica comprometida pois não mais mais tons de cinza
@@ -495,7 +513,7 @@ int main(int argc, char** argv){
  <img src="/assets/pdi/resultadoBolhas.png" alt="Resultado Contagem por Labeling" />
  <img src="/assets/pdi/resultadoLabelingTerminal.png" alt="Resultado Contagem por Labeling no Terminal" /></p>
 
-<h3 id="topico-1-4">Manipulação de Histogramas</h3>
+<h4 id="topico-1-2-3">Manipulação de Histogramas</h4>
 
 <p>O primeiro exercício deste tópico solicita que se implemente um programa chamado <code>equalize.cpp</code> que realize
 a equalização de histograma utilizando as funções do OpenCV.</p>
@@ -591,7 +609,7 @@ pode ser visto abaixo:</p>
 Por exemplo, na imagem acima, toda vez que o livro era movido na frente da câmera, o alarme disparava. 
 Para alterar a sensibilidade da detecção basta altera os parâmetros de <code>tolerância</code> e <code>COUNT_MAX</code> no código.</p>
 
-<h3 id="topico-1-5">Filtragem no domínio espacial I</h3>
+<h4 id="topico-1-2-4">Filtragem no domínio espacial I</h4>
 
 <p>Esse exercício, solicita que modifique o código fornecido <a href="/assets/pdi/filtroespacial.cpp">filtroespacial.cpp</a> para que seja adicionado
 uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens capturadas pela webcam.</p>
@@ -610,7 +628,7 @@ uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens captura
 <p>Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
 o filtro laplaciano.</p>
 
-<h3 id="topico-1-6">Filtragem no domínio espacial II</h3>
+<h4 id="topico-1-2-5">Filtragem no domínio espacial II</h4>
 
 <p>Este exercício solicita que seja implementado o programa <code>tiltshift.cpp</code>. Este programa deve realizar a leitura
 de uma imagem para que se aplique o efeito do <em>tiltshift</em>, disponibilizando na interface 3 funcionalidades:</p>
@@ -718,6 +736,137 @@ alterações nos parâmetros da interface pelo usuário.</p>
 <img src="/assets/pdi/tiltshift/rocinha_tiltshift.png" alt="Rocinha Tiltshift" />
 <img src="/assets/pdi/tiltshift/newyork_tiltshift.png" alt="New York Tiltshift" /></p>
 
+<h3 id="topico-1-8">Segunda Unidade</h3>
+
+<h4 id="topico-1-8-1">Filtragem no Domínio da Frequência</h4>
+
+<p>Neste exercício, é solicitado a implementação do <a href="https://en.wikipedia.org/wiki/Homomorphic_filtering">Fitro Homomórfico</a> para melhorar imagens com iluminação regular.
+Para isso, utilizou-se a imagem a seguir como base para tratamento do filtro homomórfico. </p>
+
+<p>
+  <img src="/assets/pdi/biel.png" alt="Biel" />
+</p>
+
+<p>Para auxílio da aplicação das transformadas de Fourier direta e inversa, foram utilizados os métodos de <em>dft</em> e <em>idft</em>
+já implementados no OpenCV. Os passos utilizados para a aplicação do filtro foram os seguintes:</p>
+
+<ul>
+<li>Realiza-se a aplicação da Transformada de Fourier sobre a matriz de pixels da imagem, obtendo-se assim Z(x,y)</li>
+<li>Realiza-se a troca de quadrantes da imagem, apresentada no exercício "Manipulando pixels em uma imagem". </li>
+<li>Constrói-se a matriz do filtro H(x,y), utilizando a seguinte fórmula:</li>
+</ul>
+
+<p>$$ H(u, v) = (\gamma_H  - \gamma_L)(1 - e^{\frac{-cD^2(u,v)}{D_o^2}}) + \gamma_L $$</p>
+
+<ul>
+<li>Após isso, realiza-se uma multiplicação ponto a ponto da matriz H(u, v) por Z(x, y), obtendo-se G(x, y);</li>
+<li>Realiza-se então novamente a troca dos quadrantes mas agora para a nova imagem G(x,y);</li>
+<li>E, por fim, realiza-se a transformada inversa de Fourier sobre a iamgem G(x, y) e a imagem resultante é a imagem obtida.</li>
+</ul>
+
+<p>Parte do código utilizado para a implementação do filtro homomófico é apresetando a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">void calcHomomorphicFilter() {
+    Mat filter = Mat(padded.size(), CV_32FC2, Scalar(0));
+    Mat tmp = Mat(dft_M, dft_N, CV_32F);
+
+    for (int i = 0; i &lt; dft_M; i++) {
+        for (int j = 0; j &lt; dft_N; j++) {
+            float d2 = pow(i - dft_M/2.0, 2) + pow(j - dft_N/2.0, 2);
+            float exp = - (d2/pow(d0, 2));
+            float valor = (yh - yl)*(1 - expf(exp) ) + yl;
+            tmp.at&lt;float&gt; (i,j) = valor;
+        }
+    }
+
+    Mat comps[] = {tmp, tmp};
+    merge(comps, 2, filter);
+
+    Mat dftClone = imageDft.clone();
+
+    mulSpectrums(dftClone,filter,dftClone,0);
+
+    deslocaDFT(dftClone);
+
+    idft(dftClone, dftClone);
+
+    vector&lt;Mat&gt; planos;
+
+    split (dftClone, planos);
+
+    normalize(planos[0], planos[0], 0, 1, CV_MINMAX);
+
+    ...
+}
+</code>
+  </pre>
+</div>
+<p>O código completo pode ser encontrado <a href="/assets/pdi/filtroHomomorfico.cpp">aqui</a>.</p>
+
+<p>A imagem tratada através do filtro homomórfico é mostrada a seguir:</p>
+
+<p>
+  <img src="/assets/pdi/filtroHomomorfico.png" alt="Filtro Homomorfico" />
+</p>
+
+<h4 id="topico-1-8-2">Canny e a arte do pontilhismo</h4>
+
+<p>Este exercício solicita que seja implementado o programa <em>cannypoints.cpp</em>. A ideia é que seja utilizado
+as bordas detectadas através do algoritmo de Canny para melhorar a qualidade da imagem pontilhista.</p>
+
+<p>A estratégia aqui adotada foi desenhar círculos nos contornos detectados pela algoritmo através
+das funções <em>circle()</em> e <em>findContours()</em> do OpenCV. O resultado da imagem é uma figura 
+pontilhista com mais detalhes nas regiões próximas a borda.</p>
+
+<p>A imagem original utilizada é apresentada a seguir:</p>
+
+<p>
+  <img src="/assets/pdi/eiffel.png" alt="Torre Eiffel" />
+</p>
+
+<p>Com o algoritmo desenvolvido, aplicou-se o efeito na imagem acima e o resultado sem a utilização do
+ algoritmo de Canny é mostrado a seguir:</p>
+
+<p>
+  <img src="/assets/pdi/testeSemCanny.png" alt="Resultado Sem Canny" />
+</p>
+
+<p>Uma vez aplicado o efeito, com a estratégia citada acima, o resultado da imagem foi o seguinte:</p>
+
+<p>
+  <img src="/assets/pdi/resultadoComCanny.png" alt="Resultado com Canny" />
+</p>
+
+<p>Foi realizado também um teste com a geração da imagem em formato colorido, o resultado está representado 
+na imagem abaixo:</p>
+
+<p>
+  <img src="/assets/pdi/pontilhismoSemCanny.png" alt="Pontilhismo sem canny" />
+</p>
+
+<p>O algoritmo que gerou estas imagens pode ser baixado por <a href="/assets/pdi/cannypoints.cpp">aqui</a>. O código foi implementado
+ usando as <em>trackbars</em> disponibilizados pelo OpenCV e a parte mais
+significativa do código é mostrado a seguir:</p>
+<div class="highlight">
+  <pre>
+    <code class="language-" data-lang="">//Referente ao desenho do pontilhismo usando as bordas de canny como referênca. 
+vector&lt;vector&lt;Point&gt;&gt; contornos;
+  vector&lt;Vec4i&gt; hierarquia;
+  findContours(border, contornos, hierarquia, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
+  for (int i = 0; i &lt; contornos.size(); i++){
+    for (int j = 0; j &lt; contornos[i].size(); j++) {
+      uchar cor = image.at&lt;uchar&gt;(contornos[i][j].y, contornos[i][j].x);
+      circle(points, cv::Point(contornos[i][j].x, contornos[i][j].y),
+      1,
+      CV_RGB(cor, cor, cor),
+      -1,
+      CV_AA);
+    }
+  }
+</code>
+  </pre>
+</div>
 <div class="tags">
     <small>
         <i class="fa fa-tags"></i>
