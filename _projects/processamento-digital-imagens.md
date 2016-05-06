@@ -29,7 +29,8 @@ Para compilar os códigos apresentados neste tópico pode-se utilizar [este arqu
 
 Esta página estará sendo atualizada conforme a disciplina for sendo encaminhada.
 
-### Manipulando pixels em uma imagem
+### Primeira Unidade
+#### Manipulando pixels em uma imagem
 
 Inicialmente é solicitado a implementação de um programa que exiba o negativo de uma imagem a partir de dois pontos
 lidos `P1`e `P2`. Os pontos são lidos via terminal na ordem `P1.x`, `P1.y`, `P2.x` e `P2.y`. Para aplicar o efeito
@@ -158,7 +159,7 @@ pode ser visto a seguir:
  ![Resultado Troca Regiões][11]
 
 
-### Preenchendo Regiões com OpenCV
+#### Preenchendo Regiões com OpenCV
 
 No programa [labeling.cpp][3] fornecido, cada objeto encontrado é rotulado com um valor no tom de cinza que varia entre `0` e `255`.
 Portanto, quando há mais do que 255 objetos na cena, a rotulação fica comprometida pois não mais mais tons de cinza
@@ -300,7 +301,7 @@ O resultado está apresentado na imagem abaixo:
  ![Resultado Contagem por Labeling][6]
  ![Resultado Contagem por Labeling no Terminal][12]
 
-### Manipulação de Histogramas
+#### Manipulação de Histogramas
 
 O primeiro exercício deste tópico solicita que se implemente um programa chamado `equalize.cpp` que realize
 a equalização de histograma utilizando as funções do OpenCV.
@@ -390,7 +391,7 @@ Como resultado, nota-se que o programa dispara o alarme toda vez que há uma alt
 Por exemplo, na imagem acima, toda vez que o livro era movido na frente da câmera, o alarme disparava. 
 Para alterar a sensibilidade da detecção basta altera os parâmetros de `tolerância` e `COUNT_MAX` no código.
 
-### Filtragem no domínio espacial I
+#### Filtragem no domínio espacial I
 
 Esse exercício, solicita que modifique o código fornecido [filtroespacial.cpp][19] para que seja adicionado
 uma nova funcionalidade de aplicar o laplaciano do gaussiano nas imagens capturadas pela webcam.
@@ -409,7 +410,7 @@ Filtro do Laplaciano do Gaussiano:
 Nota-se que o filtro do gaussiano atenuou o ruído da imagem, facilitando a identificação das bordas com
 o filtro laplaciano.
 
-### Filtragem no domínio espacial II
+#### Filtragem no domínio espacial II
 Este exercício solicita que seja implementado o programa `tiltshift.cpp`. Este programa deve realizar a leitura
 de uma imagem para que se aplique o efeito do _tiltshift_, disponibilizando na interface 3 funcionalidades:
 
@@ -506,6 +507,119 @@ O código completo pode ser baixado por [aqui][28]. Alguns outros
 ![Rocinha Tiltshift][30]
 ![New York Tiltshift][31]
 
+### Segunda Unidade
+#### Filtragem no Domínio da Frequência
+
+Neste exercício, é solicitado a implementação do [Fitro Homomórfico][32] para melhorar imagens com iluminação regular.
+Para isso, utilizou-se a imagem a seguir como base para tratamento do filtro homomórfico. 
+
+![Biel][34]
+
+Para auxílio da aplicação das transformadas de Fourier direta e inversa, foram utilizados os métodos de _dft_ e _idft_
+já implementados no OpenCV. Os passos utilizados para a aplicação do filtro foram os seguintes:
+
+- Realiza-se a aplicação da Transformada de Fourier sobre a matriz de pixels da imagem, obtendo-se assim Z(x,y)
+- Realiza-se a troca de quadrantes da imagem, apresentada no exercício "Manipulando pixels em uma imagem". 
+- Constrói-se a matriz do filtro H(x,y), utilizando a seguinte fórmula:
+
+$$ H(u, v) = (\gamma_H  - \gamma_L)(1 - e\^{\frac{-cD\^2(u,v)}{D_o\^2}}) + \gamma_L $$
+
+- Após isso, realiza-se uma multiplicação ponto a ponto da matriz H(u, v) por Z(x, y), obtendo-se G(x, y);
+- Realiza-se então novamente a troca dos quadrantes mas agora para a nova imagem G(x,y);
+- E, por fim, realiza-se a transformada inversa de Fourier sobre a iamgem G(x, y) e a imagem resultante é a imagem obtida.
+
+Parte do código utilizado para a implementação do filtro homomófico é apresetando a seguir:
+ 
+```
+void calcHomomorphicFilter() {
+    Mat filter = Mat(padded.size(), CV_32FC2, Scalar(0));
+    Mat tmp = Mat(dft_M, dft_N, CV_32F);
+
+    for (int i = 0; i < dft_M; i++) {
+        for (int j = 0; j < dft_N; j++) {
+            float d2 = pow(i - dft_M/2.0, 2) + pow(j - dft_N/2.0, 2);
+            float exp = - (d2/pow(d0, 2));
+            float valor = (yh - yl)*(1 - expf(exp) ) + yl;
+            tmp.at<float> (i,j) = valor;
+        }
+    }
+
+    Mat comps[] = {tmp, tmp};
+    merge(comps, 2, filter);
+
+    Mat dftClone = imageDft.clone();
+
+    mulSpectrums(dftClone,filter,dftClone,0);
+
+    deslocaDFT(dftClone);
+
+    idft(dftClone, dftClone);
+
+    vector<Mat> planos;
+
+    split (dftClone, planos);
+
+    normalize(planos[0], planos[0], 0, 1, CV_MINMAX);
+    
+    ...
+}
+```
+
+O código completo pode ser encontrado [aqui][33].
+
+A imagem tratada através do filtro homomórfico é mostrada a seguir:
+
+![Filtro Homomorfico][35]
+
+#### Canny e a arte do pontilhismo
+
+Este exercício solicita que seja implementado o programa _cannypoints.cpp_. A ideia é que seja utilizado
+as bordas detectadas através do algoritmo de Canny para melhorar a qualidade da imagem pontilhista.
+
+A estratégia aqui adotada foi desenhar círculos nos contornos detectados pela algoritmo através
+das funções _circle()_ e _findContours()_ do OpenCV. O resultado da imagem é uma figura 
+pontilhista com mais detalhes nas regiões próximas a borda.
+
+A imagem original utilizada é apresentada a seguir:
+
+![Torre Eiffel][36]
+
+Com o algoritmo desenvolvido, aplicou-se o efeito na imagem acima e o resultado sem a utilização do
+ algoritmo de Canny é mostrado a seguir:
+ 
+![Resultado Sem Canny][37]
+
+Uma vez aplicado o efeito, com a estratégia citada acima, o resultado da imagem foi o seguinte:
+
+![Resultado com Canny][38]
+
+Foi realizado também um teste com a geração da imagem em formato colorido, o resultado está representado 
+na imagem abaixo:
+
+![Pontilhismo sem canny][39]
+
+O algoritmo que gerou estas imagens pode ser baixado por [aqui][40]. O código foi implementado
+ usando as _trackbars_ disponibilizados pelo OpenCV e a parte mais
+significativa do código é mostrado a seguir:
+
+```
+//Referente ao desenho do pontilhismo usando as bordas de canny como referênca. 
+vector<vector<Point>> contornos;
+  vector<Vec4i> hierarquia;
+  findContours(border, contornos, hierarquia, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
+  for (int i = 0; i < contornos.size(); i++){
+    for (int j = 0; j < contornos[i].size(); j++) {
+      uchar cor = image.at<uchar>(contornos[i][j].y, contornos[i][j].x);
+      circle(points, cv::Point(contornos[i][j].x, contornos[i][j].y),
+      1,
+      CV_RGB(cor, cor, cor),
+      -1,
+      CV_AA);
+    }
+  }
+```
+
+
 
 {%include tags.html%}
 
@@ -540,4 +654,14 @@ O código completo pode ser baixado por [aqui][28]. Alguns outros
 [29]: {{site.baseurl}}/assets/pdi/tiltshift/manhatan_tiltshift.png
 [30]: {{site.baseurl}}/assets/pdi/tiltshift/rocinha_tiltshift.png
 [31]: {{site.baseurl}}/assets/pdi/tiltshift/newyork_tiltshift.png
+[32]: https://en.wikipedia.org/wiki/Homomorphic_filtering
+[33]: {{site.baseurl}}/assets/pdi/filtroHomomorfico.cpp
+[34]: {{site.baseurl}}/assets/pdi/biel.png
+[35]: {{site.baseurl}}/assets/pdi/filtroHomomorfico.png
+[36]: {{site.baseurl}}/assets/pdi/eiffel.png
+[37]: {{site.baseurl}}/assets/pdi/testeSemCanny.png
+[38]: {{site.baseurl}}/assets/pdi/resultadoComCanny.png
+[39]: {{site.baseurl}}/assets/pdi/pontilhismoSemCanny.png
+[40]: {{site.baseurl}}/assets/pdi/cannypoints.cpp
+
 
