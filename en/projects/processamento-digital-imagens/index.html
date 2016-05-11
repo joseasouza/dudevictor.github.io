@@ -758,6 +758,10 @@ já implementados no OpenCV. Os passos utilizados para a aplicação do filtro f
 <li>E, por fim, realiza-se a transformada inversa de Fourier sobre a iamgem G(x, y) e a imagem resultante é a imagem obtida.</li>
 </ul>
 
+<p>Foi tentado incrementar o filtro homomórfico aplicando a função logarítmica antes da transformada (tratando-se o caso de log(0)),
+e aplicando a exponencial ao valor de saída como é mostrado <a href="http://academic.mu.edu/phys/matthysd/web226/L0219.htm">nesse link</a>. No entanto, não obteve-se um
+resultado agradável e por isso não foi colocado aqui.</p>
+
 <p>Parte do código utilizado para a implementação do filtro homomófico é apresetando a seguir:</p>
 <div class="highlight">
   <pre>
