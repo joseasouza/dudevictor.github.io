@@ -528,6 +528,10 @@ $$ H(u, v) = (\gamma_H  - \gamma_L)(1 - e\^{\frac{-cD\^2(u,v)}{D_o\^2}}) + \gamm
 - Realiza-se então novamente a troca dos quadrantes mas agora para a nova imagem G(x,y);
 - E, por fim, realiza-se a transformada inversa de Fourier sobre a iamgem G(x, y) e a imagem resultante é a imagem obtida.
 
+Foi tentado incrementar o filtro homomórfico aplicando a função logarítmica antes da transformada (tratando-se o caso de log(0)),
+e aplicando a exponencial ao valor de saída como é mostrado [nesse link][41]. No entanto, não obteve-se um
+resultado agradável e por isso não foi colocado aqui.
+
 Parte do código utilizado para a implementação do filtro homomófico é apresetando a seguir:
  
 ```
@@ -663,5 +667,6 @@ vector<vector<Point>> contornos;
 [38]: {{site.baseurl}}/assets/pdi/resultadoComCanny.png
 [39]: {{site.baseurl}}/assets/pdi/pontilhismoSemCanny.png
 [40]: {{site.baseurl}}/assets/pdi/cannypoints.cpp
+[41]: http://academic.mu.edu/phys/matthysd/web226/L0219.htm
 
 
