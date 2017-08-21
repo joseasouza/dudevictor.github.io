@@ -34,7 +34,7 @@ permalink: /
         <h2>{{site.data[site.active_lang]["messages"]["view.disciplinas"] }} - DCA / UFRN</h2>
 
         <ul>
-          {% for projeto in site.projects | limit: site.project_limit %}
+          {% for projeto in site.projects limit: site.project_limit %}
 
           <li>
             <a href="{{ projeto.url | prepend: site.baseurl }}">{{ site.data[site.active_lang]["messages"][projeto.title] }}</a>

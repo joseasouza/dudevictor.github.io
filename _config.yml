@@ -1,5 +1,5 @@
 #Environment settings
-environment: production
+environment: development
 
 # Site settings
 title: Dudevictor GitHub IO
