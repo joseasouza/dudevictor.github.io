@@ -4,7 +4,7 @@
       <li><a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}/
                                                     {% else %}{{site.baseurl}}/{{ site.active_lang }} {% endif %}"><i class="fa fa-home"></i> {{site.data[site.active_lang]["messages"]["view.home"] }}</a></li>
       <li>
-        <span><i class="fa fa-archive"></i> {{site.data[site.active_lang]["messages"]["view.todos-projetos"] }}</span>
+        <span><i class="fa fa-archive"></i> {{site.data[site.active_lang]["messages"]["view.projetos"] }}</span>
         <ul>
         {% for projeto in site.projects %}
           <li><a href="{% if site.active_lang == site.default_lang %} {{site.baseurl}}{{projeto.url}}

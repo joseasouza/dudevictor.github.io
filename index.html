@@ -19,7 +19,8 @@ layout: default
       </div>
 
       <div class="author-text">
-        Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na <a href="http://logiquesistemas.com.br/">Logique Sistemas</a>.
+        Desenvolvedor Web Full stack na <a href="http://logiquesistemas.com.br/">Logique Sistemas</a>.
+        <br/>Formado em Engenharia de Computação pela UFRN.
       </div>
 
       {% include social_links.html %}
@@ -29,7 +30,32 @@ layout: default
 
       <div class="articles">
 
-        <h2>{{site.data[site.active_lang]["messages"]["view.disciplinas"]}} - DCA / UFRN</h2>
+        <h2>{{site.data[site.active_lang]["messages"]["view.todos-artigos"]}}</h2>
+
+        <ul>
+          {% for post in site.posts limit: site.post_limit %}
+
+          <li>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ site.data[site.active_lang]["messages"][post.title] }}</a>
+            <small class="hidden-xs">{{ post.date | localize: site.date_format[site.active_lang].long, site.active_lang}}
+              <br/>
+              {% for tag in post.categories limit: 3%} {{tag | prepend: '#'}} {% endfor %}
+            </small>
+          </li>
+
+          {% endfor %}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-12 main content-panel">
+
+      <div class="articles">
+
+        <h2>{{site.data[site.active_lang]["messages"]["view.projetos"]}}</h2>
 
         <ul>
           {% for projeto in site.projects limit: site.project_limit %}

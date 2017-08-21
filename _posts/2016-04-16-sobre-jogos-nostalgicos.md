@@ -2,7 +2,7 @@
 layout:     post
 title:      sobre-jogos-nostalgicos-title
 date:       2016-04-16 23:09:00
-categories: game
+categories: games
 thumbnail:  gamepad
 tags:
  - games

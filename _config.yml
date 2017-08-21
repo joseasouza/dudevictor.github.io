@@ -4,7 +4,7 @@ environment: development
 # Site settings
 title: Dudevictor GitHub IO
 email: jvas.2000@gmail.com
-description: "Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na Logique Sistemas."
+description: "Desenvolvedor Web Full stack Web na Logique Sistemas. Formado em Engenharia de Computação pela UFRN"
 baseurl: ""
 url: "http://dudevictor.github.io"
 google_analytics: "UA-74364829-1"

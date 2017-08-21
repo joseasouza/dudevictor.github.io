@@ -1,8 +1,8 @@
 #Mensagens Comuns a view
 view.disciplinas: "Subjects"
 view.home: "Home"
-view.todos-projetos: "All Projects"
-view.todos-artigos: "All Articles"
+view.projetos: "Academic Projects"
+view.todos-artigos: "Articles"
 view.pesquisar: "Search"
 view.paginas-sugeridas: "Suggested Pages"
 view.artigos-sugeridos: "Suggested Articles"
