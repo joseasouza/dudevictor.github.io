@@ -36,30 +36,29 @@ A seguir listei 29 atalhos que mais uso no IntelliJ:
 <small>Fonte : [https://blog.jetbrains.com/clion/2016/07/become-multi-armed-with-clions-multiple-cursors/](Blog JetBrains)</small>
 
 #### 5. <kbd>ctrl + d</kbd> <small>e</small> <kbd>ctrl + y</kbd> - <small>Duplicar  e deletar linha respectivamente
-alt + f7 / ctrl + alt + 7
-ctrl + alt + v
-ctrl + alt + o
-ctrl + shift + f
-crtl + shift + r
-alt + f8 / ctrl + alt + 8 (in debug mode)
-ctrl + /
-ctrl + h
-ctrl + alt + b
-ctrl + u
-ctrl + shift cima / baixo
-alt + 1/2/3/4/5/6/7/8/9
-alt + f12
-alt + arrows up/down
-alt + arrow lef/right
-ctrl + shift + - / ctrl + shift + +
-ctrl + g
-f2
-ctrl + f4
-shift + f10 / shift + f9
-ctrl + f2
-ctrl + shift + f12
-ctrl + shift + a
-shift + shift
+#### 6. <kbd>alt + f7</kbd> (<kbd>ctrl + alt + 7</kbd> <small>no Linux</small>) - <small> Navegar por usos da ocorrência</small> 
+#### 7. <kbd>ctrl + alt + v</kbd> - <small>Atribui o resultado da chamada um método a uma variável (extrair variável)</small>
+#### 8. <kbd>ctrl + shift + f</kbd> - <small>Pesquisa um termo ou uma expressão em todos os arquivos do projeto</small>
+#### 9. <kbd>crtl + shift + r</kbd> - <small>Pesquisa e substitui um termo ou expressão em todos os arquivos do projeto</small>
+#### 10. <kbd>alt + f8</kbd> (<kbd>ctrl + alt + 8</kbd> <small>no linux</small>) (debug mode)</kbd> - <small>Avaliar/Executar expressão em debug</small>
+#### 11. <kbd>ctrl + /</kbd> - <small>Comentar linhas seleciondas</small>
+#### 12. <kbd>ctrl + h</kbd> - <small>Navegar na hierarquia de heranças da classe atual</small>
+#### 13. <kbd>ctrl + alt + b</kbd> - <small>Ir para a implementação do método / classe</small>
+#### 14. <kbd>ctrl + u</kbd> - <small>Ir para o método da classe pai</small>
+#### 15. <kbd>ctrl + shift cima / baixo</kbd> - <small>Mover linhas ou blocos de código para cima / baixo</small>
+#### 16. <kbd>alt + 1/2/3/4/5/6/7/8/9</kbd> - <small>Exibe e mantém o foco nas janelas auxiliares</small>
+#### 17. <kbd>alt + f12</kbd> - <small></small>
+#### 18. <kbd>alt + arrows up/down</kbd> - <small></small>
+#### 19. <kbd>alt + arrow lef/right</kbd> - <small></small>
+#### 20. <kbd>ctrl + shift + - / ctrl + shift + +</kbd> - <small></small>
+#### 21. <kbd>ctrl + g</kbd> - <small></small>
+#### 22. <kbd>f2</kbd> - <small></small>
+#### 23. <kbd>ctrl + f4</kbd> - <small></small>
+#### 24. <kbd>shift + f10 / shift + f9</kbd> - <small></small>
+#### 25. <kbd>ctrl + f2</kbd> - <small></small>
+#### 26. <kbd>ctrl + shift + f12</kbd> - <small></small>
+#### 27. <kbd>ctrl + shift + a</kbd> - <small></small>
+#### 28. <kbd>shift + shift</kbd> - <small></small>
 
 Esqueci de algum atalho que você considera importante? Deixa aí nos comentários =D
 
