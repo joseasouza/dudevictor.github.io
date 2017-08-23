@@ -6,6 +6,11 @@ The template of this website uses [Carte Noire Theme](http://carte-noire.jacobto
 
 However, all content in this website was wrote by [dudevictor].
 
+### How To Execute
+
+    bundle install
+    jekyll serve
+
 ### License
 
 Copyright (C) 2016 - José Victor Alves de Souza - dudevictor
