@@ -2,12 +2,108 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dudevictor GitHub IO</title>
-    <description>Aspirante a Engenheiro de Computação e formado em Ciências e Tecnologia pela UFRN. Desenvolvedor Java Web na Logique Sistemas.</description>
+    <description>Desenvolvedor Web Full stack Web na Logique Sistemas. Formado em Engenharia de Computação pela UFRN</description>
     <link>http://dudevictor.github.io/</link>
     <atom:link href="http://dudevictor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 May 2016 23:59:15 -0300</pubDate>
-    <lastBuildDate>Tue, 10 May 2016 23:59:15 -0300</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Fri, 25 Aug 2017 08:26:41 -0300</pubDate>
+    <lastBuildDate>Fri, 25 Aug 2017 08:26:41 -0300</lastBuildDate>
+    <generator>Jekyll v3.4.2</generator>
+    
+      <item>
+        <title>my-top-intellij-shortcuts-title</title>
+        <description>&lt;p&gt;No dia a dia de nós desenvolvedores, os atalhos são bastante úteis pois agilizam o nosso trabalho e portanto nos 
+trazem mais produtividade. Além disso, convenhamos que ficar intercalando entre teclado e mouse é bastante cansativo! 
+Assim, conhecer os atalhos do seu ambiente de desenvolvimento é fundamental e vai te economizar muito tempo e esforço!&lt;/p&gt;
+
+&lt;p&gt;Trabalho com desenvolvimento em Java e por isso uso o IntelliJ durante a maior parte do tempo. 
+Mas independente da IDE ou do editor de código que você use, busque sempre decorar o máximo de atalhos possíveis.
+A ideia realmente é usar o mouse o mínimo possível!&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&quot;https://giphy.com/embed/ule4vhcY1xEKQ&quot; width=&quot;270&quot; height=&quot;270&quot; frameBorder=&quot;0&quot; class=&quot;giphy-embed&quot; allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&quot;https://giphy.com/gifs/reactionseditor-cat-typing-ule4vhcY1xEKQ&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;Uma dica legal para quem está começando é decorar os atalhos de ações que você costuma realizar com maior frequência, 
+como por exemplo, abrir uma classe ou um arquivo do seu projeto atual, refatorar um método ou um atributo, etc., 
+e a medida que você for se acostumando com uso desses atalhos você vai incremetando, tentando memorizar novos.&lt;/p&gt;
+
+&lt;p&gt;A seguir listei 27 atalhos que mais uso no IntelliJ:&lt;/p&gt;
+
+&lt;h4&gt;1. &lt;kbd&gt;ctrl + shift + n&lt;/kbd&gt; - &lt;small&gt;Abrir uma classe ou um arquivo  do seu projeto atual&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;2. &lt;kbd&gt;ctrl + tab&lt;/kbd&gt; - &lt;small&gt;Alternar entre as abas abertas&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;3. &lt;kbd&gt;shift + f6&lt;/kbd&gt; - &lt;small&gt;Renomear métodos, variáveis, arquivos e etc.&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;4. &lt;kbd&gt;alt + j&lt;/kbd&gt; - &lt;small&gt;Multicursor, permite alterar múltiplas ocorrências ao mesmo tempo&lt;/small&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/multiple_cursor_selection.gif&quot; alt=&quot;Múltiplos cursores&quot;&gt;
+&lt;small&gt;Fonte : &lt;a href=&quot;Blog%20JetBrains&quot;&gt;https://blog.jetbrains.com/clion/2016/07/become-multi-armed-with-clions-multiple-cursors/&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h4&gt;5. &lt;kbd&gt;ctrl + d&lt;/kbd&gt; &lt;small&gt;e&lt;/small&gt; &lt;kbd&gt;ctrl + y&lt;/kbd&gt; - &lt;small&gt;Duplicar  e deletar uma linha, respectivamente&lt;/h4&gt;
+
+&lt;h4&gt;6. &lt;kbd&gt;alt + f7&lt;/kbd&gt; &lt;small&gt;ou&lt;/small&gt; &lt;kbd&gt;ctrl + alt + 7&lt;/kbd&gt; &lt;small&gt;no Linux&lt;/small&gt; - &lt;small&gt; Navegar por usos da ocorrência&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;7. &lt;kbd&gt;ctrl + alt + v&lt;/kbd&gt; - &lt;small&gt;Atribui o resultado da chamada um método a uma variável (extrair variável)&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;8. &lt;kbd&gt;ctrl + shift + f&lt;/kbd&gt; - &lt;small&gt;Pesquisa um termo ou uma expressão em todos os arquivos do projeto&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;9. &lt;kbd&gt;crtl + shift + r&lt;/kbd&gt; - &lt;small&gt;Pesquisa e substitui um termo ou expressão em todos os arquivos do projeto&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;10. &lt;kbd&gt;alt + f8&lt;/kbd&gt; &lt;small&gt;  (in debug mode) ou&lt;/small&gt; &lt;kbd&gt;ctrl + alt + 8&lt;/kbd&gt; &lt;small&gt;no linux&lt;/small&gt; &lt;/kbd&gt; - &lt;small&gt;Avaliar/Executar expressão em debug&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;11. &lt;kbd&gt;ctrl + /&lt;/kbd&gt; - &lt;small&gt;Comentar linhas seleciondas&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;12. &lt;kbd&gt;ctrl + h&lt;/kbd&gt; - &lt;small&gt;Navegar na hierarquia de heranças da classe atual&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;13. &lt;kbd&gt;ctrl + alt + b&lt;/kbd&gt; - &lt;small&gt;Ir para a implementação do método / classe&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;14. &lt;kbd&gt;ctrl + u&lt;/kbd&gt; - &lt;small&gt;Ir para o método da classe pai&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;15. &lt;kbd&gt;ctrl + shift cima / baixo&lt;/kbd&gt; - &lt;small&gt;Mover linhas ou blocos de código para cima / baixo&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;16. &lt;kbd&gt;alt + 1/2/3/4/5/6/7/8/9&lt;/kbd&gt; - &lt;small&gt;Exibe e mantém o foco nas janelas auxiliares (projeto, debug, controle de versão, etc.) &lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;17. &lt;kbd&gt;alt + f12&lt;/kbd&gt; - &lt;small&gt;Exibe o terminal&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;18. &lt;kbd&gt;alt + arrows up/down&lt;/kbd&gt; - &lt;small&gt;Navega para o método seguinte ou anterior&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;19. &lt;kbd&gt;alt + arrow lef/right&lt;/kbd&gt; - &lt;small&gt;Alterna entre abas aberta anterior e posterior&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;20. &lt;kbd&gt;ctrl + Numpad +&lt;/kbd&gt; &lt;small&gt;e&lt;/small&gt; &lt;kbd&gt;ctrl + Numpad -&lt;/kbd&gt; - &lt;small&gt;Expande e recolhe um bloco de código, respectivamente&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;21. &lt;kbd&gt;ctrl + g&lt;/kbd&gt; - &lt;small&gt;Navega até a linha&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;22. &lt;kbd&gt;f2&lt;/kbd&gt; - &lt;small&gt;Navega até o próximo erro do arquivo atual&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;23. &lt;kbd&gt;ctrl + f4&lt;/kbd&gt; - &lt;small&gt;Fecha a aba atual&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;24. &lt;kbd&gt;shift + f10&lt;/kbd&gt; &lt;small&gt;e&lt;/small&gt; &lt;kbd&gt;shift + f9&lt;/kbd&gt; - &lt;small&gt;Executa e inicia o Debug do projeto respectivamente&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;25. &lt;kbd&gt;ctrl + f2&lt;/kbd&gt; - &lt;small&gt;Para execução do projeto&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;26. &lt;kbd&gt;ctrl + shift + f12&lt;/kbd&gt; - &lt;small&gt;Esconde todas as janelas auxiliares, deixando só a de edição de código ativa&lt;/small&gt;&lt;/h4&gt;
+
+&lt;h4&gt;27. &lt;kbd&gt;ctrl + shift + a&lt;/kbd&gt; - &lt;small&gt;Executa uma ação ou opção da IDE pelo nome, caso você desconheça o comando&lt;/small&gt;&lt;/h4&gt;
+
+&lt;p&gt;Esqueci de algum atalho que você considera importante? Deixa aí nos comentários =D&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Aug 2017 05:11:00 -0300</pubDate>
+        <link>http://dudevictor.github.io/development/2017/08/25/my-top-intellij-shortcuts/</link>
+        <guid isPermaLink="true">http://dudevictor.github.io/development/2017/08/25/my-top-intellij-shortcuts/</guid>
+        
+        <category>programming</category>
+        
+        <category>development</category>
+        
+        <category>software</category>
+        
+        <category>intellij</category>
+        
+        <category>shortcuts</category>
+        
+        
+        <category>development</category>
+        
+      </item>
     
       <item>
         <title>sobre-jogos-nostalgicos-title</title>
@@ -159,8 +255,8 @@ nunca!&lt;/p&gt;
 &lt;p&gt;Fonte: &lt;a href=&quot;https://en.wikipedia.org/&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Apr 2016 20:09:00 -0300</pubDate>
-        <link>http://dudevictor.github.io/game/2016/04/16/sobre-jogos-nostalgicos/</link>
-        <guid isPermaLink="true">http://dudevictor.github.io/game/2016/04/16/sobre-jogos-nostalgicos/</guid>
+        <link>http://dudevictor.github.io/games/2016/04/16/sobre-jogos-nostalgicos/</link>
+        <guid isPermaLink="true">http://dudevictor.github.io/games/2016/04/16/sobre-jogos-nostalgicos/</guid>
         
         <category>games</category>
         
@@ -189,7 +285,7 @@ nunca!&lt;/p&gt;
         <category>secret of mana</category>
         
         
-        <category>game</category>
+        <category>games</category>
         
       </item>
     
