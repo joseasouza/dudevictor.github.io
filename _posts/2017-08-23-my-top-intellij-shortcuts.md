@@ -12,7 +12,7 @@ tags:
  - shortcuts 
 ---
 
-No dia a dia de nós desenvolvedores, os atalhos são bastante úteis pois agilizam o nosso trabalho e portanto nos 
+No dia a dia dos desenvolvedores de software, os atalhos são bastante úteis pois agilizam o nosso trabalho e portanto nos 
 trazem mais produtividade. Além disso, convenhamos que ficar intercalando entre teclado e mouse é bastante cansativo! 
 Assim, conhecer os atalhos do seu ambiente de desenvolvimento é fundamental e vai te economizar muito tempo e esforço!
 

@@ -12,7 +12,7 @@ tags:
  - intellij
  - shortcuts 
 ---
-In the day to day of us developers, the shortcuts are very useful as they streamline our work, 
+In the day to day of the developers, the shortcuts are very useful as they streamline our work, 
 and therefore, bring us more productivity. Also we have to agree that being switching between mouse and keyboard is very tiring! So, 
 knowing the shortcuts of your development environment is fundamental and it will save you a lot of time and effort!
 
