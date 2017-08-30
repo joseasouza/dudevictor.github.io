@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      my-top-intellij-shortcuts-title
+title:      top-intellij-shortcuts-title
 date:       2017-08-25 08:11:00
 categories: development
 thumbnail:  keyboard-o
