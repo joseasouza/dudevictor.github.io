@@ -820,7 +820,7 @@ void tarefa(sizeBinCount) {
               </span>
 
             </div>
-            
+
             <div class="content-panel feedback">
               Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
 
@@ -875,15 +875,12 @@ void tarefa(sizeBinCount) {
       </div>
 
 
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        function disqus_config() { this.experiment.enable_scroll_container = true; }
-        var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://dudevictorgithub.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
         })();
       </script>
 

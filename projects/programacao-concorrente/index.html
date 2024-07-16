@@ -55,7 +55,7 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P13DMW7993"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9976909752880073"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -222,7 +222,8 @@
                   <code>my_first_i</code> somado a divisão n/p.
                   No caso em que n não é divisível por p é necessário um maior tratamento.
                   Nessa situação, o resto da divisão tem que ser distribuído entre os outros núcleos. No máximo n - 1
-                  (maior resto possível) itens serão distribuídos.</p>
+                  (maior resto possível) itens serão distribuídos.
+                </p>
 
                 <blockquote>
                   <p><strong>1.2</strong> We’ve implicitly assumed that each call to Compute next value requires roughly
@@ -555,7 +556,7 @@ jaEnviou = true;
               </span>
 
             </div>
-           
+
             <div class="content-panel feedback">
               Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
 
@@ -610,15 +611,12 @@ jaEnviou = true;
       </div>
 
 
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        function disqus_config() { this.experiment.enable_scroll_container = true; }
-        var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://dudevictorgithub.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
         })();
       </script>
 

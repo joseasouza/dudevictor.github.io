@@ -55,7 +55,7 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P13DMW7993"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9976909752880073"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -235,7 +235,8 @@
                   lidos <code>P1</code>e <code>P2</code>. Os pontos são lidos via terminal na ordem <code>P1.x</code>,
                   <code>P1.y</code>, <code>P2.x</code> e <code>P2.y</code>. Para aplicar o efeito
                   de negativo, basta inverter cada uma das escalas das componentes RGB em cada um dos pixels
-                  da região especificada. Para inverter é só cálcular: <code>255 - VALOR_ESCALA</code>.</p>
+                  da região especificada. Para inverter é só cálcular: <code>255 - VALOR_ESCALA</code>.
+                </p>
 
                 <p>O código do <a href="/assets/codes-copyright/regions.cpp">regions.cpp</a> pode ser visto a seguir:
                 </p>
@@ -536,7 +537,8 @@ int main(int argc, char** argv){
 
                 <p>O primeiro exercício deste tópico solicita que se implemente um programa chamado
                   <code>equalize.cpp</code> que realize
-                  a equalização de histograma utilizando as funções do OpenCV.</p>
+                  a equalização de histograma utilizando as funções do OpenCV.
+                </p>
 
                 <p>O processo de equalização de imagens consiste em mapear uma determinada distribuição de um histograma
                   em um outro, sendo
@@ -650,7 +652,8 @@ int main(int argc, char** argv){
                   da imagem captada.
                   Por exemplo, na imagem acima, toda vez que o livro era movido na frente da câmera, o alarme disparava.
                   Para alterar a sensibilidade da detecção basta altera os parâmetros de <code>tolerância</code> e
-                  <code>COUNT_MAX</code> no código.</p>
+                  <code>COUNT_MAX</code> no código.
+                </p>
 
                 <h4 id="topico-1-2-4">Filtragem no domínio espacial I</h4>
 
@@ -953,7 +956,7 @@ vector&lt;vector&lt;Point&gt;&gt; contornos;
               </span>
 
             </div>
-            
+
             <div class="content-panel feedback">
               Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
 
@@ -1010,15 +1013,12 @@ vector&lt;vector&lt;Point&gt;&gt; contornos;
       </div>
 
 
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        function disqus_config() { this.experiment.enable_scroll_container = true; }
-        var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://dudevictorgithub.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
         })();
       </script>
 

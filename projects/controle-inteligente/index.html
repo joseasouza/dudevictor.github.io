@@ -200,7 +200,8 @@
                   Foi optado por implementar o software em Web, utilizando HTML5 e JavaScript, visto que existem vários
                   <em>plugins</em>, <em>templates</em>
                   e bibliotecas que poderiam auxiliar no desenvolvimento ágil e criativo do programa.
-                  Toda a lógica do A*, no entanto, foi desenvolvida pelo autor deste artigo.</p>
+                  Toda a lógica do A*, no entanto, foi desenvolvida pelo autor deste artigo.
+                </p>
 
                 <h3 id="topico-1-2">Descrição do <em>A* Search Algorithm</em></h3>
 
@@ -243,14 +244,16 @@
                   pois a cada iteração do <em>loop</em> principal, escolhe-se o novo caminho visitado a partir dos nós
                   que estão nesta lista
                   e o nó escolhido é justamente aquele que possui a melhor prioridade (aquele que possui o menor valor
-                  de \(f’(n)\)).</p>
+                  de \(f’(n)\)).
+                </p>
 
                 <p>Quando um nó é escolhido da fila de abertos, ele é retirado do conjunto de abertos (função
                   <em>pop()</em>) e
                   adicionado na fila de <em>ClosedQueue</em> (fila de caminhos fechados) que armazena todos os nós que
                   foram investigados.
                   No final da execução do algoritmo, essa fila armazenará justamente o caminho que chega até o
-                  <em>Goal</em>.</p>
+                  <em>Goal</em>.
+                </p>
 
                 <p>Esse nó que foi adicionado no conjunto de fechados, chamamos de current. No próximo passo do
                   algoritmo,
@@ -320,7 +323,8 @@ while not frontier.empty():
                     href="https://github.com/jlongster/canvas-game-bootstrap">canvas-game-bootstrap</a>.
                   Fora isso, também foram utilizados outros plugins como o <a href="https://jquery.com/">jQuery</a>,
                   o <a href="http://file.urin.take-uma.net/jquery.balloon.js-Demo.html">balloon.js</a> e sprites do jogo
-                  <a href="http://www.spriters-resource.com/snes/chronotrigger/">Chrono Trigger</a>.</p>
+                  <a href="http://www.spriters-resource.com/snes/chronotrigger/">Chrono Trigger</a>.
+                </p>
 
                 <p>Na imagem a seguir é mostrado a execução do programa e descrito as suas funcionalidades:
                   <img src="/assets/controle-inteligente/a-star-labyrinth-execute.png"
@@ -363,7 +367,7 @@ while not frontier.empty():
               </span>
 
             </div>
-            
+
             <div class="content-panel feedback">
               Gostou desta página? Compartilhe ou deixe um comentário abaixo!<br />
 
@@ -418,15 +422,12 @@ while not frontier.empty():
       </div>
 
 
-      <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        function disqus_config() { this.experiment.enable_scroll_container = true; }
-        var disqus_shortname = "dudevictorgithub"; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://dudevictorgithub.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
         })();
       </script>
 
